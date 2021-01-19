@@ -46,9 +46,9 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 # Códigos git
-## Primeiro fazer um commit 
+### Primeiro fazer um commit 
 `git commit -m "mensagem"`
-## Segundo dar um push
+### Segundo dar um push
 `git push`
 
 # Código node
