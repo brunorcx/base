@@ -52,7 +52,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 `git push`
 
 # Código node
-## 1  Para carregador as dependências do nodejs basta usar o comando
+### Para carregador as dependências do nodejs basta usar o comando
 	npm install
 	
 	
