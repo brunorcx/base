@@ -19,7 +19,7 @@ function App() {
           Learn React
         </a>
         <div>
-          <h1>Teste reactCommit</h1>
+          <h1>Teste </h1>
         </div>
       </header>
     </div>
