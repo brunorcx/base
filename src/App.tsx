@@ -19,7 +19,7 @@ function App() {
           Learn React
         </a>
         <div>
-          <h1>Teste ignore</h1>
+          <h1>Teste ignorado</h1>
         </div>
       </header>
     </div>
