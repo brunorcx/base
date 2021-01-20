@@ -44,3 +44,17 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+# Códigos git
+### Primeiro adicionar os arquivos
+`git add .`
+### Segundo fazer um commit 
+`git commit -m "mensagem"`
+### Terceiro dar um push
+`git push`
+
+# Código node
+### Para carregador as dependências do nodejs basta usar o comando
+	npm install
+	
+	
