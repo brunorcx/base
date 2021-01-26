@@ -19,7 +19,7 @@ function App() {
           Learn React
         </a>
         <div>
-          <h1>Teste vai</h1>
+          <h1>Apenas testes no git</h1>
         </div>
       </header>
     </div>
