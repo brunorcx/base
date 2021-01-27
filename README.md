@@ -53,6 +53,18 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ### Terceiro dar um push
 `git push`
 
+### Mudar e criar novo branch
+`git checkout -b novoBranch`
+### Mudar para novo branch 
+`git checkout novoBranch`
+### Dar merge com o branch atual(HEAD)
+`git pull`
+`git merge branchQueVaiDarMerge`
+### Deletar branch local
+git branch -d localBranchName
+### Deletar branch remoto
+git push origin --delete remoteBranchName
+
 # Código node
 ### Para carregador as dependências do nodejs basta usar o comando
 	npm install
