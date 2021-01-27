@@ -74,9 +74,10 @@ git push origin --delete remoteBranchName
 	npm install
 	
 # Tarefas
-* [ ] foo
-* [x] bar
-* [ ] baz
+* [ ] Atualizar botões do navbar conforme layout do carrefour[ Bruno ]
+* [ ] Criar menu lateral vertical(vtex) checkbox [ Gabriel ] 
+* [ ] Criar carrinho
+* [x] baz
 
 	
 	
