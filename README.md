@@ -73,4 +73,9 @@ git push origin --delete remoteBranchName
 ### Para carregador as dependências do nodejs basta usar o comando
 	npm install
 	
+# Tarefas
+[ ] item 1
+[x] item 2
+
+	
 	
