@@ -57,9 +57,13 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 `git checkout -b novoBranch`
 ### Mudar para novo branch 
 `git checkout novoBranch`
-### Dar merge com o branch atual(HEAD)
+### Mudar para o branch mais atual
+`git checkout branchMaisAtual`
 `git pull`
-`git merge branchQueVaiDarMerge`
+`git checkout branchAntigo`
+`git merge branchMaisAtual`
+`git commit -a -m "Mensagem"`
+`git push`
 ### Deletar branch local
 git branch -d localBranchName
 ### Deletar branch remoto
