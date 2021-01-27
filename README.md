@@ -74,8 +74,9 @@ git push origin --delete remoteBranchName
 	npm install
 	
 # Tarefas
-[ ] item 1
-[x] item 2
+* [ ] foo
+* [x] bar
+* [ ] baz
 
 	
 	
