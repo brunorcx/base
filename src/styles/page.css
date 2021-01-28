@@ -1,0 +1,22 @@
+/* categoria-area css start */
+.categoria-area {
+    height: calc(100vh - 61px);
+    width: 20%;
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    color: black;
+    background: #e7e7e7;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.700);
+    padding-top: 5px;
+  }
+  .categoria-area h2 {
+    font-size: 18pt;
+    font-weight: 400;
+    line-height: 30px;
+    margin-bottom: 10px;
+  }
+  .categoria-area p {
+    font-size: 18px;
+  }
+  /* categoria-area css end */

@@ -1,8 +1,9 @@
 import React from "react";
 import "./styles/home.css";
-import { Navbar } from "./componentes/Navbar";
+import { Page } from "./componentes/Page";
+
 function App() {
-  return <Navbar></Navbar>;
+  return <Page></Page>;
 }
 
 export default App;

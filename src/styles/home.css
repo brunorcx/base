@@ -94,26 +94,7 @@ a.site-logo {
 .nav-toggler.toggler-open span:after {
   transform: translateY(-3px) rotate(-45deg);
 }
-/* nav-toggler css start */
-
-/* intro-area css start */
-.intro-area {
-  height: calc(100vh - 61px);
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-}
-.intro-area h2 {
-  font-size: 50px;
-  font-weight: 300;
-  line-height: 50px;
-  margin-bottom: 25px;
-}
-.intro-area p {
-  font-size: 18px;
-}
-/* intro-area css end */
+/* nav-toggler css end */
 
 /* mobile breakpoint start */
 @media screen and (max-width: 767px) {

@@ -1,16 +1,25 @@
 import React, { Component } from "react";
 import "../styles/home.css";
-export class Navbar extends Component {
-  render() {
+
+function Home(props) {
+  return <a href='#home' className='site-logo'>{props.nome}</a>
+}
+
+const user = {
+  nome: 'Rodrigues',
+  author: 'Machado'
+}
+
+export class Navbar extends Component{
+  render(){
     return (
       <header className="header-area">
         <div className="navbar-area">
           <div className="container">
             <nav className="site-navbar">
-              <a href="#home" className="site-logo">
-                logo
-              </a>
-
+  
+              <Home nome={user.nome} />
+  
               {/* site menu/nav  */}
               <ul>
                 <li>
@@ -26,7 +35,7 @@ export class Navbar extends Component {
                   <a href="#">contact</a>
                 </li>
               </ul>
-
+  
               {/* <!-- nav-toggler for mobile version only --> */}
               <button className="nav-toggler">
                 <span></span>
@@ -35,16 +44,8 @@ export class Navbar extends Component {
           </div>
         </div>
         {/* <!-- navbar-area end --> */}
-
-        <div className="intro-area">
-          <div className="container">
-            <h2>Responsive Navbar with pure JavaScript</h2>
-            <p>Please resize your browser and see the result</p>
-          </div>
-        </div>
       </header>
     );
   }
 }
-
-export default Navbar;
+ export default Navbar;
