@@ -1,4 +1,9 @@
 /* categoria-area css start */
+.produtos-area {
+    margin-left: 25px;
+    display: inline-block;
+}
+
 .categoria-area {
     height: calc(100vh - 61px);
     width: 20%;
@@ -9,14 +14,25 @@
     background: #e7e7e7;
     box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.700);
     padding-top: 5px;
+    display: inline-block;
+
   }
   .categoria-area h2 {
-    font-size: 18pt;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 30px;
+    line-height: normal;
+    letter-spacing: normal;
+    color: blue;
+    padding: 0;
+    position: relative;
     margin-bottom: 10px;
+    margin-left: 10px;
+    margin-top: 15px;
   }
   .categoria-area p {
-    font-size: 18px;
+    font-size: 14px;
+    line-height: 20px;
+    margin-left: 10px;
+
   }
   /* categoria-area css end */
