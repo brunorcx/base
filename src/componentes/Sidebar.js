@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import React, { Component } from "react";
 import { Navbar } from "./Navbar";
-import "../styles/page.css";
+import "../styles/sidebar.css";
 
 //Aqui será adicionadas as informações conforme o banco de dados
 function Bloco(props) {
@@ -34,7 +34,6 @@ export class Sidebar extends Component {
   render() {
     return (
       <div className="main">
-        <Navbar />{" "}
         {/* Chama a Navbar para Rednderizar nesta pagina e nesta posição */}
         <div className="categoria-area">
           <Bloco

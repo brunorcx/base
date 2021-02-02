@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../styles/home.css";
+import "../styles/navbar.css";
 
 function Home(props) {
   return <a href='#home' className='site-logo'>{props.nome}</a>

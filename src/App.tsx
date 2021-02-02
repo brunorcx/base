@@ -3,10 +3,10 @@ import React from "react";
 import "./styles/home.css";
 import "./styles/global.css";
 
-import { Sidebar } from "./componentes/Sidebar";
+import { Home } from "./componentes/Home";
 
 function App() {
-  return <Sidebar/>;
+  return <Home/>;
 }
 
 export default App;
