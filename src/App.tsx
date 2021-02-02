@@ -1,9 +1,12 @@
 import React from "react";
+
 import "./styles/home.css";
-import { Page } from "./componentes/Page";
+import "./styles/global.css";
+
+import { Sidebar } from "./componentes/Sidebar";
 
 function App() {
-  return <Page></Page>;
+  return <Sidebar/>;
 }
 
 export default App;
