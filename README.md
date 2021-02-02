@@ -73,4 +73,11 @@ git push origin --delete remoteBranchName
 ### Para carregador as dependências do nodejs basta usar o comando
 	npm install
 	
+# Tarefas
+* [ ] Atualizar botões do navbar conforme layout do carrefour[ Bruno ]
+* [ ] Criar menu lateral vertical(vtex) checkbox [ Gabriel ] 
+* [ ] Criar carrinho
+* [x] baz
+
+	
 	
