@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../styles/navbar.css";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 function Home(props) {
   return (
@@ -15,14 +16,6 @@ const user = {
   author: "Machado",
 };
 
-function menu() {
-  return(
-    <div className="menu-cascata">
-      <p>testing</p>
-    </div>
-  )
-}
-
 export class Navbar extends Component {
   render() {
     return (
@@ -30,28 +23,23 @@ export class Navbar extends Component {
         <div className="navbar-area">
           <div className="container">
             <nav className="site-navbar">
-              <ul>
-                <li>
-                  <a href="#" className="menu-navbar" onClick={menu()}>
-                    <AiOutlineMenu size={26} color="#ffffff" />
-                  </a>
-                </li>
-              </ul>
               <Home nome={user.nome} />
 
               {/* site menu/nav  */}
               <ul>
                 <li>
-                  <a href="#">home</a>
+                  <Link to="/home">home</Link>
                 </li>
                 <li>
-                  <a href="#">about</a>
+                  <Link to="/about">about</Link>
                 </li>
                 <li>
-                  <a href="#">service</a>
+                  <Link to="/service">
+                    <AiOutlineShoppingCart size={26} color="#FFFFFF" />
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">contact</a>
+                <Link to="/contact">contact</Link>
                 </li>
               </ul>
 

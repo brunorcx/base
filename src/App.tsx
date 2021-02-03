@@ -2,11 +2,11 @@ import React from "react";
 
 import "./styles/home.css";
 import "./styles/global.css";
+import Routes from "./routes";
 
-import { Home } from "./componentes/Home";
 
 function App() {
-  return <Home/>;
+  return <Routes/>;
 }
 
 export default App;
