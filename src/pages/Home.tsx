@@ -1,9 +1,8 @@
 import { render } from "@testing-library/react";
 import React, { Component } from "react";
 import "../styles/home.css";
-import {Navbar} from "./Navbar";
-import {Sidebar} from "./Sidebar";
-
+import {Navbar} from "../componentes/Navbar";
+import {Sidebar} from "../componentes/Sidebar";
 export class Home extends Component{
   render(){
     return (
@@ -15,4 +14,4 @@ export class Home extends Component{
   }
 }
 
-export default Home;
+export default Home; 
