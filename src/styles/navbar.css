@@ -116,3 +116,13 @@ a.site-logo {
   }
   /* navbar css for mobile end */
 }
+
+/*div flutuante*/
+.menu-flutuante {
+  background-color: red;
+    width: 100px;
+    height: 50px;
+    margin-top: 140px; /* altura que está do topo */
+    top: 50px; /* altura que vai parar antes do topo */
+    position: sticky;
+}

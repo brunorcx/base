@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../styles/navbar.css";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineMenu } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 function Home(props) {
@@ -16,6 +17,57 @@ const user = {
   author: "Machado",
 };
 
+class ExeploDeBlur extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isOpen: false };
+    this.timeOutId = null;
+
+    this.onClickHandler = this.onClickHandler.bind(this);
+    this.onBlurHandler = this.onBlurHandler.bind(this);
+    this.onFocusHandler = this.onFocusHandler.bind(this);
+  }
+
+  onClickHandler() {
+    this.setState((currentState) => ({
+      isOpen: !currentState.isOpen,
+    }));
+  }
+
+  onBlurHandler() {
+    this.timeOutId = setTimeout(() => {
+      this.setState({
+        isOpen: false,
+      });
+    });
+  }
+
+  onFocusHandler() {
+    clearTimeout(this.timeOutId);
+  }
+
+  render() {
+    return (
+      <div onBlur={this.onBlurHandler} onFocus={this.onFocusHandler}>
+        <div
+          onClick={this.onClickHandler}
+          aria-haspopup="true"
+          aria-expanded={this.state.isOpen}
+        >
+          <AiOutlineMenu size={26} color="#ffffff" />
+        </div>
+        {this.state.isOpen && (
+          <ul>
+            <li>Option 1</li>
+            <li>Option 2</li>
+            <li>Option 3</li>
+          </ul>
+        )}
+      </div>
+    );
+  }
+}
+
 export class Navbar extends Component {
   render() {
     return (
@@ -23,6 +75,9 @@ export class Navbar extends Component {
         <div className="navbar-area">
           <div className="container">
             <nav className="site-navbar">
+              <div>
+              <ExeploDeBlur />
+              </div>
               <Home nome={user.nome} />
 
               {/* site menu/nav  */}
@@ -39,7 +94,7 @@ export class Navbar extends Component {
                   </Link>
                 </li>
                 <li>
-                <Link to="/contact">contact</Link>
+                  <Link to="/contact">contact</Link>
                 </li>
               </ul>
 
