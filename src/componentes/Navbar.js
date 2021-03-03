@@ -49,11 +49,7 @@ class ExeploDeBlur extends React.Component {
   render() {
     return (
       <div onBlur={this.onBlurHandler} onFocus={this.onFocusHandler}>
-        <div
-          onClick={this.onClickHandler}
-          aria-haspopup="true"
-          aria-expanded={this.state.isOpen}
-        >
+        <div onClick={this.onClickHandler} aria-haspopup="true" aria-expanded={this.state.isOpen}>
           <AiOutlineMenu size={26} color="#ffffff" />
         </div>
         {this.state.isOpen && (
@@ -76,7 +72,7 @@ export class Navbar extends Component {
           <div className="container">
             <nav className="site-navbar">
               <div>
-              <ExeploDeBlur />
+                <ExeploDeBlur />
               </div>
               <Home nome={user.nome} />
 
