@@ -8,7 +8,7 @@ div {
 }
 .menu {
   background-color: inherit;
-  margin: 0.2rem;
+  margin-top: 0.2rem;
   padding: 0.3rem;
 }
 .navbar {
@@ -28,7 +28,7 @@ li {
   padding: 0.9rem 1rem 1rem;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
-  margin-top: 0.1rem;
+  margin-top: 0.5rem;
 }
 li:hover {
   background-color: #f3f2f3;
