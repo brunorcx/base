@@ -4,6 +4,18 @@ div {
   /* background-color: rgb(14, 6, 3); */
 }
 
+header {
+  background-color: #fff;
+}
+.limite {
+  margin: 0.2em 10rem 0;
+}
+.linha-horizontal {
+  height: unset;
+  width: 100%;
+  border-top: 0.2rem solid #e6e6e6;
+}
+
 .navbar-logo {
   display: flex;
   align-items: center;
@@ -15,24 +27,50 @@ div {
   color: black;
 }
 
-.search {
+.div-search {
+  display: flex;
+  align-items: center;
   height: 2rem;
-  width: 30rem;
-  font-weight: 600;
-  border-color: #e6e6e6;
-  border-radius: 0.4rem;
+  width: 33rem;
+  border: 0.18rem solid #1e5bc6;
 }
 
-.search:focus {
+.lupa {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1e5bc6;
+  margin: 0rem;
+}
+
+.search {
   all: unset;
   height: 2rem;
   width: 30rem;
-  border-radius: 0.3rem;
-  box-shadow: 0px 0px 5px black;
+  font-weight: 600;
+  margin-left: 1rem;
 }
 
-::placeholder {
-  color: #695f5f;
+.div-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+  color: #1e5bc6;
+}
+.bem-vindo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.3rem;
+}
+
+.label-bv {
+  font-size: 0.8rem;
+  font-weight: 800;
 }
 
 .menu {
@@ -42,7 +80,6 @@ div {
 }
 
 .navbar {
-  border-top: 0.2rem solid #e6e6e6;
   background-color: #ffffff;
   display: flex;
   align-items: center;
