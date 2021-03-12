@@ -1,0 +1,53 @@
+.all {
+  margin-top: 0.5rem;
+  height: 55rem;
+  margin: 0.2rem 10rem 0;
+}
+
+.first {
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+}
+
+.second {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  height: 20rem;
+}
+
+.second-1 {
+  height: 100%;
+  width: 29%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+}
+.second-2 {
+  height: 100%;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+}
+
+.tird {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  height: 20rem;
+}
+
+.tird div {
+  height: 100%;
+  width: 24.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+}

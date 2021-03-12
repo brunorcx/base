@@ -3,12 +3,14 @@ import React, { Component } from "react";
 import "../styles/home.css";
 import { Navbar } from "../componentes/Navbar";
 import { Sidebar } from "../componentes/Sidebar";
+import { Propaganda } from "../componentes/Propaganda";
+
 export class Home extends Component {
   render() {
     return (
       <div>
-        <Navbar></Navbar>
-        {/* <Sidebar></Sidebar> */}
+        <Navbar />
+        <Propaganda />
       </div>
     );
   }
