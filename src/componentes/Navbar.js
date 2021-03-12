@@ -39,10 +39,16 @@ export class Navbar extends Component {
             <AiOutlineMenu className="menu" size="2rem" />
             <ul>
               <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
                 <Link to="/">Produtos</Link>
               </li>
               <li>
                 <Link to="/">Usuários</Link>
+              </li>
+              <li>
+                <Link to="/">Contato</Link>
               </li>
             </ul>
           </div>
