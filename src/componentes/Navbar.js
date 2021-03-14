@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 export class Navbar extends Component {
   render() {
     return (
-      <header>
+      <header className="nav">
         <div className="limite">
           <div className="navbar-logo">
             <FaReact className="logo" size="2rem" color="#1e5bc6" />
@@ -42,7 +42,7 @@ export class Navbar extends Component {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/">Produtos</Link>
+                <Link to="/Produtos">Produtos</Link>
               </li>
               <li>
                 <Link to="/">Usuários</Link>

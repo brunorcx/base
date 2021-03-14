@@ -89,19 +89,19 @@ header {
   background-color: #ffffff;
 }
 
-ul {
+.navbar ul {
   display: inline-block;
 }
 
-li {
+.navbar li {
   display: inline-block;
-  padding: 0.9rem 1rem 1rem;
+  padding: 0.8rem 1rem 0.8rem;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   margin-top: 0.5rem;
 }
 
-li:hover {
+.navbar li:hover {
   background-color: #e6e6e6;
 }
 
