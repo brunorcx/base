@@ -1,13 +1,18 @@
 import { Navbar } from "../componentes/Navbar";
 import { Sidebar } from "../componentes/Sidebar";
+import { ListProdutos } from "../componentes/ListProdutos";
+import "../styles/produtos.css";
 import React, { Component } from "react";
 
 export class Produtos extends Component {
   render() {
     return (
       <div>
-        <Navbar />
-        <Sidebar />
+        <Navbar className="navbar" />
+        <div className="corpo">
+          <Sidebar className="sidebar" />
+          <ListProdutos className="listProdutos" />
+        </div>
       </div>
     );
   }
