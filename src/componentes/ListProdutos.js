@@ -1,38 +1,41 @@
 import React, { Component } from "react";
+import { RiHeartAddLine } from "react-icons/ri";
 import "../styles/listProdutos.css";
 
+//Função que renderiza o objeto individual
 function ListItem(props) {
   return (
     <li>
-      <div>image {props.value}</div>
-      <div>Descrição {props.value}</div>
+      <button className="btn">
+        <RiHeartAddLine className="btn-icon" size="1.5rem" color="#ff2724" />
+      </button>
+      <div className="img">image {props.value.img}</div>
+      <div className="description">Descrição {props.value.description}</div>
+      <div className="price">R$ {props.value.price}</div>
     </li>
   );
 }
-
+//função que percorrer o vetor
 function NumberList(props) {
-  const numbers = props.numbers;
+  const products = props.products;
   return (
     <ul>
-      {numbers.map((number) => (
-        <ListItem key={number.toString()} value={number} />
+      {products.map((product) => (
+        <ListItem key={product.id} value={product} />
       ))}
     </ul>
   );
 }
-
-const elements = [
-  "01",
-  "02",
-  "03",
-  "04",
-  "05",
-  "06",
-  "07",
-  "08",
-  "09",
-  "10",
-  "11",
+// Um vetor de Objetos que é passado para uma função que irá percorer
+const products = [
+  {
+    id: "01",
+    img: "img 01",
+    description: "description 01",
+    price: "55,99",
+  },
+  { id: "02", img: "img 02", description: "description 02", price: "100,00" },
+  { id: "03", img: "img 03", description: "description 03", price: "150,00" },
 ];
 
 export class ListProdutos extends Component {
@@ -40,7 +43,7 @@ export class ListProdutos extends Component {
     return (
       <div className="total-list">
         <div className="propaganda">PROAGANDA</div>
-        <NumberList numbers={elements} />
+        <NumberList products={products} />
       </div>
     );
   }
