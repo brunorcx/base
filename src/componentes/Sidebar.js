@@ -17,7 +17,7 @@ function CategoryList(props) {
 }
 
 //Aqui será adicionadas as informações conforme o banco de dados
-const categorias = ["Apple", "Samsung", "Motorola", "Lenovo", "Sony"];
+const categorias = ["Apple", "Samsung", "Motorola", "Lenovo", "Sony", "sei la"];
 const cores = ["Branco", "Preto", "Azul", "Vermelho", "Cinza", "Amarelo"];
 
 export class Sidebar extends Component {

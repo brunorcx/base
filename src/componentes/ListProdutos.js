@@ -6,9 +6,11 @@ import "../styles/listProdutos.css";
 function ListItem(props) {
   return (
     <li>
-      <button className="btn">
-        <RiHeartAddLine className="btn-icon" size="1.5rem" color="#ff2724" />
-      </button>
+      <div className="btn-div">
+        <button className="btn">
+          <RiHeartAddLine className="btn-icon" size="1.5rem" color="#ff2724" />
+        </button>
+      </div>
       <div className="img">image {props.value.img}</div>
       <div className="description">Descrição {props.value.description}</div>
       <div className="price">R$ {props.value.price}</div>
@@ -36,6 +38,9 @@ const products = [
   },
   { id: "02", img: "img 02", description: "description 02", price: "100,00" },
   { id: "03", img: "img 03", description: "description 03", price: "150,00" },
+  { id: "04", img: "img 04", description: "description 04", price: "200,00" },
+  { id: "05", img: "img 05", description: "description 05", price: "250,00" },
+  { id: "06", img: "img 06", description: "description 06", price: "300,00" },
 ];
 
 export class ListProdutos extends Component {
