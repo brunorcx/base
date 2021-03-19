@@ -14,13 +14,13 @@ export class Navbar extends Component {
         <div className="limite">
           <div className="navbar-logo">
             <FaReact className="logo" size="2rem" color="#1e5bc6" />
-            <div className="div-search">
+            <div id="div-search" className="div-search">
               <input
                 type="text"
                 className="search"
                 placeholder="Search"
               ></input>
-              <div className="lupa">
+              <div className="lupa" id="lupa">
                 <BsSearch className="lupa-icon" size="1.5rem" color="#fff" />
               </div>
             </div>
