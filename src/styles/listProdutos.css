@@ -1,58 +1,41 @@
 .total-list {
-  margin: 0.2rem 10rem 0rem 0.2rem;
+  margin:0.2%;
+  /* margin: 0.2rem 10rem 0rem 0.2rem; */
   background-color: #fff;
-  flex-direction: column;
-
   border: 1px solid #aaaaaa;
   display: flex;
-  justify-content: flex-start;
-  flex-basis: 80%;
+  flex-basis: 100%;
+  flex-direction:column;
+  align-items:start;
+  min-height: 100vh;
+  max-height: 100vh;
+  
+}
+.propaganda{
+  flex:2;
+  border: 1px solid #4d1a1a;
+  width: 98%;
+  margin: 1%;
+  
+}
+.produtosUL{
+  padding: 0;
+  flex: 8;
+  margin: 1%;
+  display:flex;
+  justify-content:flex-start;
+  flex-wrap: wrap;
+  width:98%;
+  border: 1px solid #4d1a1a;
   align-items: stretch;
 }
-
-.propaganda {
-  margin: 0.6rem;
-  background-color: #fff;
-  border: 1px solid #aaaaaa;
-  flex: 10;
-  justify-content: center;
-  align-items: center;
+.produtosLI{
+  flex:1;
+  margin:2%;
+  min-width: min-content;
+  max-width: max-content;
+  height:fit-content;  
+  border: 1px solid #4d1a1a;
 }
 
-.total-list ul {
-  flex-wrap: wrap;
-  align-content: space-between;
-  flex: 4;
-  display: flex;
-  margin: 0 0 0 0.3rem;
-  padding: 0;
-}
 
-.total-list li {
-  height: 23rem;
-  width: 15rem;
-  border: 1px solid #aaaaaa;
-  margin: 0.3rem 0.25rem 0.3rem;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-.total-list li .btn-div {
-  width: 100%;
-  height: 7%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-}
-.btn {
-  all: unset;
-  margin: 0 0.5rem 0;
-}
-.img {
-  width: 100%;
-  height: 60%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #aaaaaa;
-}
