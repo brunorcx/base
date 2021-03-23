@@ -11,7 +11,7 @@ export class Produtos extends Component {
         <Navbar className="navbar" />
         <div className="corpo">
           <Sidebar className="sidebar" />
-          <ListProdutos className="listProdutos" />
+          <ListProdutos className="list-produtos" />
         </div>
       </div>
     );
