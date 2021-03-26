@@ -2,51 +2,32 @@
   margin: 0.2%;
   background-color: #fff;
   border: 1px solid #aaaaaa;
-  display: flex;
-  flex-basis: 100%;
-  flex-direction: column;
-  align-items: start;
-  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 8fr;
+  gap: 2%;
+  width: 100%;
 }
 
 .propaganda {
-  flex: 2;
   border: 1px solid #4d1a1a;
   width: 98%;
-  margin: 1%;
+  margin: 1% 1% 0;
 }
 
 .produtosUL {
-  flex: 8;
   width: 98%;
-  margin: 1% auto;
+  margin: 0 1% 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, max-content));
+  grid-gap: 20px;
   border: 1px solid #4d1a1a;
 }
 .produtosLI {
   flex: 1;
   margin: 2% auto;
   min-width: min-content;
-  max-width: max-content;
   height: fit-content;
   border: 1px solid #4d1a1a;
-}
-
-@media (max-width: 1366px) {
-  .produtosUL {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-@media (max-width: 1024px) {
-  .produtosUL {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
-  .produtosUL {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
