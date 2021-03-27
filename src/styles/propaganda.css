@@ -56,3 +56,9 @@
   align-items: center;
   border: 1px solid #000;
 }
+
+@media (max-width: 768px) {
+  .all {
+    margin: 0;
+  }
+}

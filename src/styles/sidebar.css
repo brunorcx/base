@@ -24,3 +24,9 @@ li {
 .main p {
   color: #02299c;
 }
+
+@media (max-width: 768px) {
+  .main {
+    display: none;
+  }
+}
