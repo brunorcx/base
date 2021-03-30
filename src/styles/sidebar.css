@@ -1,26 +1,24 @@
-.main {
-  margin: 0.2% 0 0.2%;
+.sidebar {
   background-color: #fff;
-  width: 18%;
   border: 1px solid #aaaaaa;
   font-weight: 400;
 }
-.main div {
-  margin: 1rem 0.5rem 0rem 1rem;
-}
 .divider {
-  margin: 1rem;
+  margin: 5%;
   border-top: 1px solid #aaaaaa;
 }
-.main ul,
-li {
-  margin: 0;
+.sidebar p {
+  margin: 3% 3% 2%;
+}
+.sidebar ul,
+.sidebar li {
+  margin: 3% 5% 2%;
   padding: 0;
   list-style: none;
 }
-.main li {
-  margin: 0.3rem 0 0;
+.sidebar li {
+  margin: 1% 0.5% 1%;
 }
-.main p {
+.sidebar p {
   color: #02299c;
 }

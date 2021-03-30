@@ -56,3 +56,8 @@
   align-items: center;
   border: 1px solid #000;
 }
+@media (min-width: 768px) {
+  .all {
+    display: block;
+  }
+}

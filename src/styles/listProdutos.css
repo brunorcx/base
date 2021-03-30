@@ -1,12 +1,11 @@
 .total-list {
-  margin: 0.2%;
+  margin: 0 0.2% 0;
   background-color: #fff;
   border: 1px solid #aaaaaa;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 2fr 8fr;
   gap: 2%;
-  width: 100%;
 }
 
 .propaganda {
@@ -16,18 +15,26 @@
 }
 
 .produtosUL {
-  width: 98%;
-  margin: 0 1% 0;
+  width: auto;
+  margin: 0 1% 1%;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, max-content));
-  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+  grid-gap: 15px;
   border: 1px solid #4d1a1a;
 }
 .produtosLI {
-  flex: 1;
-  margin: 2% auto;
-  min-width: min-content;
-  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   border: 1px solid #4d1a1a;
+}
+.img {
+  align-self: center;
+  justify-self: center;
+  margin: 10%;
+}
+.description,
+.price {
+  justify-self: flex-end;
 }

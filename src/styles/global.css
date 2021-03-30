@@ -8,3 +8,6 @@ body {
 .limite {
   margin: 0.2rem 5% 0;
 }
+li {
+  list-style: none;
+}

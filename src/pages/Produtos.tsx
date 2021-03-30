@@ -9,12 +9,12 @@ export class Produtos extends Component {
   render() {
     return (
       <div>
-        <Navbar className="navbar" />
+        <Navbar className="navbar-p" />
         <div className="corpo">
-          <Sidebar className="sidebar" />
-          <ListProdutos className="list-produtos" />
+          <Sidebar className="sidebar-p" />
+          <ListProdutos className="list-produtos-p" />
         </div>
-        <Footer />
+        <Footer className="footer-p" />
       </div>
     );
   }
