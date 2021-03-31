@@ -116,6 +116,11 @@ header {
     flex-direction: column;
     justify-content: center;
   }
+  .limite {
+    margin: 0.2%;
+    align-self: center;
+    width: 95vw;
+  }
   .navbar ul {
     display: flex;
     flex-direction: column;
@@ -123,7 +128,7 @@ header {
     padding: 0;
   }
   .navbar-logo #div-search {
-    width: 100%;
+    width: 85vw;
   }
   .div-user {
     display: none;

@@ -6,9 +6,8 @@ export class Footer extends Component {
     return (
       <div className="footer">
         <div className="limite">
-          <p>Contato: email</p>
-          <p></p>
-          <p>Sobre Nós</p>
+          <p>Progarmadores: Bruno e Gabriel</p>
+          <p>Contato</p>
           <p>Sobre Nós</p>
         </div>
       </div>

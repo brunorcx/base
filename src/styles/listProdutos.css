@@ -20,7 +20,6 @@
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, auto));
-  grid-gap: 15px;
   border: 1px solid #4d1a1a;
 }
 .produtosLI {
@@ -41,9 +40,11 @@
 
 @media (max-width: 768px) {
   .produtosUL {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 20px;
-    max-height: 100%;
+    grid-template-columns: repeat(2, 2fr);
+    height: 100%;
+    gap: 15px;
+  }
+  .total-list {
+    grid-template-rows: 1fr 5fr;
   }
 }

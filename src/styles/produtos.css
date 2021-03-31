@@ -4,8 +4,9 @@
   grid-template-columns: 1fr 5fr;
 }
 
-@media (max-width:768px){
-  .corpo{
-    margin:0;
+@media (max-width: 768px) {
+  .corpo {
+    margin: 0;
+    grid-template-columns: 1fr;
   }
 }

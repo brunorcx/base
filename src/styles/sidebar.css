@@ -14,7 +14,6 @@
 .sidebar li {
   margin: 3% 5% 2%;
   padding: 0;
-  list-style: none;
 }
 .sidebar li {
   margin: 1% 0.5% 1%;
@@ -24,7 +23,7 @@
 }
 
 @media (max-width: 768px) {
-  .main {
+  .sidebar {
     display: none;
   }
 }
