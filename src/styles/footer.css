@@ -8,3 +8,9 @@
 .footer p {
   color: #fff;
 }
+.contato {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}

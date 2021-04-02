@@ -6,6 +6,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: 2fr 8fr;
   gap: 2%;
+  height: 100%;
 }
 
 .propaganda {
