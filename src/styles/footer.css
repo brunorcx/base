@@ -1,16 +1,12 @@
 .footer {
-  display: flex;
+  display: grid;
   justify-content: center;
+  justify-items: center;
   background-color: #003ba1;
   width: 100vw;
   margin-top: 1%;
 }
 .footer p {
+  margin: 3% 0 3%;
   color: #fff;
-}
-.contato {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
 }
