@@ -27,8 +27,8 @@ export class Navbar extends Component {
                 <label> Entre</label>
               </div>
             </div>
-            <div className="carrinho">
-              <AiOutlineShoppingCart className="carrinhoCompra" size="2rem" color="#1e5bc6" />
+            <div className="carrinho-img" onClick={ativarCarrinho}>
+              <AiOutlineShoppingCart className="carrinhoCompra" size="2rem" />
             </div>
           </div>
         </div>
@@ -57,3 +57,9 @@ export class Navbar extends Component {
   }
 }
 export default Navbar;
+
+function ativarCarrinho(params) {
+  console.log("entrou");
+  const carrinhoDom = document.getElementsByClassName("carrinho-menu");
+  console.log(carrinhoDom);
+}

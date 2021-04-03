@@ -115,9 +115,15 @@ header {
 .grudar {
   position: fixed;
 }
-.carrinho {
+.carrinho-img {
   margin-left: auto;
   margin-right: 0;
+}
+.carrinhoCompra {
+  color: #1e5bc6;
+}
+.carrinhoCompra:hover {
+  color: #8faad8;
 }
 
 @media (max-width: 768px) {
