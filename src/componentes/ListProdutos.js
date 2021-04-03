@@ -1,22 +1,29 @@
 import React, { Component } from "react";
 import { RiHeartAddLine } from "react-icons/ri";
 import "../styles/listProdutos.css";
+import { Link } from "react-router-dom";
 
 //Função que renderiza o objeto individual
 function ListItem(props) {
   return (
-    <li className="produtosLI">
-      <div className="btn-div">
-        <button className="btn">
-          <RiHeartAddLine className="btn-icon" size="1.5rem" color="#ff2724" />
-        </button>
-      </div>
-      <div className="img">
-        <img src={props.value.img}></img>
-      </div>
-      <div className="description">Descrição {props.value.description}</div>
-      <div className="price">R$ {props.value.price}</div>
-    </li>
+    <Link to="/Produto">
+      <li className="produtosLI">
+        <div className="btn-div">
+          <button className="btn">
+            <RiHeartAddLine
+              className="btn-icon"
+              size="1.5rem"
+              color="#ff2724"
+            />
+          </button>
+        </div>
+        <div className="img">
+          <img src={props.value.img}></img>
+        </div>
+        <div className="description">Descrição {props.value.description}</div>
+        <div className="price">R$ {props.value.price}</div>
+      </li>
+    </Link>
   );
 }
 //função que percorrer o vetor

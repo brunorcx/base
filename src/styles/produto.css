@@ -1,0 +1,37 @@
+.product {
+  display: flex;
+}
+.imagens {
+  flex: 1;
+  border: 1px solid #000;
+}
+.infor {
+  flex: 1;
+  border: 1px solid #000;
+}
+.imagens {
+  display: flex;
+}
+.img-min {
+  border: 1px solid #000;
+  flex: 2;
+}
+.img-max {
+  border: 1px solid #000;
+  flex: 6;
+}
+
+.img-min ul {
+  padding: 0;
+  overflow-y: scroll;
+  height: 70vh;
+}
+.img-min li {
+  height: auto;
+  width: auto;
+  border: 1px solid #000;
+}
+.img-min img {
+  max-height: 100%;
+  max-width: 100%;
+}
