@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../styles/navbar.css";
+import "../styles/carrinho-menu.css";
 import { FaReact } from "react-icons/fa";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
@@ -8,7 +9,20 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 export class Navbar extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      aberto: false,
+    };
+  }
+
+  changeColor() {
+    this.setState({ aberto: !this.state.aberto });
+  }
+
   render() {
+    let carrinho_class = this.state.aberto ? "carrinho-menu" : "carrinho-menu-ativado";
     return (
       <header className="nav">
         <div className="limite">
@@ -27,9 +41,25 @@ export class Navbar extends Component {
                 <label> Entre</label>
               </div>
             </div>
-            <div className="carrinho-img" onClick={ativarCarrinho}>
-              <AiOutlineShoppingCart className="carrinhoCompra" size="2rem" />
+            <div>
+              <div className="carrinho-img">
+                <AiOutlineShoppingCart
+                  className="carrinhoCompra"
+                  size="2rem"
+                  onClick={this.changeColor.bind(this)}
+                />
+              </div>
             </div>
+            <div className={carrinho_class} />
+            {/* <div className="carrinho-img" ref={this.toggleContainer}>
+              {this.state.isOpen && <Carrinho className={carrinho_class} />}
+
+              <AiOutlineShoppingCart
+                className="carrinhoCompra"
+                size="2rem"
+                onClick={this.carrinhoAberto}
+              />
+            </div> */}
           </div>
         </div>
         <div className="linha-horizontal" />
@@ -56,10 +86,5 @@ export class Navbar extends Component {
     );
   }
 }
-export default Navbar;
 
-function ativarCarrinho(params) {
-  console.log("entrou");
-  const carrinhoDom = document.getElementsByClassName("carrinho-menu");
-  console.log(carrinhoDom);
-}
+export default Navbar;
