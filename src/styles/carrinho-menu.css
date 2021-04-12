@@ -53,10 +53,41 @@
 
 #page > main {
   grid-area: main;
-  background-color: #ffff64;
+  /* background-color: #ffff64; */
 }
 
 #page > footer {
   grid-area: foot;
   background-color: #8cffa0;
 }
+main ul {
+  margin: 2%;
+  padding: 0;
+}
+main ul li {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  border: 1px #aaaaaa solid;
+}
+main ul li img {
+  margin: 0;
+  padding: 0;
+}
+/* 
+.description p {
+  margin: 0;
+} */
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* justify-content: space-evenly; */
+}
+/* 
+figure {
+  margin: 0;
+  width: fit-content;
+} */
+/*Ajustar para carrinho menu fiar com tamanho fixo*/
