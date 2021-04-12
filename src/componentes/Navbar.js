@@ -7,6 +7,7 @@ import { BsSearch } from "react-icons/bs";
 import { HiOutlineUser } from "react-icons/hi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { Carrinho } from "./Carrinho";
 
 export class Navbar extends Component {
   constructor() {
@@ -17,12 +18,12 @@ export class Navbar extends Component {
     };
   }
 
-  changeColor() {
+  abrirCarrinho() {
     this.setState({ aberto: !this.state.aberto });
   }
 
   render() {
-    let carrinho_class = this.state.aberto ? "carrinho-menu" : "carrinho-menu-ativado";
+    let carrinho_class = this.state.aberto ? "carrinho-menu" : "carrinho-menu-fechado";
     return (
       <header className="nav">
         <div className="limite">
@@ -46,20 +47,13 @@ export class Navbar extends Component {
                 <AiOutlineShoppingCart
                   className="carrinhoCompra"
                   size="2rem"
-                  onClick={this.changeColor.bind(this)}
+                  onClick={this.abrirCarrinho.bind(this)}
                 />
               </div>
             </div>
-            <div className={carrinho_class} />
-            {/* <div className="carrinho-img" ref={this.toggleContainer}>
-              {this.state.isOpen && <Carrinho className={carrinho_class} />}
-
-              <AiOutlineShoppingCart
-                className="carrinhoCompra"
-                size="2rem"
-                onClick={this.carrinhoAberto}
-              />
-            </div> */}
+            <div className={carrinho_class}>
+              <Carrinho></Carrinho>
+            </div>
           </div>
         </div>
         <div className="linha-horizontal" />

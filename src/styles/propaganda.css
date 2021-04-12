@@ -13,6 +13,10 @@
 .all div {
   border: 1px solid #000;
 }
+
+.propaganda:hover {
+  cursor: pointer;
+}
 .p1 {
   grid-area: p1;
 }
