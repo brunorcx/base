@@ -1,11 +1,4 @@
 .carrinho-menu {
-  display: grid;
-  grid-template-areas:
-    "head head"
-    "bod bod"
-    "ft ft";
-  grid-template-columns: 1fr 3fr;
-
   border: 1px solid #aaaaaa;
   font-weight: 400;
   /* background: rgb(255, 94, 0); */
@@ -31,29 +24,39 @@
   transition: transform 250ms cubic-bezier(0.5, 0, 0.5, 1);
   transform: translateX(100%);
 }
-.header {
+#page {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-rows: 1fr 6fr 6fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "head head head head"
+    "main main main main"
+    "main main main main"
+    "foot foot foot foot";
+  /* grid-template-areas:
+    "head head head head"
+    "nav main main main"
+    "nav main main main"
+    "foot foot foot foot"; */
+}
+#page > header {
   grid-area: head;
-  margin: 0;
-  padding: 0;
-  background: rgb(42, 76, 121);
-  height: 33.33%;
+  background-color: #8ca0ff;
 }
-.body {
-  grid-area: bod;
-  background: rgb(84, 121, 42);
-  height: 33.33%;
+
+#page > nav {
+  grid-area: nav;
+  background-color: #ffa08c;
 }
-.divFooter {
-  grid-area: ft;
-  background: rgb(153, 79, 19);
-  height: 33.33%;
+
+#page > main {
+  grid-area: main;
+  background-color: #ffff64;
 }
-.header h1 {
-  margin: 0;
-  padding: 0;
-}
-.body p,
-.divFooter p {
-  margin: 0;
-  padding: 0;
+
+#page > footer {
+  grid-area: foot;
+  background-color: #8cffa0;
 }

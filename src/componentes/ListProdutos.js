@@ -10,11 +10,7 @@ function ListItem(props) {
       <li className="produtosLI">
         <div className="btn-div">
           <button className="btn">
-            <RiHeartAddLine
-              className="btn-icon"
-              size="1.5rem"
-              color="#ff2724"
-            />
+            <RiHeartAddLine className="btn-icon" size="1.5rem" color="#ff2724" />
           </button>
         </div>
         <div className="img">
@@ -26,7 +22,7 @@ function ListItem(props) {
     </Link>
   );
 }
-//função que percorrer o vetor
+//função que percorre o vetor
 function NumberList(props) {
   const products = props.products;
   return (
