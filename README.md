@@ -63,7 +63,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 `git checkout branchAntigo`
 `git merge branchMaisAtual`
 `git commit -a -m "Mensagem"`
-`git push`
+git push
 ### Deletar branch local
 git branch -d localBranchName
 ### Deletar branch remoto
