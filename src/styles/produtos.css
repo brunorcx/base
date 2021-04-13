@@ -1,0 +1,12 @@
+.corpo {
+  margin: 0.2% 5% 0;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+@media (max-width: 768px) {
+  .corpo {
+    margin: 0;
+    grid-template-columns: 1fr;
+  }
+}

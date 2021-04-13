@@ -1,39 +1,29 @@
-/* categoria-area css start */
-.produtos-area {
-    margin-left: 25px;
-    display: inline-block;
+.sidebar {
+  background-color: #fff;
+  border: 1px solid #aaaaaa;
+  font-weight: 400;
+}
+.divider {
+  margin: 5%;
+  border-top: 1px solid #aaaaaa;
+}
+.sidebar p {
+  margin: 3% 3% 2%;
+}
+.sidebar ul,
+.sidebar li {
+  margin: 3% 5% 2%;
+  padding: 0;
+}
+.sidebar li {
+  margin: 1% 0.5% 1%;
+}
+.sidebar p {
+  color: #02299c;
 }
 
-.categoria-area {
-    height: calc(100vh - 61px);
-    width: 20%;
-    display: flex;
-    align-items: flex-start;
-    text-align: left;
-    color: black;
-    background: #e7e7e7;
-    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.700);
-    padding-top: 5px;
-    padding-left: 5px;
-    display: inline-block;
-
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
   }
-  .categoria-area h2 {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: normal;
-    color: blue;
-    padding: 0;
-    position: relative;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-top: 15px;
-  }
-  .categoria-area p {
-    font-size: 14px;
-    line-height: 20px;
-    margin-left: 10px;
-
-  }
-  /* categoria-area css end */
+}

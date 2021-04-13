@@ -1,0 +1,89 @@
+.product {
+  display: flex;
+}
+
+.imagens {
+  flex: 1;
+}
+.divider {
+  border-top: 1px solid #555555;
+}
+
+.infor-2 {
+  display: flex;
+}
+
+.preço {
+  flex: 1;
+  display: flex;
+  height: 40px;
+  align-items: center;
+  margin: 0 3%;
+  justify-content: center;
+}
+
+.comprar {
+  flex: 1;
+  height: 40px;
+  display: flex;
+  margin: 0 3%;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: #1e5bc6;
+}
+
+.infor {
+  flex: 1;
+  border: 1px solid #e6e6e6;
+  background-color: #fff;
+  box-shadow: 0 0 2px #555555;
+}
+.infor h2 {
+  margin: 20px;
+}
+.imagens {
+  display: flex;
+}
+
+.img-min {
+  box-shadow: 0 0 2px #555555;
+  margin-right: 5px;
+  flex: 2;
+}
+.img-max {
+  box-shadow: 0 0 2px #555555;
+  flex: 6;
+  margin-right: 5px;
+  align-content: center;
+  justify-content: center;
+  background-color: #fff;
+}
+.img-max img {
+  height: auto;
+  width: 96%;
+  margin: 2% 2%;
+  justify-self: center;
+  align-self: center;
+}
+
+.img-min ul {
+  padding: 10px 10px 10px;
+  margin: 0;
+  overflow-y: scroll;
+  height: 70vh;
+  background-color: #fff;
+}
+.img-min li {
+  margin-bottom: 10px;
+  height: auto;
+  width: auto;
+}
+.img-min img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.img-min ul::-webkit-scrollbar {
+  display: none;
+}

@@ -1,109 +1,84 @@
 import React, { Component } from "react";
 import "../styles/navbar.css";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import "../styles/carrinho-menu.css";
+import { FaReact } from "react-icons/fa";
 import { AiOutlineMenu } from "react-icons/ai";
+import { BsSearch } from "react-icons/bs";
+import { HiOutlineUser } from "react-icons/hi";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
-
-function Home(props) {
-  return (
-    <a href="#home" className="site-logo">
-      {props.nome}
-    </a>
-  );
-}
-
-const user = {
-  nome: "Rodrigues",
-  author: "Machado",
-};
-
-class ExeploDeBlur extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { isOpen: false };
-    this.timeOutId = null;
-
-    this.onClickHandler = this.onClickHandler.bind(this);
-    this.onBlurHandler = this.onBlurHandler.bind(this);
-    this.onFocusHandler = this.onFocusHandler.bind(this);
-  }
-
-  onClickHandler() {
-    this.setState((currentState) => ({
-      isOpen: !currentState.isOpen,
-    }));
-  }
-
-  onBlurHandler() {
-    this.timeOutId = setTimeout(() => {
-      this.setState({
-        isOpen: false,
-      });
-    });
-  }
-
-  onFocusHandler() {
-    clearTimeout(this.timeOutId);
-  }
-
-  render() {
-    return (
-      <div onBlur={this.onBlurHandler} onFocus={this.onFocusHandler}>
-        <div onClick={this.onClickHandler} aria-haspopup="true" aria-expanded={this.state.isOpen}>
-          <AiOutlineMenu size={26} color="#ffffff" />
-        </div>
-        {this.state.isOpen && (
-          <ul>
-            <li>Option 1</li>
-            <li>Option 2</li>
-            <li>Option 3</li>
-          </ul>
-        )}
-      </div>
-    );
-  }
-}
+import { Carrinho } from "./Carrinho";
 
 export class Navbar extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      aberto: false,
+    };
+  }
+
+  abrirCarrinho() {
+    this.setState({ aberto: !this.state.aberto });
+  }
+
   render() {
+    let carrinho_class = this.state.aberto ? "carrinho-menu" : "carrinho-menu-fechado";
     return (
-      <header className="header-area">
-        <div className="navbar-area">
-          <div className="container">
-            <nav className="site-navbar">
-              <div>
-                <ExeploDeBlur />
+      <header className="nav">
+        <div className="limite">
+          <div className="navbar1">
+            <FaReact className="logo" size="2rem" color="#1e5bc6" />
+            <div id="div-search" className="div-search">
+              <input type="text" className="search" placeholder="Search"></input>
+            </div>
+            <div className="lupa">
+              <BsSearch className="lupa-icon" size="1.5rem" color="#fff" />
+            </div>
+            <div className="div-user">
+              <HiOutlineUser className="user-icon" size="2rem" />
+              <div className="bem-vindo">
+                <label className="label-bv">Bem Vindo</label>
+                <label> Entre</label>
               </div>
-              <Home nome={user.nome} />
-
-              {/* site menu/nav  */}
-              <ul>
-                <li>
-                  <Link to="/home">home</Link>
-                </li>
-                <li>
-                  <Link to="/about">about</Link>
-                </li>
-                <li>
-                  <Link to="/service">
-                    <AiOutlineShoppingCart size={26} color="#FFFFFF" />
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/contact">contact</Link>
-                </li>
-              </ul>
-
-              {/* <!-- nav-toggler for mobile version only --> */}
-              <button className="nav-toggler">
-                <span></span>
-              </button>
-            </nav>
+            </div>
+            <div>
+              <div className="carrinho-img">
+                <AiOutlineShoppingCart
+                  className="carrinhoCompra"
+                  size="2rem"
+                  onClick={this.abrirCarrinho.bind(this)}
+                />
+              </div>
+            </div>
+            <div className={carrinho_class}>
+              <Carrinho></Carrinho>
+            </div>
           </div>
         </div>
-        {/* <!-- navbar-area end --> */}
+        <div className="linha-horizontal" />
+        <div className="limite">
+          <div className="navbar">
+            <AiOutlineMenu className="menu" size="2rem" />
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/Produtos">Produtos</Link>
+              </li>
+              <li>
+                <Link to="/">Usuários</Link>
+              </li>
+              <li>
+                <Link to="/">Contato</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
       </header>
     );
   }
 }
+
 export default Navbar;

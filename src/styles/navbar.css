@@ -1,128 +1,158 @@
-/* navbar regular css start */
-.navbar-area {
-  background: rgba(0, 0, 0, 0.6);
-  border-bottom: 1px solid #000;
-}
-.site-navbar {
+.nav {
+  background-color: #ffffff;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  /* background-color: rgb(14, 6, 3); */
 }
-a.site-logo {
-  font-size: 26px;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: #fff;
-  text-decoration: none;
-}
-.site-navbar ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-}
-.site-navbar ul li a {
-  color: #fff;
-  padding: 20px;
-  display: block;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-.site-navbar ul li a:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-/* navbar regular css end */
 
-/* nav-toggler css start */
-.nav-toggler {
-  border: 3px solid #fff;
-  padding: 5px;
-  background-color: transparent;
-  cursor: pointer;
-  height: 39px;
-  display: none;
-}
-.nav-toggler span,
-.nav-toggler span:before,
-.nav-toggler span:after {
-  width: 28px;
-  height: 3px;
+header {
   background-color: #fff;
-  display: block;
-  transition: 0.3s;
 }
-.nav-toggler span:before {
-  content: "";
-  transform: translateY(-9px);
-}
-.nav-toggler span:after {
-  content: "";
-  transform: translateY(6px);
-}
-.nav-toggler.toggler-open span {
-  background-color: transparent;
-}
-.nav-toggler.toggler-open span:before {
-  transform: translateY(0px) rotate(45deg);
-}
-.nav-toggler.toggler-open span:after {
-  transform: translateY(-3px) rotate(-45deg);
-}
-/* nav-toggler css end */
 
-/* mobile breakpoint start */
-@media screen and (max-width: 767px) {
-  .container {
-    max-width: 720px;
-  }
-  /* navbar css for mobile start */
-  .nav-toggler {
-    display: block;
-  }
-  .site-navbar {
-    min-height: 60px;
-  }
-  .site-navbar ul {
-    position: absolute;
-    width: 100%;
-    height: calc(100vh - 60px);
-    left: 0;
-    top: 60px;
+.linha-horizontal {
+  height: unset;
+  width: 100%;
+  border-top: 0.2rem solid #e6e6e6;
+}
+
+.navbar1 {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  background-color: #ffffff;
+}
+
+.logo {
+  margin: 0.5rem 1% 0.5rem;
+  color: black;
+}
+
+#div-search {
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  width: 33rem;
+  border-radius: 0.22rem 0 0 0.22rem;
+  border: 0.18rem solid #1e5bc6;
+  padding: 0;
+}
+
+.lupa {
+  border-radius: 0 0.22rem 0.22rem 0;
+  height: 100%;
+  background-color: #1e5bc6;
+  border: 0.125rem solid #1e5bc6;
+}
+.lupa:hover {
+  cursor: pointer;
+}
+.search {
+  all: unset;
+  height: 2rem;
+  width: 30rem;
+  font-weight: 600;
+  margin-left: 1rem;
+}
+
+.div-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 2rem 0;
+  color: #1e5bc6;
+}
+.bem-vindo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.3rem;
+}
+
+.label-bv {
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.menu {
+  background-color: inherit;
+  margin: 0.5rem 0.5rem 0rem;
+  padding: 0.2rem 0.5rem 0.25rem;
+}
+
+.navbar {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.link {
+  background-color: #ffffff;
+}
+
+.navbar ul {
+  display: flex;
+  margin: 0;
+}
+
+.navbar li {
+  padding: 0.5rem 1rem 0.5rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.navbar li:hover {
+  background-color: #e6e6e6;
+}
+
+.menu:hover {
+  background-color: #e6e6e6;
+}
+.grudar {
+  position: fixed;
+}
+.carrinho-img {
+  margin-left: auto;
+  margin-right: 0;
+}
+.carrinhoCompra {
+  color: #1e5bc6;
+}
+.carrinhoCompra:hover {
+  color: #8faad8;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    border-top: 1px solid #444;
-    background-color: rgba(0, 0, 0, 0.75);
-    max-height: 0;
-    overflow: hidden;
-    transition: 0.3s;
+    justify-content: center;
   }
-  .site-navbar ul li {
-    width: 100%;
-    text-align: center;
+  .limite {
+    margin: 0.2%;
+    align-self: center;
+    width: 95vw;
   }
-  .site-navbar ul li a {
-    padding: 25px;
+  .navbar ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
   }
-  .site-navbar ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+  .navbar1 #div-search {
+    width: 85vw;
   }
-  .site-navbar ul.open {
-    max-height: 100vh;
-    overflow: visible;
+  .div-user {
+    display: none;
   }
-  .intro-area h2 {
-    font-size: 36px;
-    margin-bottom: 15px;
+  .navbar ul li {
+    display: flex;
+    justify-content: center;
   }
-  /* navbar css for mobile end */
-}
-
-/*div flutuante*/
-.menu-flutuante {
-  background-color: red;
-    width: 100px;
-    height: 50px;
-    margin-top: 140px; /* altura que está do topo */
-    top: 50px; /* altura que vai parar antes do topo */
-    position: sticky;
 }

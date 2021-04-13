@@ -1,0 +1,50 @@
+.all {
+  margin: 0.3% 5% 0;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 20vh 40vh 40vh;
+  gap: 0.2%;
+  grid-template-areas:
+    "p1 p1 p1 p1"
+    "p2 p3 p3 p3"
+    "p4 p5 p6 p7";
+}
+.all div {
+  border: 1px solid #000;
+}
+
+.propaganda:hover {
+  cursor: pointer;
+}
+.p1 {
+  grid-area: p1;
+}
+.p2 {
+  grid-area: p2;
+}
+.p3 {
+  grid-area: p3;
+}
+.p4 {
+  grid-area: p4;
+}
+.p5 {
+  grid-area: p5;
+}
+.p6 {
+  grid-area: p6;
+}
+.p7 {
+  grid-area: p7;
+}
+@media (max-width: 768px) {
+  .all {
+    display: block;
+    margin: 1%;
+  }
+  .all div {
+    margin-bottom: 1%;
+    height: 50vh;
+  }
+}
