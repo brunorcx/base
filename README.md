@@ -63,7 +63,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 `git pull`
 
 `git checkout branchAntigo`
-	git pull
+
+`git pull`
 
 `git merge branchMaisAtual`
 
