@@ -1,15 +1,17 @@
-.nav {
-  background-color: #ffffff;
+header {
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  /* background-color: rgb(14, 6, 3); */
 }
 
-header {
-  background-color: #fff;
+.navbar1 {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  background-color: #ffffff;
 }
 
 .linha-horizontal {
@@ -18,11 +20,12 @@ header {
   border-top: 0.2rem solid #e6e6e6;
 }
 
-.navbar1 {
+.navbar2 {
+  background-color: #ffffff;
+  margin: 0;
   display: flex;
   align-items: center;
   flex: 1;
-  background-color: #ffffff;
 }
 
 .logo {
@@ -70,6 +73,7 @@ header {
   justify-content: center;
   align-items: center;
   margin: 0.3rem;
+  white-space: nowrap;
 }
 
 .label-bv {
@@ -77,40 +81,41 @@ header {
   font-weight: 800;
 }
 
-.menu {
+.hamburguer {
   background-color: inherit;
-  margin: 0.5rem 0.5rem 0rem;
-  padding: 0.2rem 0.5rem 0.25rem;
-}
-
-.navbar {
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  flex: 1;
+  margin: 0 0.5rem 0rem;
+  padding: 0 0.5rem 0.25rem;
 }
 
 .link {
   background-color: #ffffff;
 }
 
-.navbar ul {
+.navbar2 ul {
   display: flex;
   margin: 0;
+  padding: 0;
 }
 
-.navbar li {
-  padding: 0.5rem 1rem 0.5rem;
+.navbar2 li {
+  align-self: center;
+  padding: 0.5rem 1rem 1rem;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
-  margin-top: 0.5rem;
+  margin-top: 0.2rem;
 }
 
-.navbar li:hover {
+.navbar2 li:hover {
   background-color: #e6e6e6;
 }
-
-.menu:hover {
+.navDireita {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 2%;
+}
+.hamburguer:hover {
   background-color: #e6e6e6;
 }
 .grudar {
@@ -127,9 +132,11 @@ header {
   color: #8faad8;
   cursor: pointer;
 }
-
+.user-icon {
+  width: 100%;
+}
 @media (max-width: 768px) {
-  .navbar {
+  .navbar2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -137,9 +144,8 @@ header {
   .limite {
     margin: 0.2%;
     align-self: center;
-    width: 95vw;
   }
-  .navbar ul {
+  .navbar2 ul {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -149,9 +155,13 @@ header {
     width: 85vw;
   }
   .div-user {
-    display: none;
+    /* display: none; */
   }
-  .navbar ul li {
+
+  .user-icon {
+    width: 100%;
+  }
+  .navbar2 ul li {
     display: flex;
     justify-content: center;
   }
