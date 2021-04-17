@@ -27,7 +27,9 @@ export class Navbar extends Component {
     return (
       <header className="nav">
         <div className="navbar1">
-          <FaReact className="logo" size="2rem" color="#1e5bc6" />
+          <div className="logo">
+            <FaReact size="2rem" color="#1e5bc6" />
+          </div>
           <div id="div-search" className="div-search">
             <input type="text" className="search" placeholder="Search"></input>
           </div>
