@@ -160,7 +160,7 @@ header {
     width: 85vw;
   }
   .div-user {
-    /* display: none; */
+    display: none;
   }
 
   .user-icon {

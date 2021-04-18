@@ -5,7 +5,7 @@ export class Carrinho extends Component {
   render() {
     return (
       <section id="page">
-        <header>Header</header>
+        <div className="cHeader">Header</div>
         {/* <nav>Navigation</nav> */}
         <main>
           Main area
