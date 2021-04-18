@@ -41,7 +41,7 @@
     "nav main main main"
     "foot foot foot foot"; */
 }
-#page > header {
+#page > .cHeader {
   grid-area: head;
   background-color: #8ca0ff;
 }
