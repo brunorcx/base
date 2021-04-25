@@ -10,7 +10,11 @@ function ListItem(props) {
       <li className="produtosLI">
         <div className="btn-div">
           <button className="btn">
-            <RiHeartAddLine className="btn-icon" size="1.5rem" color="#ff2724" />
+            <RiHeartAddLine
+              className="btn-icon"
+              size="1.5rem"
+              color="#ff2724"
+            />
           </button>
         </div>
         <div className="img">
@@ -80,9 +84,24 @@ const products = [
 ];
 
 export class ListProdutos extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { apiResponse: "" };
+  }
+
+  callAPI() {
+    fetch("http://localhost:3030")
+      .then((res) => res.text())
+      .then((res) => this.setState({ apiResponse: res }));
+  }
+
+  componentWillMount() {
+    this.callAPI();
+  }
   render() {
     return (
       <div className="total-list">
+        <p>Objeto do banco {this.state.apiResponse}</p>
         <div className="propaganda">PROAGANDA</div>
         <NumberList products={products} />
       </div>
