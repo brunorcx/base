@@ -135,7 +135,9 @@ export class ListProdutos extends Component {
           <ul>
             {items.map((item) => (
               <li key={item._id}>
-                {item.title} {item.genres}
+                {item.title + " "}
+                {"[" + item.genres + "] "}
+                {item._id}
               </li>
             ))}
           </ul>
