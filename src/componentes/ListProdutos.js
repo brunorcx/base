@@ -86,26 +86,64 @@ const products = [
 export class ListProdutos extends Component {
   constructor(props) {
     super(props);
-    this.state = { apiResponse: "" };
+    this.state = {
+      error: null,
+      isLoaded: false,
+      items: [],
+    };
   }
 
   callAPI() {
     fetch("http://localhost:3030")
-      .then((res) => res.text())
-      .then((res) => this.setState({ apiResponse: res }));
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result,
+          });
+        },
+        // Nota: É importante lidar com os erros aqui
+        // em vez de um bloco catch() para não recebermos
+        // exceções de erros dos componentes.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error,
+          });
+        }
+      );
   }
 
   componentWillMount() {
     this.callAPI();
   }
   render() {
-    return (
-      <div className="total-list">
-        <p>Objeto do banco {this.state.apiResponse}</p>
-        <div className="propaganda">PROAGANDA</div>
-        <NumberList products={products} />
-      </div>
-    );
+    const { error, isLoaded, items } = this.state;
+    console.log("##############" + items);
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
+      return (
+        <div className="total-list">
+          {/* <ul>
+            <li>{items[0].title}</li>
+            <li>{items[1].title}</li>
+          </ul> */}
+          <ul>
+            {items.map((item) => (
+              <li key={item._id}>
+                {item.title} {item.genres}
+              </li>
+            ))}
+          </ul>
+          <div className="propaganda">PROAGANDA</div>
+          <NumberList products={products} />
+        </div>
+      );
+    }
   }
 }
 
