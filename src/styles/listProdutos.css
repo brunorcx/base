@@ -1,12 +1,12 @@
 .total-list {
-  margin: 0.2%;
+  margin: 0 0.2% 0;
   background-color: #fff;
   border: 1px solid #aaaaaa;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 2fr 8fr;
   gap: 2%;
-  width: 100%;
+  height: 100%;
 }
 
 .propaganda {
@@ -16,27 +16,42 @@
 }
 
 .produtosUL {
-  width: 98%;
-  margin: 0 1% 0;
+  width: auto;
+  margin: 0 1% 1%;
   padding: 0;
   display: grid;
+<<<<<<< HEAD
   grid-template-columns: repeat(auto-fill, minmax(200px, max-content));
   grid-auto-rows: minmax(100px, auto);
   grid-gap: 30px;
+=======
+  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+>>>>>>> f473d09b06b30bb1fdfbb3ea64b1f63da2ee109b
   border: 1px solid #4d1a1a;
 }
 .produtosLI {
-  flex: 1;
-  margin: 2% auto;
-  min-width: min-content;
-  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   border: 1px solid #4d1a1a;
 }
+.img {
+  align-self: center;
+  justify-self: center;
+  margin: 10%;
+}
+.description,
+.price {
+  justify-self: flex-end;
+}
+
 @media (max-width: 768px) {
   .produtosUL {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 20px;
-    max-height: 100%;
+    grid-template-columns: repeat(2, 2fr);
+    height: 100%;
+    gap: 15px;
+  }
+  .total-list {
+    grid-template-rows: 1fr 5fr;
   }
 }

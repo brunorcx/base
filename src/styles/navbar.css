@@ -2,6 +2,9 @@
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   /* background-color: rgb(14, 6, 3); */
 }
 
@@ -15,7 +18,7 @@ header {
   border-top: 0.2rem solid #e6e6e6;
 }
 
-.navbar-logo {
+.navbar1 {
   display: flex;
   align-items: center;
   flex: 1;
@@ -32,19 +35,20 @@ header {
   align-items: center;
   height: 2rem;
   width: 33rem;
+  border-radius: 0.22rem 0 0 0.22rem;
   border: 0.18rem solid #1e5bc6;
+  padding: 0;
 }
 
 .lupa {
-  width: 2rem;
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 0 0.22rem 0.22rem 0;
+  height: 100%;
   background-color: #1e5bc6;
-  margin: 0rem;
+  border: 0.125rem solid #1e5bc6;
 }
-
+.lupa:hover {
+  cursor: pointer;
+}
 .search {
   all: unset;
   height: 2rem;
@@ -109,6 +113,20 @@ header {
 .menu:hover {
   background-color: #e6e6e6;
 }
+.grudar {
+  position: fixed;
+}
+.carrinho-img {
+  margin-left: auto;
+  margin-right: 0;
+}
+.carrinhoCompra {
+  color: #1e5bc6;
+}
+.carrinhoCompra:hover {
+  color: #8faad8;
+  cursor: pointer;
+}
 
 @media (max-width: 768px) {
   .navbar {
@@ -116,14 +134,19 @@ header {
     flex-direction: column;
     justify-content: center;
   }
+  .limite {
+    margin: 0.2%;
+    align-self: center;
+    width: 95vw;
+  }
   .navbar ul {
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 0;
   }
-  .navbar-logo #div-search {
-    width: 100%;
+  .navbar1 #div-search {
+    width: 85vw;
   }
   .div-user {
     display: none;

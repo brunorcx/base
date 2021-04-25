@@ -23,21 +23,19 @@ const cores = ["Branco", "Preto", "Azul", "Vermelho", "Cinza", "Amarelo"];
 export class Sidebar extends Component {
   render() {
     return (
-      <div className="main">
+      <div className="sidebar">
         {/* Chama a Navbar para Rednderizar nesta pagina e nesta posição */}
-        <div className="sidebar" id="sidebar">
+        <div>
           <p>Marcas</p>
           <CategoryList categorias={categorias} />
         </div>
 
         <div className="divider" />
 
-        <div className="produtos-area">
+        <div>
           <p>Cor</p>
           <CategoryList categorias={cores} />
         </div>
-
-        <div className="divider" />
       </div>
     );
   }
