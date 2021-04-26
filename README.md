@@ -81,10 +81,8 @@ git push origin --delete remoteBranchName
 	npm install
 	
 # Bugs
-* [x] Mudar de Home para Produto faz o footer piscar
-* [x] Criar menu lateral vertical(vtex) checkbox [ Gabriel ] 
-* [ ] Criar carrinho
+* [ ] Mudar de Home para Produto faz o footer piscar
+* [ ] Criar menu lateral vertical(vtex) checkbox 
 * [x] baz
-
 	
 	
