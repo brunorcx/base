@@ -27,6 +27,8 @@ header {
   display: flex;
   align-items: center;
   flex: 1;
+  opacity: 1;
+  transition: visibility 0.3s linear, opacity 1s ease-in;
 }
 
 .logo {
@@ -141,7 +143,11 @@ header {
   cursor: pointer;
 }
 .Sumir {
-  display: none;
+  display: flex;
+  transition: visibility 0.3s linear, opacity 1s ease-out;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {

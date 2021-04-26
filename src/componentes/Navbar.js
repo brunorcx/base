@@ -30,7 +30,7 @@ export class Navbar extends Component {
     if (window.pageYOffset === 0) {
       this.setState({ topo: true });
       this.refNavbar2.current.className = "navbar2";
-    } else {
+    } else if (window.pageYOffset >= 100) {
       this.setState({ topo: false });
       this.refNavbar2.current.className = "Sumir";
     }
