@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import "../styles/navbar.css";
 import "../styles/carrinho-menu.css";
 import { FaReact } from "react-icons/fa";
@@ -10,19 +10,42 @@ import { Link } from "react-router-dom";
 import { Carrinho } from "./Carrinho";
 
 export class Navbar extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       aberto: false,
+      topo: true,
     };
+
+    this.refNavbar2 = React.createRef();
   }
 
   abrirCarrinho() {
     this.setState({ aberto: !this.state.aberto });
   }
+  saiuDoTopo() {
+    //Verificar porquê window.pageYOffset dispara tantas vezes
+    if (window.pageYOffset > 1) {
+      this.setState({ topo: false });
+    } else if (window.pageYOffset === 0) {
+      this.setState({ topo: true });
+    }
+    if (!this.state.topo) {
+      this.refNavbar2.current.className = "Sumir";
+    } else {
+      this.refNavbar2.current.className = "navbar2";
+    }
+  }
+  componentDidMount() {
+    window.onscroll = this.saiuDoTopo.bind(this);
+  }
 
+  componentWillUnmount() {
+    window.onscroll = null;
+  }
   render() {
+    /* TERMINA AQUI*/
     let carrinho_class = this.state.aberto ? "carrinho-menu" : "carrinho-menu-fechado";
     return (
       <header className="nav">
@@ -30,6 +53,7 @@ export class Navbar extends Component {
           <div className="logo">
             <FaReact size="2rem" color="#1e5bc6" />
           </div>
+
           <div id="div-search" className="div-search">
             <input type="text" className="search" placeholder="Search"></input>
           </div>
@@ -59,7 +83,7 @@ export class Navbar extends Component {
           </div>
         </div>
         <div className="linha-horizontal" />
-        <div className="navbar2">
+        <div className="navbar2" ref={this.refNavbar2}>
           <AiOutlineMenu className="hamburguer" size="2rem" />
           <ul>
             <li>

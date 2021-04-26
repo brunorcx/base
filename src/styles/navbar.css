@@ -140,6 +140,9 @@ header {
   color: #8faad8;
   cursor: pointer;
 }
+.Sumir {
+  display: none;
+}
 
 @media (max-width: 768px) {
   .navbar2 {
