@@ -24,24 +24,24 @@ export class Navbar extends Component {
   abrirCarrinho() {
     this.setState({ aberto: !this.state.aberto });
   }
+
   saiuDoTopo() {
     //Verificar porquê window.pageYOffset dispara tantas vezes
-    if (window.pageYOffset > 1) {
-      this.setState({ topo: false });
-    } else if (window.pageYOffset === 0) {
+    if (window.pageYOffset === 0) {
       this.setState({ topo: true });
-    }
-    if (!this.state.topo) {
-      this.refNavbar2.current.className = "Sumir";
-    } else {
       this.refNavbar2.current.className = "navbar2";
+    } else {
+      this.setState({ topo: false });
+      this.refNavbar2.current.className = "Sumir";
     }
   }
   componentDidMount() {
+    console.log("Montando " + this.state.topo);
     window.onscroll = this.saiuDoTopo.bind(this);
   }
 
   componentWillUnmount() {
+    console.log("Tirando " + this.state.topo);
     window.onscroll = null;
   }
   render() {
