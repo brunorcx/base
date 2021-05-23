@@ -79,7 +79,16 @@ git push origin --delete remoteBranchName
 # Código node
 ### Para carregador as dependências do nodejs basta usar o comando
 	npm install
-	
+#Tarefas
+* [ ] Retirar menu hamburguer e colocar somente para mobile
+* [ ] Fechar menu carrinho quando clicar fora dele
+* [ ] Criar controller, model, schema para produtos
+* [ ] Colocar logo Rodrigues dev
+* [ ] Criar um diagrama de banco de dados
+* [ ] Criar página de cadastro de usuários e produtos
+* [ ] Implementar busca produtos
+* [ ] Redirecionar após clicar nas propagandas do Home
+* [ ] Pesquisar layouts modernos
 # Bugs
 * [ ] Mudar de Home para Produto faz o footer carrinho e usuário piscarem 
 * [x] exemplo
