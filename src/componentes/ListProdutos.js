@@ -93,37 +93,38 @@ export class ListProdutos extends Component {
     };
   }
 
-  callAPI() {
-    fetch("http://localhost:3030")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            items: result,
-          });
-        },
-        // Nota: É importante lidar com os erros aqui
-        // em vez de um bloco catch() para não recebermos
-        // exceções de erros dos componentes.
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error,
-          });
-        }
-      );
-  }
+  // callAPI() {
+  //   fetch("http://localhost:3030/users")
+  //     .then((res) => res.json())
+  //     .then(
+  //       (result) => {
+  //         this.setState({
+  //           isLoaded: true,
+  //           items: result,
+  //         });
+  //       },
+  //       // Nota: É importante lidar com os erros aqui
+  //       // em vez de um bloco catch() para não recebermos
+  //       // exceções de erros dos componentes.
+  //       (error) => {
+  //         this.setState({
+  //           isLoaded: true,
+  //           error,
+  //         });
+  //       }
+  //     );
+  // }
 
   componentWillMount() {
-    this.callAPI();
+    // this.callAPI();
   }
   render() {
     const { error, isLoaded, items } = this.state;
     console.log("##############" + items);
     if (error) {
       return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
+      // else if (!isLoaded) {
+    } else if (isLoaded) {
       return <div>Loading...</div>;
     } else {
       return (
@@ -141,7 +142,7 @@ export class ListProdutos extends Component {
               </li>
             ))}
           </ul>
-          <div className="propaganda">PROAGANDA</div>
+          <div className="propaganda">PROPAGANDA</div>
           <NumberList products={products} />
         </div>
       );
