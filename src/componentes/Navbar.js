@@ -21,9 +21,16 @@ export class Navbar extends Component {
     this.refNavbar2 = React.createRef();
   }
 
+  //################### INICIO APARECER CARRINHO ####################
+
   abrirCarrinho() {
+    console.log(this.state.aberto);
     this.setState({ aberto: !this.state.aberto });
   }
+
+  //################### FIM APARECER CARRINHO ########################
+
+  //###################### INICIO TOPO SUMIR #########################
 
   saiuDoTopo() {
     //Verificar porquê window.pageYOffset dispara tantas vezes
@@ -44,9 +51,20 @@ export class Navbar extends Component {
     console.log("Tirando " + this.state.topo);
     window.onscroll = null;
   }
+
+  //######################## FIM SUMIR TOPO ##############################
+
   render() {
     /* TERMINA AQUI*/
-    let carrinho_class = this.state.aberto ? "carrinho-menu" : "carrinho-menu-fechado";
+
+    let carrinho_class = this.state.aberto
+      ? "carrinho-menu"
+      : "carrinho-menu-fechado";
+
+    let background_cart = this.state.aberto
+      ? "background-carrinho-dark"
+      : "background-carrinho-dark-fechado";
+
     return (
       <header className="nav">
         <div className="navbar1">
@@ -82,6 +100,12 @@ export class Navbar extends Component {
             </div>
           </div>
         </div>
+
+        <div
+          className={background_cart}
+          onClick={this.abrirCarrinho.bind(this)}
+        />
+
         <div className="linha-horizontal" />
         <div className="navbar2" ref={this.refNavbar2}>
           <AiOutlineMenu className="hamburguer" size="2rem" />

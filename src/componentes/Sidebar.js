@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
+import { forEachChild } from "typescript";
 import React, { Component } from "react";
 import { Navbar } from "./Navbar";
 import "../styles/sidebar.css";
-import { forEachChild } from "typescript";
 
 //Aqui é onde as informações do banco são organizadas
 function CategoryList(props) {

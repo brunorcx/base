@@ -131,6 +131,8 @@ header {
 .grudar {
   position: fixed;
 }
+
+/* START CARRINHO */
 .carrinho-img {
   margin-left: auto;
   margin-right: 0;
@@ -142,6 +144,30 @@ header {
   color: #8faad8;
   cursor: pointer;
 }
+.background-carrinho-dark {
+  position: absolute;
+  height: 1000px;
+  width: 2000px;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+  transition: 0.7s;
+  background-color: rgb(0, 0, 0);
+  visibility: visible;
+}
+.background-carrinho-dark-fechado {
+  position: absolute;
+  height: 1000px;
+  width: 2000px;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  opacity: 0;
+  transition: 0.7s;
+  visibility: hidden;
+}
+/* END CARRINHO */
+
 .Sumir {
   display: flex;
   transition: visibility 0.3s linear, opacity 1s ease-out;
