@@ -90,6 +90,7 @@ git push origin --delete remoteBranchName
 * [ ] Redirecionar após clicar nas propagandas do Home
 * [ ] Pesquisar layouts modernos
 * [ ] Verificar conexão do front com back
+* [ ] Salvar imagens no banco
 # Bugs
 * [ ] Mudar de Home para Produto faz o footer carrinho e usuário piscarem 
 * [x] exemplo
