@@ -80,19 +80,26 @@ git push origin --delete remoteBranchName
 ### Para carregador as dependências do nodejs basta usar o comando
 	npm install
 # Tarefas
-* [ ] Retirar menu hamburguer e colocar somente para mobile
 * [x] Fechar menu carrinho quando clicar fora dele
 * [x] Criar controller, model, schema para produtos
+* [x] Verificar conexão do front com back
+* [x] Pesquisar layouts modernos
+* [ ] Retirar menu hamburguer e colocar somente para mobile
 * [ ] Colocar logo Rodrigues dev
 * [ ] Criar um diagrama de banco de dados
 * [ ] Criar página de cadastro de usuários e produtos
 * [ ] Implementar busca produtos
 * [ ] Redirecionar após clicar nas propagandas do Home
-* [ ] Pesquisar layouts modernos
-* [x] Verificar conexão do front com back
 * [ ] Salvar imagens no banco
 * [ ] Conectar Versel com back-end
-* [ ] Reduzir 50% da segunda navbar em altura(Olha tamanho de texto) colocar imagem igual da amazom no home no topo e daí descer para produtos
+* [ ] Reduzir 50% da segunda navbar em altura(Olhar tamanho de texto), colocar imagem igual da amazom no nosso Home
+* [ ] Criar banners(propagandas) de rolagem para direita/esquerda conforme site da amazon no nosso Home
+* [ ] Travar rolamento de tela após abrir o carrinho
+* [ ] Criar página de produtos principais(mínimo 3, olhar segundo link exemplo desodorante)
+* [ ] Centralizar menus/links do navbar
+* [ ] Reduzir margens laterais em todas as páginas
+* [ ] Criar tema escuro
+
 # Bugs
 * [ ] Mudar de Home para Produto faz o footer carrinho e usuário piscarem 
 * [x] exemplo
