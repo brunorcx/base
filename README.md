@@ -89,8 +89,9 @@ git push origin --delete remoteBranchName
 * [ ] Implementar busca produtos
 * [ ] Redirecionar após clicar nas propagandas do Home
 * [ ] Pesquisar layouts modernos
-* [ ] Verificar conexão do front com back
+* [x] Verificar conexão do front com back
 * [ ] Salvar imagens no banco
+* [ ] Conectar Versel com back-end
 # Bugs
 * [ ] Mudar de Home para Produto faz o footer carrinho e usuário piscarem 
 * [x] exemplo
