@@ -92,8 +92,11 @@ git push origin --delete remoteBranchName
 * [x] Verificar conexão do front com back
 * [ ] Salvar imagens no banco
 * [ ] Conectar Versel com back-end
+* [ ] Reduzir 50% da segunda navbar em altura(Olha tamanho de texto) colocar imagem igual da amazom no home no topo e daí descer para produtos
 # Bugs
 * [ ] Mudar de Home para Produto faz o footer carrinho e usuário piscarem 
 * [x] exemplo
-	
+# Exemplo sites
+https://www.carolinezhurley.com/blogs/journal
+https://www.harrys.com/en/us/shop/deodorant
 	
