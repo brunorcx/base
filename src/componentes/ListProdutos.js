@@ -11,11 +11,7 @@ function ListItem(props) {
       <li className="produtosLI">
         <div className="btn-div">
           <button className="btn">
-            <RiHeartAddLine
-              className="btn-icon"
-              size="1.5rem"
-              color="#ff2724"
-            />
+            <RiHeartAddLine className="btn-icon" size="1.5rem" color="#ff2724" />
           </button>
         </div>
         <div className="img">
@@ -135,7 +131,7 @@ export class ListProdutos extends Component {
             <li>{items[1].title}</li>
           </ul> */}
           <ul>
-          <Produto heading="Usuários" url="/users" method="GET"  />
+            <Produto heading="Usuários" url="/users" method="GET" />
             {items.map((item) => (
               <li key={item._id}>
                 {item.title + " "}
