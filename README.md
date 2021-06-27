@@ -98,5 +98,6 @@ git push origin --delete remoteBranchName
 * [x] exemplo
 # Exemplo sites
 https://www.carolinezhurley.com/blogs/journal
+
 https://www.harrys.com/en/us/shop/deodorant
 	
