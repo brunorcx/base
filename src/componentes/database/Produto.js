@@ -47,7 +47,7 @@ const Produto = (props) => {
             throw res.statusText;
           }
         })
-        .then((json) => setResponse(json[0].name));
+        .then((json) => setResponse(json[0].email));
 
       // if (res.ok) {
       //   setState("ok");

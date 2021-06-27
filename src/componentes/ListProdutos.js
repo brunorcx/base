@@ -132,13 +132,6 @@ export class ListProdutos extends Component {
           </ul> */}
           <ul>
             <Produto heading="Usuários" url="/users" method="GET" />
-            {items.map((item) => (
-              <li key={item._id}>
-                {item.title + " "}
-                {"[" + item.genres + "] "}
-                {item._id}
-              </li>
-            ))}
           </ul>
           <div className="propaganda">PROPAGANDA</div>
           <NumberList products={products} />
