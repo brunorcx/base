@@ -80,7 +80,7 @@ git push origin --delete remoteBranchName
 ### Para carregador as dependências do nodejs basta usar o comando
 	npm install
 # Tarefas
-* [x] Retirar menu hamburguer e colocar somente para mobile
+* [ ] Retirar menu hamburguer e colocar somente para mobile
 * [x] Fechar menu carrinho quando clicar fora dele
 * [x] Criar controller, model, schema para produtos
 * [ ] Colocar logo Rodrigues dev
