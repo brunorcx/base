@@ -108,7 +108,7 @@ export class Navbar extends Component {
 
         <div className="linha-horizontal" />
         <div className="navbar2" ref={this.refNavbar2}>
-          <AiOutlineMenu className="hamburguer" size="2rem" />
+          {/* <AiOutlineMenu className="hamburguer" size="2rem" /> */}
           <ul>
             <li>
               <Link to="/">Home</Link>

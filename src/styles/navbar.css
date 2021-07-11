@@ -18,15 +18,17 @@ header {
 .linha-horizontal {
   height: unset;
   width: 100wv;
-  border-top: 0.2rem solid #e6e6e6;
+  border-top: 0.15rem solid #e6e6e6;
 }
 
 .navbar2 {
   background-color: #ffffff;
   margin: 0 5% 0;
+  justify-content: center;
   display: flex;
   align-items: center;
-  flex: 1;
+  flex: 1 0 30px;
+  font-size: 15px;
   opacity: 1;
   transition: visibility 0.3s linear, opacity 1s ease-in;
 }
@@ -103,15 +105,19 @@ header {
 .navbar2 ul {
   display: flex;
   margin: 0;
+
   padding: 0;
 }
 
 .navbar2 li {
   align-self: center;
-  padding: 0.5rem 1rem 1rem;
+  padding: 0.25rem 1rem 0.5rem;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   margin-top: 0.2rem;
+}
+.navbar2 li a {
+  text-decoration: none;
 }
 
 .navbar2 li:hover {
