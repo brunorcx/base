@@ -120,7 +120,7 @@ export class Navbar extends Component {
               <Link to="/">Usuários</Link>
             </li>
             <li>
-              <Link to="/">Contato</Link>
+              <Link to="/CadastroProdutos">Cadastrar Produtos</Link>
             </li>
           </ul>
         </div>
