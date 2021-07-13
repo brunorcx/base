@@ -26,6 +26,7 @@ export class Navbar extends Component {
   abrirCarrinho() {
     console.log(this.state.aberto);
     this.setState({ aberto: !this.state.aberto });
+    aberto ? unloadScrollBars : reloadScrollBars;
   }
 
   //################### FIM APARECER CARRINHO ########################
@@ -53,6 +54,20 @@ export class Navbar extends Component {
   }
 
   //######################## FIM SUMIR TOPO ##############################
+
+  //################### INICIO BLOQUEIO DE SCROLL ##################################
+
+  unloadScrollBars() {
+    window.document.documentElement.style.overflow = "hidden";
+    document.body.scroll = "no"; //Internet Exploresr
+  }
+
+  reloadScrollBars() {
+    document.documentElement.style.overflow = "auto";
+    document.body.scroll = "yes"; //Internet Exploresr
+  }
+
+  //################### FIN BLOQUEIO DE SCROLL #############################
 
   render() {
     /* TERMINA AQUI*/
