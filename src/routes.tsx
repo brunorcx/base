@@ -3,14 +3,16 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Produtos from "./pages/Produtos";
 import Produto from "./pages/Produto";
+import CProdutos from "./pages/CadastroProdutos";
 
 function Routes() {
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/Produtos" component={Produtos} />
-        <Route path="/Produto" component={Produto} />
+        <Route path="/Produtos" exact component={Produtos} />
+        <Route path="/Produto" exact component={Produto} />
+        <Route path="/CadastroProdutos" exact component={CProdutos} />
         {/* <Route path="/pagina2" component={Pagina2}> */}
       </Switch>
     </BrowserRouter>

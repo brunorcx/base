@@ -33,7 +33,6 @@ function checkStatus(res) {
 const Produto = (props) => {
   const [state, setState] = useState("idle");
   const [response, setResponse] = useState();
-  const [resposta, setResposta] = useState();
   const callUrlWithMethod = async (ev) => {
     try {
       ev.preventDefault();

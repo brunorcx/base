@@ -90,31 +90,6 @@ export class ListProdutos extends Component {
     };
   }
 
-  // callAPI() {
-  //   fetch("http://localhost:3030/users")
-  //     .then((res) => res.json())
-  //     .then(
-  //       (result) => {
-  //         this.setState({
-  //           isLoaded: true,
-  //           items: result,
-  //         });
-  //       },
-  //       // Nota: É importante lidar com os erros aqui
-  //       // em vez de um bloco catch() para não recebermos
-  //       // exceções de erros dos componentes.
-  //       (error) => {
-  //         this.setState({
-  //           isLoaded: true,
-  //           error,
-  //         });
-  //       }
-  //     );
-  // }
-
-  componentWillMount() {
-    // this.callAPI();
-  }
   render() {
     const { error, isLoaded, items } = this.state;
     console.log("##############" + items);
@@ -126,10 +101,6 @@ export class ListProdutos extends Component {
     } else {
       return (
         <div className="total-list">
-          {/* <ul>
-            <li>{items[0].title}</li>
-            <li>{items[1].title}</li>
-          </ul> */}
           <ul>
             <Produto heading="Usuários" url="/users" method="GET" />
           </ul>
