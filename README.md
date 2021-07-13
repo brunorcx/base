@@ -84,6 +84,8 @@ git push origin --delete remoteBranchName
 * [x] Criar controller, model, schema para produtos
 * [x] Verificar conexão do front com back
 * [x] Pesquisar layouts modernos
+* [x] Travar rolamento de tela após abrir o carrinho
+* [x] Centralizar menus/links do navbar
 * [ ] Retirar menu hamburguer e colocar somente para mobile
 * [ ] Colocar logo Rodrigues dev
 * [ ] Criar um diagrama de banco de dados
@@ -94,9 +96,7 @@ git push origin --delete remoteBranchName
 * [ ] Conectar Versel com back-end
 * [ ] Reduzir 50% da segunda navbar em altura(Olhar tamanho de texto), colocar imagem igual da amazom no nosso Home
 * [ ] Criar banners(propagandas) de rolagem para direita/esquerda conforme site da amazon no nosso Home
-* [ ] Travar rolamento de tela após abrir o carrinho
 * [ ] Criar página de produtos principais(mínimo 3, olhar segundo link exemplo desodorante)
-* [ ] Centralizar menus/links do navbar
 * [ ] Reduzir margens laterais em todas as páginas
 * [ ] Criar tema escuro
 
