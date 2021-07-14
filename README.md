@@ -107,6 +107,8 @@ git push origin --delete remoteBranchName
 https://www.carolinezhurley.com/blogs/journal
 
 https://www.harrys.com/en/us/shop/deodorant
+
+https://www.ception.ai/
 # Logística
 * [ ] Entrar em contato com a sebrae conversar sobre divulgar o produto, atendimento, canais de vendas, clientes APÓS fazer um plano de negócios
 * [ ] Clientes não sabem como funciona a plataforma, sistema de pagamento, motores de busca (SEO), marketing digital, mídias sociais
