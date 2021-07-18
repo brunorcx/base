@@ -61,6 +61,8 @@ const Produto = (props) => {
     }
   };
 
+  //RETIRAR RETURN DEPOIS QUE O CRUD ESTIVER FUNCIONANDO
+  //A idea é que chame a função, get, post, put e etc e não precise retornar um html
   return (
     <article>
       <h2>{props.heading}</h2>

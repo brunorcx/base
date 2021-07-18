@@ -1,4 +1,15 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300);
+/*Tirar as setas do input number*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+/*Tirar as setas FIM*/
 .formProduto {
   color: #54504e;
   font-family: "Lato", sans-serif;

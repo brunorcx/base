@@ -32,7 +32,12 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
               <BsSearch className="lupa-icon" size="1.5rem" color="#fff" />
             </div>
           </div>
-          <MdAddBox size="1.5rem" color="#fff" onClick={() => setCriarProduto(!criarProduto)} />
+          <MdAddBox
+            className="addProdutoBtn"
+            size="1.5rem"
+            color="#fff"
+            onClick={() => setCriarProduto(!criarProduto)}
+          />
         </div>
       </div>
       {criarProduto && <FormProduto />}
