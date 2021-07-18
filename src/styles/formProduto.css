@@ -1,0 +1,113 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300);
+.formProduto {
+  color: #54504e;
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  overflow: hidden;
+  background-image: linear-gradient(to bottom, #cff5fa, #93c9ff);
+}
+/*
+.img-container45 {
+  background-image: url("https://picjumbo.imgix.net/HNCK4106.jpg?q=40&w=1650&sharp=30");
+  background-size: cover;
+  background-repeat: no-repeat;
+  -o-filter: blur(4px);
+  -webkit-filter: blur(4px);
+  filter: blur(4px);
+  position: fixed;
+  left: -5px;
+  top: -5px;
+  bottom: -5px;
+  right: -5px;
+}
+
+.img-container::after {
+  content: "";
+  background-image: linear-gradient(to bottom, #f7cd74, #dc4225);
+  opacity: 0.6;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+}
+*/
+
+.card {
+  background: rgba(255, 255, 255, 0.7);
+  position: relative;
+  z-index: 99;
+  width: 80%;
+  margin: auto;
+  margin-top: 5%;
+  text-align: center;
+}
+.card h2 {
+  color: #f36359;
+  padding-top: 10px;
+  margin: 0;
+}
+
+.col-50 {
+  width: 50%;
+}
+
+.card-grid {
+  display: flex;
+}
+
+.card-cell {
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+.card-cell:first-child {
+  border-right: 1px solid #bab6b4;
+}
+
+.card-form {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 2em;
+  text-align: left;
+}
+.card-form input {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #bab6b4;
+  padding: 5px;
+  font-size: 1em;
+  margin-bottom: 15px;
+}
+.card-form input:focus {
+  outline: none;
+  border-bottom: 2px solid #f36359;
+}
+
+.card-form-button {
+  background: #f36359;
+  border: none;
+  border-radius: 25px;
+  color: #ffffff;
+  padding: 15px 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 300ms;
+}
+.card-form-button:hover {
+  background: #f25146;
+}
+.card-form-button:focus {
+  outline: none;
+}
+
+.button-ghost {
+  background: transparent;
+  color: #f36359;
+  border: 2px solid #f25146;
+}
+.button-ghost:hover {
+  color: #ffffff;
+}
