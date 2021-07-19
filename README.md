@@ -113,3 +113,4 @@ https://www.ception.ai/
 * [ ] Entrar em contato com a sebrae conversar sobre divulgar o produto, atendimento, canais de vendas, clientes APÓS fazer um plano de negócios
 * [ ] Clientes não sabem como funciona a plataforma, sistema de pagamento, motores de busca (SEO), marketing digital, mídias sociais
 * [ ] Oferecer serviço completo
+* [ ] Procurar ferramenta de prototipação react. EX: https://meetalva.io/
