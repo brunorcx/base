@@ -40,7 +40,8 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
           />
         </div>
       </div>
-      {criarProduto && <FormProduto />}
+      {/* {criarProduto && <FormProduto novoProduto={criarProduto} />} */}
+      <FormProduto novoProduto={criarProduto} />
       <DenseTable />
       <Footer />
     </div>
@@ -48,3 +49,4 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
 };
 
 export default CadastroProduto;
+//https://codepen.io/7br_uno/pen/XWMjGaw

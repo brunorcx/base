@@ -10,12 +10,37 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 /*Tirar as setas FIM*/
-.formProduto {
+.formProdutoFechado {
   color: #54504e;
   font-family: "Lato", sans-serif;
   margin: 0;
   overflow: hidden;
   background-image: linear-gradient(to bottom, #cff5fa, #93c9ff);
+  -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
+  transition: width 2s, height 2s, background-color 2s, transform 2s;
+  transform: scale(0);
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.formProdutoAberto {
+  color: #54504e;
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  overflow: hidden;
+  background-image: linear-gradient(to bottom, #cff5fa, #93c9ff);
+  -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
+  transition: width 2s, height 2s, background-color 2s, transform 2s;
+  transform: scale(1);
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 /*
 .img-container45 {

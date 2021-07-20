@@ -2,14 +2,20 @@ import "../../styles/formProduto.css";
 import Produto from "./Produto";
 import { useState, useEffect } from "react";
 
-const FormProduto = () => {
+const FormProduto = (props) => {
   const [cadastrar, setCadastrar] = useState(false);
   const [valores, setValores] = useState([]); //Vetor de estados
+  var formProdutoStyle;
+  if (props.novoProduto) {
+    formProdutoStyle = "formProdutoAberto";
+  } else {
+    formProdutoStyle = "formProdutoFechado";
+  }
   useEffect(() => {
     console.log(valores);
   }, [valores]);
   return (
-    <div className="formProduto">
+    <div className={formProdutoStyle}>
       <div className="img-container"></div>
       <div className="card">
         <h2>Join us!</h2>
