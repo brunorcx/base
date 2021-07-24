@@ -5,6 +5,19 @@ import { useState, useEffect } from "react";
 const FormProduto = (props) => {
   const [cadastrar, setCadastrar] = useState(false);
   const [valores, setValores] = useState([]); //Vetor de estados
+  var vetorRef = [];
+
+  function Cadastrar() {
+    setCadastrar(!cadastrar);
+
+    //For para pegar os elementos no vetor
+    //A ordem dos elementos sempre será a mesma
+    for (let elemento of vetorRef) {
+      console.log(elemento.value);
+    }
+    //Enviar valores para o back
+  }
+
   var formProdutoStyle;
   if (props.novoProduto) {
     formProdutoStyle = "formProdutoAberto";
@@ -24,18 +37,22 @@ const FormProduto = (props) => {
             <h3>Cadastrar novo produto</h3>
             <div className="card-form">
               <label>Nome</label>
-              <input type="text" onChange={(e) => setValores((valores) => [e.target.value])} />
+              <input
+                type="text"
+                ref={(ref) => vetorRef.push(ref)}
+                // onChange={(e) => pegarInputs(e.target.value)}
+              />
               <label>Valor</label>
               <input
                 type="number"
                 pattern="[0-9]*"
                 inputmode="numeric"
-                onChange={(e) => setValores((valores) => [...valores, e.target.value])}
+                ref={(ref) => vetorRef.push(ref)}
               />
               <label>Imagem</label>
-              <input type="text" onChange={(e) => setValores(() => [e.target.value])} />
+              <input type="text" ref={(ref) => vetorRef.push(ref)} />
             </div>
-            <button className="card-form-button button-ghost" onClick={() => setCadastrar(true)}>
+            <button className="card-form-button button-ghost" onClick={() => Cadastrar()}>
               Cadastrar
             </button>
             {cadastrar && <Produto heading="Usuários" url="/users" method="GET" />}
@@ -44,7 +61,7 @@ const FormProduto = (props) => {
             <h3>I don't have an account yet</h3>
             <div className="card-form">
               <label>Name</label>
-              <input type="text" value={valores} />
+              <input type="text" />
               <label>E-mail</label>
               <input type="text" />
               <label>Password</label>
