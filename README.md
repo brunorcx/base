@@ -99,6 +99,8 @@ git push origin --delete remoteBranchName
 * [ ] Criar página de produtos principais(mínimo 3, olhar segundo link exemplo desodorante)
 * [ ] Reduzir margens laterais em todas as páginas
 * [ ] Criar tema escuro
+* [ ] Arrumar GET usando axios no front pelo controller
+* [ ] Ajustar vetor para vários campos no back
 
 # Bugs
 * [ ] Mudar de Home para Produto faz o footer carrinho e usuário piscarem 
