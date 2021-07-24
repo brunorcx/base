@@ -1,21 +1,27 @@
 import "../../styles/formProduto.css";
 import Produto from "./Produto";
 import { useState, useEffect } from "react";
+import { PostProduto } from "../../controllers/crud.js";
 
 const FormProduto = (props) => {
   const [cadastrar, setCadastrar] = useState(false);
   const [valores, setValores] = useState([]); //Vetor de estados
   var vetorRef = [];
+  var produto = [];
 
   function Cadastrar() {
     setCadastrar(!cadastrar);
 
     //For para pegar os elementos no vetor
     //A ordem dos elementos sempre será a mesma
+
+    //Enviar valores para o back
+    produto = []; //resetar vetor
     for (let elemento of vetorRef) {
+      produto.push(elemento.value);
       console.log(elemento.value);
     }
-    //Enviar valores para o back
+    PostProduto("/products", produto);
   }
 
   var formProdutoStyle;
@@ -55,7 +61,7 @@ const FormProduto = (props) => {
             <button className="card-form-button button-ghost" onClick={() => Cadastrar()}>
               Cadastrar
             </button>
-            {cadastrar && <Produto heading="Usuários" url="/users" method="GET" />}
+            {cadastrar && <Produto heading="Produtos" url="/products" method="POST" body={produto} />}
           </div>
           <div className="col-50 card-cell card-signup">
             <h3>I don't have an account yet</h3>

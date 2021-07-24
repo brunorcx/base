@@ -1,4 +1,4 @@
-import { stringify } from "querystring";
+import axios from "axios";
 import { useState } from "react";
 // import fetch from "isomorphic-unfetch";
 const fetch = require("node-fetch");
@@ -6,6 +6,13 @@ const fetch = require("node-fetch");
 //Declarar constantes
 
 const baseUrl = process.env.NEXT_STATIC_BASE_URL || "http://localhost:3030";
+
+const produtoEnviado = {
+  prodNome: String,
+  prodValor: String,
+  prodCategoria: String,
+};
+
 const styles = {
   idle: {
     backgroundColor: "white",
@@ -36,17 +43,31 @@ const Produto = (props) => {
   const callUrlWithMethod = async (ev) => {
     try {
       ev.preventDefault();
-      await fetch(baseUrl + props.url, { method: props.method })
-        .then((res) => {
-          if (res.ok) {
-            setResponse(res.status === 204 ? "STATUS CODE: 204" : "Funcionou");
-            setState("ok");
-            return res.json();
-          } else {
-            throw res.statusText;
-          }
-        })
-        .then((json) => setResponse(json[0].email));
+      if (props.method === "POST") {
+        console.log(props.body);
+        console.log("BOOOODY ACIMA");
+        /////////POST
+        axios
+          .post(baseUrl + props.url, props.body)
+          .then(() => console.log("Produto Enviado para o Back"))
+          .catch((err) => {
+            //Apagar duplicado possivelmente
+            console.error(err);
+          });
+      } else if (props.method === "GET") {
+        ///////////////GET
+        await fetch(baseUrl + props.url, { method: props.method })
+          .then((res) => {
+            if (res.ok) {
+              setResponse(res.status === 204 ? "STATUS CODE: 204" : "Funcionou");
+              setState("ok");
+              return res.json();
+            } else {
+              throw res.statusText;
+            }
+          })
+          .then((json) => setResponse(json[0].email));
+      }
 
       // if (res.ok) {
       //   setState("ok");
