@@ -55,7 +55,7 @@ const FormProduto = (props) => {
                 inputmode="numeric"
                 ref={(ref) => vetorRef.push(ref)}
               />
-              <label>Imagem</label>
+              <label>Categoria</label>
               <input type="text" ref={(ref) => vetorRef.push(ref)} />
             </div>
             <button className="card-form-button button-ghost" onClick={() => Cadastrar()}>
