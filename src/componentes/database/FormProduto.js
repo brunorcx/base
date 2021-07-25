@@ -48,12 +48,7 @@ const FormProduto = (props) => {
                 // onChange={(e) => pegarInputs(e.target.value)}
               />
               <label>Valor</label>
-              <input
-                type="number"
-                pattern="[0-9]*"
-                inputmode="numeric"
-                ref={(ref) => vetorRef.push(ref)}
-              />
+              <input type="number" pattern="[0-9]*" ref={(ref) => vetorRef.push(ref)} />
               <label>Categoria</label>
               <input type="text" ref={(ref) => vetorRef.push(ref)} />
             </div>

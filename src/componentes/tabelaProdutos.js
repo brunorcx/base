@@ -84,15 +84,7 @@ const headCells = [
 ];
 
 function EnhancedTableHead(props) {
-  const {
-    classes,
-    onSelectAllClick,
-    order,
-    orderBy,
-    numSelected,
-    rowCount,
-    onRequestSort,
-  } = props;
+  const { classes, onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } = props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
@@ -175,21 +167,11 @@ const EnhancedTableToolbar = (props) => {
       })}
     >
       {numSelected > 0 ? (
-        <Typography
-          className={classes.title}
-          color="inherit"
-          variant="subtitle1"
-          component="div"
-        >
+        <Typography className={classes.title} color="inherit" variant="subtitle1" component="div">
           {numSelected} selected
         </Typography>
       ) : (
-        <Typography
-          className={classes.title}
-          variant="h6"
-          id="tableTitle"
-          component="div"
-        >
+        <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
           Nutrition
         </Typography>
       )}
@@ -239,7 +221,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EnhancedTable() {
+const EnhancedTable = (props) => {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
@@ -298,8 +280,7 @@ export default function EnhancedTable() {
 
   const isSelected = (name) => selected.indexOf(name) !== -1;
 
-  const emptyRows =
-    rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+  const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   return (
     <div className={classes.root}>
@@ -344,12 +325,7 @@ export default function EnhancedTable() {
                           inputProps={{ "aria-labelledby": labelId }}
                         />
                       </TableCell>
-                      <TableCell
-                        component="th"
-                        id={labelId}
-                        scope="row"
-                        padding="none"
-                      >
+                      <TableCell component="th" id={labelId} scope="row" padding="none">
                         {row.name}
                       </TableCell>
                       <TableCell align="right">{row.calories}</TableCell>
@@ -383,4 +359,5 @@ export default function EnhancedTable() {
       />
     </div>
   );
-}
+};
+export default EnhancedTable;

@@ -1,18 +1,22 @@
 import { Navbar } from "../componentes/Navbar";
 import { Footer } from "../componentes/Footer";
-import DenseTable from "../componentes/tabelaProdutos";
+import TabelaProdutos from "../componentes/tabelaProdutos";
 import "../styles/cadastroProdutos.css";
 import React, { useState, useEffect } from "react";
 import { BsSearch } from "react-icons/bs";
 import { MdAddBox } from "react-icons/md";
 import { MdIndeterminateCheckBox } from "react-icons/md";
 import FormProduto from "../componentes/database/FormProduto";
+import { GetProduto } from "../controllers/crud";
 
 export interface CadastroProdutoProps {}
 
 const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
   const [criarProduto, setCriarProduto] = useState(false); //Valor dentro da função é valor inicial da variável
   console.log(criarProduto);
+  async function receberGet() {
+    const response = await GetProduto("/users");
+  }
   useEffect(() => {
     if (criarProduto) {
       // window.onscroll = null;
@@ -24,14 +28,9 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
     }
   }, [criarProduto]); // Apenas re-execute o efeito quando o count mudar
 
-  // useEffect(() => {
+  //  useEffect(() => {
   //   //Executa quando o componente é atualiazado, nesse caso quando criarProduto é modificado
-  //   if (criarProduto) {
-  //     document.documentElement.style.overflow = "hidden";
-  //   } else {
-  //     document.documentElement.style.overflow = "auto";
-  //   }
-  // }, [criarProduto]);
+  // }, []);
 
   return (
     <div>
@@ -71,7 +70,8 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
         <div className="background_cadastro" onClick={() => setCriarProduto(!criarProduto)} />
       )}
 
-      <DenseTable />
+      <TabelaProdutos />
+      {/* {() => GetProduto()} */}
       <Footer />
     </div>
   );

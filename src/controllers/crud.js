@@ -13,6 +13,13 @@ function PostProduto(url, data) {
       console.error(err);
     });
 }
-function GetProduto(x) {}
+async function GetProduto(url) {
+  try {
+    let response = await axios.get(baseUrl + url);
+    console.log(response);
+  } catch (e) {
+    console.error(e);
+  }
+}
 
 export { PostProduto, GetProduto };
