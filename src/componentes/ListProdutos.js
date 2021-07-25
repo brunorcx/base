@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { RiHeartAddLine } from "react-icons/ri";
 import "../styles/listProdutos.css";
 import { Link } from "react-router-dom";
-import Produto from "../componentes/database/Produto";
 
 //Função que renderiza o objeto individual
 function ListItem(props) {
@@ -101,9 +100,6 @@ export class ListProdutos extends Component {
     } else {
       return (
         <div className="total-list">
-          <ul>
-            <Produto heading="Usuários" url="/users" method="GET" />
-          </ul>
           <div className="propaganda">PROPAGANDA</div>
           <NumberList products={products} />
         </div>
