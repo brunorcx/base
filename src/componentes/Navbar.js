@@ -104,7 +104,7 @@ export class Navbar extends Component {
               </div>
             </div>
             <div className={carrinho_class}>
-              <Carrinho></Carrinho>
+              <Carrinho />
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import "../styles/cadastroProdutos.css";
 import React, { useState, useEffect } from "react";
 import { BsSearch } from "react-icons/bs";
 import { MdAddBox } from "react-icons/md";
+import { MdIndeterminateCheckBox } from "react-icons/md";
 import FormProduto from "../componentes/database/FormProduto";
 
 export interface CadastroProdutoProps {}
@@ -12,6 +13,7 @@ export interface CadastroProdutoProps {}
 const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
   const [criarProduto, setCriarProduto] = useState(false); //Valor dentro da função é valor inicial da variável
   console.log(criarProduto);
+
   // useEffect(() => {
   //   //Executa quando o componente é atualiazado, nesse caso quando criarProduto é modificado
   //   if (criarProduto) {
@@ -20,6 +22,7 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
   //     document.documentElement.style.overflow = "auto";
   //   }
   // }, [criarProduto]);
+
   return (
     <div>
       <Navbar />
@@ -27,21 +30,44 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
         <div className="cUserHeaderPart1">Cadastro Produtos</div>
         <div className="cUserHeaderPart2">
           <div className="divSearchPequena">
-            <input type="text" className="searchPequena" placeholder="Search"></input>
+            <input
+              type="text"
+              className="searchPequena"
+              placeholder="Search"
+            ></input>
             <div className="lupa">
               <BsSearch className="lupa-icon" size="1.5rem" color="#fff" />
             </div>
           </div>
-          <MdAddBox
-            className="addProdutoBtn"
-            size="1.5rem"
-            color="#fff"
-            onClick={() => setCriarProduto(!criarProduto)}
-          />
+
+          {criarProduto && (
+            <MdIndeterminateCheckBox
+              className="blassProuctBtn"
+              size="1.5rem"
+              color="#fff"
+              onClick={() => setCriarProduto(!criarProduto)}
+            />
+          )}
+          {!criarProduto && (
+            <MdAddBox
+              className="addProdutoBtn"
+              size="1.5rem"
+              color="#fff"
+              onClick={() => setCriarProduto(!criarProduto)}
+            />
+          )}
         </div>
       </div>
       {/* {criarProduto && <FormProduto novoProduto={criarProduto} />} */}
       <FormProduto novoProduto={criarProduto} />
+
+      {criarProduto && (
+        <div
+          className="background_cadastro"
+          onClick={() => setCriarProduto(!criarProduto)}
+        />
+      )}
+
       <DenseTable />
       <Footer />
     </div>

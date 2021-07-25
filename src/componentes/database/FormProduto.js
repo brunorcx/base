@@ -58,13 +58,23 @@ const FormProduto = (props) => {
               <label>Categoria</label>
               <input type="text" ref={(ref) => vetorRef.push(ref)} />
             </div>
-            <button className="card-form-button button-ghost" onClick={() => Cadastrar()}>
+            <button
+              className="card-form-button button-ghost"
+              onClick={() => Cadastrar()}
+            >
               Cadastrar
             </button>
-            {cadastrar && <Produto heading="Produtos" url="/products" method="POST" body={produto} />}
+            {cadastrar && (
+              <Produto
+                heading="Produtos"
+                url="/products"
+                method="POST"
+                body={produto}
+              />
+            )}
           </div>
           <div className="col-50 card-cell card-signup">
-            <h3>I don't have an account yet</h3>
+            <h3>Ainda não tenho uma conta</h3>
             <div className="card-form">
               <label>Name</label>
               <input type="text" />
