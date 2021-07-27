@@ -230,6 +230,14 @@ const EnhancedTable = (props) => {
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   console.log(props.produtos);
+  props.produtos
+    .then((result) => {
+      var c = result;
+      console.log(c[0]);
+    })
+    .catch((err) => {});
+
+  // rows.push(createData(props[0].[0].items[0].name),"valor", "categoria","imagem");
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");

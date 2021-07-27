@@ -7,7 +7,7 @@ import { BsSearch } from "react-icons/bs";
 import { MdAddBox } from "react-icons/md";
 import { MdIndeterminateCheckBox } from "react-icons/md";
 import FormProduto from "../componentes/database/FormProduto";
-import { GetProduto } from "../controllers/crud";
+import { GetResposta } from "../controllers/crud";
 import { AxiosResponse } from "axios";
 
 export interface CadastroProdutoProps {}
@@ -18,7 +18,7 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
   const refProdutos = useRef<Promise<AxiosResponse<any> | undefined>>();
 
   async function ReceberProduto() {
-    const response = await GetProduto("/users");
+    const response = await GetResposta("/products");
     console.log(response);
     console.log(refProdutos.current);
     setRefPronto(!refPronto);
@@ -38,7 +38,15 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
   useEffect(() => {
     // USADO PARA NÂO AFEITAR A RENDERIZAÇÂO
     // Atualiza o título do documento utilizando a API do navegador
-    if (refProdutos.current === undefined) refProdutos.current = ReceberProduto();
+    if (refProdutos.current === undefined) {
+      refProdutos.current = ReceberProduto();
+      refProdutos.current.then((result) => {
+        var c = result;
+        console.log(c);
+      }).catch((err) => {
+        
+      });
+    };
   });
 
   return (
