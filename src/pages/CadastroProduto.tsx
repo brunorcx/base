@@ -7,23 +7,12 @@ import { BsSearch } from "react-icons/bs";
 import { MdAddBox } from "react-icons/md";
 import { MdIndeterminateCheckBox } from "react-icons/md";
 import FormProduto from "../componentes/database/FormProduto";
-import { GetResposta } from "../controllers/crud";
-import { AxiosResponse } from "axios";
 
 export interface CadastroProdutoProps {}
 
 const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
   const [criarProduto, setCriarProduto] = useState(false); //Valor dentro da função é valor inicial da variável
-  const [refPronto, setRefPronto] = useState(false); //Valor dentro da função é valor inicial da variável
-  const refProdutos = useRef<Promise<AxiosResponse<any> | undefined>>();
 
-  async function ReceberProduto() {
-    const response = await GetResposta("/products");
-    console.log(response);
-    console.log(refProdutos.current);
-    setRefPronto(!refPronto);
-    return response;
-  }
   useEffect(() => {
     if (criarProduto) {
       // window.onscroll = null;
@@ -34,20 +23,6 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
       // document.body.scroll = "yes"; //Internet Explorer
     }
   }, [criarProduto]); // Apenas re-execute o efeito quando o count mudar
-
-  useEffect(() => {
-    // USADO PARA NÂO AFEITAR A RENDERIZAÇÂO
-    // Atualiza o título do documento utilizando a API do navegador
-    if (refProdutos.current === undefined) {
-      refProdutos.current = ReceberProduto();
-      refProdutos.current.then((result) => {
-        var c = result;
-        console.log(c);
-      }).catch((err) => {
-        
-      });
-    };
-  });
 
   return (
     <div>
@@ -87,7 +62,7 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
         <div className="background_cadastro" onClick={() => setCriarProduto(!criarProduto)} />
       )}
 
-      {refPronto && <TabelaProdutos produtos={refProdutos.current} />}
+      <TabelaProdutos />
       <Footer />
     </div>
   );

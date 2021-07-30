@@ -21,6 +21,7 @@ import Switch from "@material-ui/core/Switch";
 
 import { AiFillDelete } from "react-icons/ai";
 import { MdFilterList } from "react-icons/md";
+import { GetResposta } from "../controllers/crud";
 // import DeleteIcon from "@material-ui/icons/Delete";
 // import FilterListIcon from "@material-ui/icons/FilterList";
 
@@ -84,15 +85,7 @@ const headCells = [
 ];
 
 function EnhancedTableHead(props) {
-  const {
-    classes,
-    onSelectAllClick,
-    order,
-    orderBy,
-    numSelected,
-    rowCount,
-    onRequestSort,
-  } = props;
+  const { classes, onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } = props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
@@ -175,21 +168,11 @@ const EnhancedTableToolbar = (props) => {
       })}
     >
       {numSelected > 0 ? (
-        <Typography
-          className={classes.title}
-          color="inherit"
-          variant="subtitle1"
-          component="div"
-        >
+        <Typography className={classes.title} color="inherit" variant="subtitle1" component="div">
           {numSelected} selected
         </Typography>
       ) : (
-        <Typography
-          className={classes.title}
-          variant="h6"
-          id="tableTitle"
-          component="div"
-        >
+        <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
           Nutrition
         </Typography>
       )}
@@ -247,37 +230,7 @@ const EnhancedTable = (props) => {
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  console.log(props.produtos);
-  //TABELA TEM CONDIÇÂO PARA NAME SER ÚNICO
-  //É possível adicionar elementos repetidos mas isso causa erros na tabelas
-  //Por isso o for não está indo de 0 a 10 normalmente, pq o banco tem nomes repetidos
-  useEffect(() => {
-    props.produtos
-      .then((result) => {
-        for (let i = 0; i < 8; i = i + 2) {
-          rows.push(
-            createData(
-              result[i].items[0].name,
-              result[i].items[0].price.$numberDecimal,
-              result[i].items[0].tags[0],
-              result[i].items[0].quantity,
-              result[i].customer.email
-            )
-          );
-        }
-      })
-      .catch((err) => {});
-  }, []); // Executar apenas uma vez
 
-  // {
-  //   props.produtos
-  //     .then((result) => {
-  //       rows.push(
-  //         createData(result[0].items[0].name, "valor", "categoria", "imagem")
-  //       );
-  //     })
-  //     .catch((err) => {});
-  // }
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -328,8 +281,29 @@ const EnhancedTable = (props) => {
 
   const isSelected = (name) => selected.indexOf(name) !== -1;
 
-  const emptyRows =
-    rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+  const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+
+  //TABELA TEM CONDIÇÂO PARA NAME SER ÚNICO
+  //É possível adicionar elementos repetidos mas isso causa erros na tabelas
+  //Por isso o for não está indo de 0 a 10 normalmente, pq o banco tem nomes repetidos
+  useEffect(() => {
+    GetResposta("/products")
+      .then((result) => {
+        console.log(result);
+        for (let i = 0; i < 8; i = i + 2) {
+          rows.push(
+            createData(
+              result[i].items[0].name,
+              result[i].items[0].price.$numberDecimal,
+              result[i].items[0].tags[0],
+              result[i].items[0].quantity,
+              result[i].customer.email
+            )
+          );
+        }
+      })
+      .catch((err) => {});
+  }, []); // Executar apenas uma vez
 
   return (
     <div className={classes.root}>
@@ -374,12 +348,7 @@ const EnhancedTable = (props) => {
                           inputProps={{ "aria-labelledby": labelId }}
                         />
                       </TableCell>
-                      <TableCell
-                        component="th"
-                        id={labelId}
-                        scope="row"
-                        padding="none"
-                      >
+                      <TableCell component="th" id={labelId} scope="row" padding="none">
                         {row.name}
                       </TableCell>
                       <TableCell align="right">{row.calories}</TableCell>
