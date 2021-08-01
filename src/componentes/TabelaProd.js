@@ -3,37 +3,47 @@ import { DataGrid } from "@material-ui/data-grid";
 import { GetResposta } from "../controllers/crud";
 
 const columns = [
-  { field: "id", headerName: "ID", width: 90 },
+  { field: "id", headerName: "ID", width: 150 },
   {
-    field: "firstName",
-    headerName: "First name",
+    field: "name",
+    headerName: "Nome",
     width: 150,
     editable: true,
   },
   {
-    field: "lastName",
-    headerName: "Last name",
-    width: 150,
-    editable: true,
-  },
-  {
-    field: "age",
-    headerName: "Age",
+    field: "price",
+    headerName: "Valor",
     type: "number",
     width: 110,
     editable: true,
   },
   {
-    field: "fullName",
-    headerName: "Full name",
-    description: "This column has a value getter and is not sortable.",
-    sortable: false,
-    width: 160,
-    valueGetter: (params) =>
-      `${params.getValue(params.id, "firstName") || ""} ${
-        params.getValue(params.id, "lastName") || ""
-      }`,
+    field: "brand",
+    headerName: "Fornecedora",
+    width: 180,
+    editable: true,
   },
+  {
+    field: "qty",
+    headerName: "Quantidade",
+    type: "number",
+    width: 150,
+    editable: true,
+  },
+  {
+    field: "tags",
+    headerName: "Categoria",
+    width: 150,
+    editable: true,
+  },
+  // {
+  //   field: "qty",
+  //   headerName: "Quantidade",
+  //   description: "This column has a value getter and is not sortable.",
+  //   sortable: false,
+  //   width: 160,
+
+  // },
 ];
 
 const rowsInicial = [
@@ -50,7 +60,14 @@ const rowsInicial = [
 
 export default function DataTable() {
   const [rows, setRows] = useState([
-    { id: 0, lastName: "Snow", firstName: "Jon", age: 35 },
+    {
+      id: 0,
+      name: "Playstation 5",
+      price: 5000,
+      brand: "Sony",
+      qty: 1,
+      tags: "eletrônico, informática",
+    },
   ]);
 
   useEffect(() => {
@@ -63,13 +80,12 @@ export default function DataTable() {
           setRows((oldArray) => [
             ...oldArray,
             {
-              // using the length of the array for a unique id
               id: i + 1,
-              // adding a new user name
-              firstName: result[i].name,
-              // with a type of member
-              lastName: result[i].brand,
-              age: result[i].qty,
+              name: result[i].name,
+              price: result[i].price,
+              brand: result[i].brand,
+              qty: result[i].qty,
+              tags: result[i].tags,
             },
           ]);
       })
@@ -89,4 +105,3 @@ export default function DataTable() {
     </div>
   );
 }
-//https://dev.to/joelynn/react-hooks-working-with-state-arrays-2n2g

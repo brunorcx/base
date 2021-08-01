@@ -1,6 +1,5 @@
 import { Navbar } from "../componentes/Navbar";
 import { Footer } from "../componentes/Footer";
-import TabelaProdutos from "../componentes/tabelaProdutos";
 import TabelaProd from "../componentes/TabelaProd";
 import "../styles/cadastroProdutos.css";
 import React, { useState, useEffect, useRef } from "react";
@@ -71,7 +70,6 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
       )}
 
       <TabelaProd />
-      {/* <TabelaProdutos /> */}
       <Footer />
     </div>
   );
