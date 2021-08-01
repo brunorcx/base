@@ -9,12 +9,12 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
 /*Tirar as setas FIM*/
 .formProdutoFechado {
   color: #54504e;
   font-family: "Lato", sans-serif;
   margin: 0;
-  /* overflow: hidden; */
   background-color: white;
   transition: 0.3s;
   transform: scale(0.5);
@@ -28,6 +28,7 @@ input[type="number"] {
   visibility: hidden;
   width: 50%;
 }
+
 .formProdutoAberto {
   color: #54504e;
   z-index: 100;
@@ -47,32 +48,6 @@ input[type="number"] {
   margin-right: auto;
   width: 50%;
 }
-/*
-.img-container45 {
-  background-image: url("https://picjumbo.imgix.net/HNCK4106.jpg?q=40&w=1650&sharp=30");
-  background-size: cover;
-  background-repeat: no-repeat;
-  -o-filter: blur(4px);
-  -webkit-filter: blur(4px);
-  filter: blur(4px);
-  position: fixed;
-  left: -5px;
-  top: -5px;
-  bottom: -5px;
-  right: -5px;
-}
-
-.img-container::after {
-  content: "";
-  background-image: linear-gradient(to bottom, #f7cd74, #dc4225);
-  opacity: 0.6;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
-}
-*/
 
 .card {
   background: rgba(255, 255, 255, 0.7);
@@ -83,27 +58,33 @@ input[type="number"] {
   margin-top: 5%;
   text-align: center;
 }
+
 .card h2 {
-  color: #f36359;
+  color: #1e5bc6;
   padding-top: 10px;
   margin: 0;
-}
-
-.col-50 {
-  width: 50%;
 }
 
 .card-grid {
   display: flex;
 }
 
+.col-50 {
+  width: 50%;
+}
+
+.load-img {
+  width: 50%;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  border: 1px solid #1e5bc6;
+  border-radius: 15px;
+}
+
 .card-cell {
   text-align: center;
   margin-top: 5%;
   margin-bottom: 2%;
-}
-.card-cell:first-child {
-  border-right: 1px solid #bab6b4;
 }
 
 .card-form {
@@ -122,11 +103,11 @@ input[type="number"] {
 }
 .card-form input:focus {
   outline: none;
-  border-bottom: 2px solid #f36359;
+  border-bottom: 2px solid #1e5bc6;
 }
 
 .card-form-button {
-  background: #f36359;
+  background: #1e5bc6;
   border: none;
   border-radius: 25px;
   color: #ffffff;
@@ -138,16 +119,25 @@ input[type="number"] {
   /* transition: all 300ms; */
 }
 .card-form-button:hover {
-  background: #f25146;
+  background: #1e5bc6;
 }
 .card-form-button:focus {
   outline: none;
 }
 
+.tag-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.plus-tag {
+  color: #1e5bc6;
+}
+
 .button-ghost {
   background: transparent;
-  color: #f36359;
-  border: 2px solid #f25146;
+  color: #1e5bc6;
+  border: 2px solid #1e5bc6;
 }
 .button-ghost:hover {
   color: #ffffff;
