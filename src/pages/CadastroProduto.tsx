@@ -1,6 +1,7 @@
 import { Navbar } from "../componentes/Navbar";
 import { Footer } from "../componentes/Footer";
 import TabelaProdutos from "../componentes/tabelaProdutos";
+import TabelaProd from "../componentes/TabelaProd";
 import "../styles/cadastroProdutos.css";
 import React, { useState, useEffect, useRef } from "react";
 import { BsSearch } from "react-icons/bs";
@@ -31,7 +32,11 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
         <div className="cUserHeaderPart1">Cadastro Produtos</div>
         <div className="cUserHeaderPart2">
           <div className="divSearchPequena">
-            <input type="text" className="searchPequena" placeholder="Search"></input>
+            <input
+              type="text"
+              className="searchPequena"
+              placeholder="Search"
+            ></input>
             <div className="lupa">
               <BsSearch className="lupa-icon" size="1.5rem" color="#fff" />
             </div>
@@ -59,10 +64,14 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
       <FormProduto novoProduto={criarProduto} />
 
       {criarProduto && (
-        <div className="background_cadastro" onClick={() => setCriarProduto(!criarProduto)} />
+        <div
+          className="background_cadastro"
+          onClick={() => setCriarProduto(!criarProduto)}
+        />
       )}
 
-      <TabelaProdutos />
+      <TabelaProd />
+      {/* <TabelaProdutos /> */}
       <Footer />
     </div>
   );
