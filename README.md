@@ -87,7 +87,8 @@ git push origin --delete remoteBranchName
 * [x] Travar rolamento de tela após abrir o carrinho
 * [x] Centralizar menus/links do navbar
 * [x] Arrumar GET usando axios no front pelo controller
-* [ ] Adicionar catagorias a mais em tempo de execução
+* [x] Mandar solicitação GetProduto na função Cadastrar() do formulário
+* [ ] Adicionar categorias a mais em tempo de execução
 * [ ] Retirar menu hamburguer e colocar somente para mobile
 * [ ] Colocar logo Rodrigues dev
 * [ ] Criar um diagrama de banco de dados
@@ -101,9 +102,7 @@ git push origin --delete remoteBranchName
 * [ ] Criar página de produtos principais(mínimo 3, olhar segundo link exemplo desodorante)
 * [ ] Reduzir margens laterais em todas as páginas
 * [ ] Criar tema escuro
-* [ ] Ajustar vetor para vários campos no back
-* [ ] Atualizar PostProdutos para Async
-* [ ] Mandar solicitação GetProduto na função Cadastrar() do formulário
+* [ ] Ajustar vetor para vários campos no back POST
 
 # Bugs
 * [ ] Mudar de Home para Produto faz o footer carrinho e usuário piscarem 
