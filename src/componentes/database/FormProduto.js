@@ -6,6 +6,7 @@ import { BiPlus } from "react-icons/bi";
 const FormProduto = (props) => {
   const [cadastrar, setCadastrar] = useState(false);
   const [valores, setValores] = useState([]); //Vetor de estados
+  const [inputs, setInputs] = useState([]); //Vetor de estados
   var vetorRef = [];
   var produto = [];
 
@@ -55,11 +56,7 @@ const FormProduto = (props) => {
                 // onChange={(e) => pegarInputs(e.target.value)}
               />
               <label>Valor</label>
-              <input
-                type="number"
-                pattern="[0-9]*"
-                ref={(ref) => vetorRef.push(ref)}
-              />
+              <input type="number" pattern="[0-9]*" ref={(ref) => vetorRef.push(ref)} />
               <label>Quantidade</label>
               <input type="number" />
 
@@ -67,14 +64,21 @@ const FormProduto = (props) => {
               <input type="text" />
               <div className="tag-div">
                 <label>Categoria</label>
-                <BiPlus size="1.4rem" className="plus-tag" />
+                <BiPlus
+                  size="1.4rem"
+                  className="plus-tag"
+                  onClick={() =>
+                    setInputs((oldArray) => [
+                      ...oldArray,
+                      <input type="text" ref={(ref) => vetorRef.push(ref)} />,
+                    ])
+                  }
+                />
               </div>
               <input type="text" ref={(ref) => vetorRef.push(ref)} />
+              {inputs}
             </div>
-            <button
-              className="card-form-button button-ghost"
-              onClick={() => Cadastrar()}
-            >
+            <button className="card-form-button button-ghost" onClick={() => Cadastrar()}>
               Cadastrar
             </button>
           </div>
