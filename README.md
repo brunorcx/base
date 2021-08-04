@@ -88,7 +88,7 @@ git push origin --delete remoteBranchName
 * [x] Centralizar menus/links do navbar
 * [x] Arrumar GET usando axios no front pelo controller
 * [x] Mandar solicitação GetProduto na função Cadastrar() do formulário
-* [ ] Adicionar categorias a mais em tempo de execução
+* [x] Adicionar categorias a mais em tempo de execução
 * [ ] Retirar menu hamburguer e colocar somente para mobile
 * [ ] Colocar logo Rodrigues dev
 * [ ] Criar um diagrama de banco de dados
