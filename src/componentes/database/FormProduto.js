@@ -15,6 +15,7 @@ const FormProduto = (props) => {
   function Cadastrar() {
     setCadastrar(!cadastrar);
 
+    limiter = 0;
     //For para pegar os elementos no vetor
     //A ordem dos elementos sempre será a mesma
 
