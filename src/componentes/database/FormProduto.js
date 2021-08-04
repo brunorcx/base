@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { PostProduto } from "../../controllers/crud.js";
 import { BiPlus } from "react-icons/bi";
 
+var limiter = 0;
+
 const FormProduto = (props) => {
   const [cadastrar, setCadastrar] = useState(false);
   const [valores, setValores] = useState([]); //Vetor de estados
@@ -42,6 +44,20 @@ const FormProduto = (props) => {
   //   return <input type="text" />;
   // }
 
+  function addTag() {
+    if (limiter < 6) {
+      limiter += 1;
+      console.log(limiter);
+
+      setInputs((oldArray) => [
+        ...oldArray,
+        <input type="text" ref={(ref) => vetorRef.push(ref)} />,
+      ]);
+    } else {
+      alert("O Limite de categorias é 7");
+    }
+  }
+
   return (
     <div className={formProdutoStyle}>
       <div className="card">
@@ -56,7 +72,11 @@ const FormProduto = (props) => {
                 // onChange={(e) => pegarInputs(e.target.value)}
               />
               <label>Valor</label>
-              <input type="number" pattern="[0-9]*" ref={(ref) => vetorRef.push(ref)} />
+              <input
+                type="number"
+                pattern="[0-9]*"
+                ref={(ref) => vetorRef.push(ref)}
+              />
               <label>Quantidade</label>
               <input type="number" />
 
@@ -67,18 +87,16 @@ const FormProduto = (props) => {
                 <BiPlus
                   size="1.4rem"
                   className="plus-tag"
-                  onClick={() =>
-                    setInputs((oldArray) => [
-                      ...oldArray,
-                      <input type="text" ref={(ref) => vetorRef.push(ref)} />,
-                    ])
-                  }
+                  onClick={() => addTag()}
                 />
               </div>
               <input type="text" ref={(ref) => vetorRef.push(ref)} />
               {inputs}
             </div>
-            <button className="card-form-button button-ghost" onClick={() => Cadastrar()}>
+            <button
+              className="card-form-button button-ghost"
+              onClick={() => Cadastrar()}
+            >
               Cadastrar
             </button>
           </div>

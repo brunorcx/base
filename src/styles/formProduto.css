@@ -67,6 +67,8 @@ input[type="number"] {
 
 .card-grid {
   display: flex;
+  height: 65vh;
+  overflow-y: scroll;
 }
 
 .col-50 {
