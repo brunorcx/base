@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
   white-space: nowrap;
+  margin: 0.8%;
 }
 .cUserHeaderPart2 {
   display: flex;
@@ -19,7 +20,11 @@
 }
 .divSearchPequena {
   display: flex;
-  border: solid 2px #c61e56;
+  border: solid 1px hsla(0, 0%, 100%, 0.7);
+  border-radius: 0.2rem;
+}
+.divSearchPequena:hover {
+  border: solid 1px #fafbfc;
 }
 .searchPequena {
   all: unset;
@@ -30,8 +35,7 @@
 }
 .addProdutoBtn {
   cursor: pointer;
-  -webkit-transition: width 2s, height 2s, background-color 2s,
-    -webkit-transform 2s;
+  -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
   transition: width 2s, height 2s, background-color 2s, transform 2s;
 }
 
@@ -46,4 +50,8 @@
   transition: 0.5s;
   background-color: rgb(0, 0, 0);
   visibility: visible;
+}
+
+::placeholder {
+  color: hsla(0, 0%, 100%, 0.7);
 }
