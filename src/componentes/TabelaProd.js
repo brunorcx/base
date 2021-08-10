@@ -4,7 +4,13 @@ import { GetResposta } from "../controllers/crud";
 import "../styles/tabelaProd.css";
 
 const columns = [
-  { field: "id", headerName: "ID", width: 160, headerAlign: "left", cellClassName: "colunas" },
+  {
+    field: "id",
+    headerName: "ID",
+    width: 160,
+    headerAlign: "left",
+    cellClassName: "colunas",
+  },
   {
     field: "name",
     headerName: "Nome",
@@ -92,9 +98,10 @@ export default function DataTable() {
   }, []); // Executar apenas uma vez
 
   return (
-    <div style={{ height: 400, width: "100%" }}>
+    <div style={{ height: "80vh", width: "100%" }}>
       {console.log(rows)}
       <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection disableSelectionOnClick />
     </div>
   );
 }
+// fazer busca https://material-ui.com/pt/components/data-grid/filtering/
