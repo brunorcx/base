@@ -2,6 +2,7 @@ import "../../styles/formProduto.css";
 import { useState, useEffect } from "react";
 import { PostProduto } from "../../controllers/crud.js";
 import { BiPlus } from "react-icons/bi";
+import { BiMinus } from "react-icons/bi";
 
 var limiter = 0;
 
@@ -47,8 +48,7 @@ const FormProduto = (props) => {
 
   function addTag() {
     if (limiter < 6) {
-      limiter += 1;
-      console.log(limiter);
+      limiter++;
 
       setInputs((oldArray) => [
         ...oldArray,
@@ -56,6 +56,19 @@ const FormProduto = (props) => {
       ]);
     } else {
       alert("O Limite de categorias é 7");
+    }
+  }
+
+  function lassTag() {
+    if (limiter > 0) {
+      limiter--;
+
+      setInputs((oldArray) => [
+        ...oldArray.pop(),
+        // <input type="text" ref={() => vetorRef.pop()} />,
+      ]);
+    } else {
+      alert("Deve existir no minimo 1 categoria!");
     }
   }
 
@@ -85,6 +98,11 @@ const FormProduto = (props) => {
               <input type="text" />
               <div className="tag-div">
                 <label>Categoria</label>
+                <BiMinus
+                  size="1.4rem"
+                  className="less-tag"
+                  onClick={() => lassTag()}
+                />
                 <BiPlus
                   size="1.4rem"
                   className="plus-tag"

@@ -54,14 +54,12 @@ input[type="number"] {
   position: relative;
   z-index: 99;
   width: 80%;
-  margin: auto;
-  margin-top: 5%;
+  margin: 2% auto;
   text-align: center;
 }
 
 .card h2 {
   color: #1e5bc6;
-  padding-top: 10px;
   margin: 0;
 }
 
@@ -69,6 +67,19 @@ input[type="number"] {
   display: flex;
   height: 65vh;
   overflow-y: scroll;
+  scrollbar-width: thin;
+}
+.card-grid::-webkit-scrollbar {
+  width: 7px;
+}
+.card-grid::-webkit-scrollbar-track {
+  background: rgb(221, 221, 221);
+}
+
+.card-grid::-webkit-scrollbar-thumb {
+  background-color: rgb(200, 200, 200);
+  border-radius: 15px;
+  /* border: 2px solid orange; */
 }
 
 .col-50 {
@@ -134,6 +145,17 @@ input[type="number"] {
 
 .plus-tag {
   color: #1e5bc6;
+}
+
+.plus-tag:hover {
+  cursor: pointer;
+}
+
+.less-tag {
+  color: #1e5bc6;
+}
+.less-tag:hover {
+  cursor: pointer;
 }
 
 .button-ghost {
