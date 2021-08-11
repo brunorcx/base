@@ -50,23 +50,24 @@ const FormProduto = (props) => {
     if (limiter < 6) {
       limiter++;
 
-      setInputs((oldArray) => [
-        ...oldArray,
-        <input type="text" ref={(ref) => vetorRef.push(ref)} />,
-      ]);
+      setInputs((oldArray) => [...oldArray, <input type="text" ref={(ref) => vetorRef.push(ref)} />]);
     } else {
       alert("O Limite de categorias é 7");
     }
+    console.log(limiter + "Limiter");
   }
 
-  function lassTag() {
+  function subTag() {
     if (limiter > 0) {
       limiter--;
 
       setInputs((oldArray) => [
-        ...oldArray.pop(),
+        oldArray.pop(),
         // <input type="text" ref={() => vetorRef.pop()} />,
+        //Bug de não mostrar corretamente os inputs. Ele volta para 2 mesmo removendo 1 só
       ]);
+      vetorRef.pop();
+      console.log(limiter + "Limiter");
     } else {
       alert("Deve existir no minimo 1 categoria!");
     }
@@ -86,11 +87,7 @@ const FormProduto = (props) => {
                 // onChange={(e) => pegarInputs(e.target.value)}
               />
               <label>Valor</label>
-              <input
-                type="number"
-                pattern="[0-9]*"
-                ref={(ref) => vetorRef.push(ref)}
-              />
+              <input type="number" pattern="[0-9]*" ref={(ref) => vetorRef.push(ref)} />
               <label>Quantidade</label>
               <input type="number" />
 
@@ -98,24 +95,13 @@ const FormProduto = (props) => {
               <input type="text" />
               <div className="tag-div">
                 <label>Categoria</label>
-                <BiMinus
-                  size="1.4rem"
-                  className="less-tag"
-                  onClick={() => lassTag()}
-                />
-                <BiPlus
-                  size="1.4rem"
-                  className="plus-tag"
-                  onClick={() => addTag()}
-                />
+                <BiMinus size="1.4rem" className="less-tag" onClick={() => subTag()} />
+                <BiPlus size="1.4rem" className="plus-tag" onClick={() => addTag()} />
               </div>
               <input type="text" ref={(ref) => vetorRef.push(ref)} />
               {inputs}
             </div>
-            <button
-              className="card-form-button button-ghost"
-              onClick={() => Cadastrar()}
-            >
+            <button className="card-form-button button-ghost" onClick={() => Cadastrar()}>
               Cadastrar
             </button>
           </div>
