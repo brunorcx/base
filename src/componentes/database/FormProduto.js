@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { PostProduto } from "../../controllers/crud.js";
 import { BiPlus } from "react-icons/bi";
 import { BiMinus } from "react-icons/bi";
+import { BsUpload } from "react-icons/bs";
 
 var limiter = 0;
 
@@ -10,6 +11,8 @@ const FormProduto = (props) => {
   const [cadastrar, setCadastrar] = useState(false);
   const [valores, setValores] = useState([]); //Vetor de estados
   const [inputs, setInputs] = useState([]); //Vetor de estados
+  const [imagemNome, setImagemNome] = useState(); //Vetor de estados
+
   var vetorRef = [];
   var produto = [];
 
@@ -73,6 +76,11 @@ const FormProduto = (props) => {
     }
   }
 
+  function onChangeImageHandler(e) {
+    console.log(e.target.files);
+    setImagemNome(e.target.files[0].name);
+  }
+
   return (
     <div className={formProdutoStyle}>
       <div className="card">
@@ -105,7 +113,17 @@ const FormProduto = (props) => {
               Cadastrar
             </button>
           </div>
-          <div className="load-img">img</div>
+          <div className="load-img">
+            <BsUpload size="4rem" />
+            Adicionar Imagem
+            <p>{imagemNome}</p>
+            <input
+              type="file"
+              className="inputImagem"
+              name="file"
+              onChange={(e) => onChangeImageHandler(e)}
+            />
+          </div>
         </div>
       </div>
     </div>
