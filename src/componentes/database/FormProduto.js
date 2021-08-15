@@ -14,23 +14,28 @@ const FormProduto = (props) => {
   const [imagemNome, setImagemNome] = useState(); //Vetor de estados
   const [imagemCarregada, setImagemCarregada] = useState(false); //Vetor de estados
 
-  var vetorRef = [];
-  var produto = [];
-
   function Cadastrar() {
     setCadastrar(!cadastrar);
 
-    limiter = 0;
-    //For para pegar os elementos no vetor
-    //A ordem dos elementos sempre será a mesma
+    let categorias = [];
 
-    //Enviar valores para o back
-    produto = []; //resetar vetor
-    for (let elemento of vetorRef) {
-      produto.push(elemento.value);
-      console.log(elemento.value);
+    categorias.push(document.getElementById("cat1").value);
+    for (let i = 0; i < 6; i++) {
+      if (document.getElementById(i))
+        categorias.push(document.getElementById(i).value);
     }
-    PostProduto("/products", produto);
+
+    let produtoNovo = {
+      name: document.getElementById("nome").value,
+      price: document.getElementById("valor").value,
+      qty: document.getElementById("qty").value,
+      brand: document.getElementById("marca").value,
+      tags: categorias,
+    };
+    PostProduto("/products", produtoNovo);
+
+    limiter = 0;
+    setInputs([]);
   }
 
   var formProdutoStyle;
@@ -56,7 +61,7 @@ const FormProduto = (props) => {
 
       setInputs((oldArray) => [
         ...oldArray,
-        <input type="text" id={limiter} ref={(ref) => vetorRef.push(ref)} />,
+        <input key={limiter} type="text" id={limiter} />,
       ]);
     } else {
       alert("O Limite de categorias é 7");
@@ -91,28 +96,35 @@ const FormProduto = (props) => {
           <div className="col-50 card-cell card-login">
             <div className="card-form">
               <label>Nome</label>
-              <input
-                type="text"
-                ref={(ref) => vetorRef.push(ref)}
-                // onChange={(e) => pegarInputs(e.target.value)}
-              />
+              <input type="text" id="nome" />
               <label>Valor</label>
-              <input type="number" pattern="[0-9]*" ref={(ref) => vetorRef.push(ref)} />
+              <input type="number" id="valor" pattern="[0-9]*" />
               <label>Quantidade</label>
-              <input type="number" />
+              <input type="number" id="qty" />
 
               <label>Marca</label>
-              <input type="text" />
+              <input type="text" id="marca" />
               <div className="tag-div">
                 <label>Categoria</label>
-                <BiMinus size="1.4rem" className="less-tag" onClick={() => subTag()} />
-                <BiPlus size="1.4rem" className="plus-tag" onClick={() => addTag()} />
+                <BiMinus
+                  size="1.4rem"
+                  className="less-tag"
+                  onClick={() => subTag()}
+                />
+                <BiPlus
+                  size="1.4rem"
+                  className="plus-tag"
+                  onClick={() => addTag()}
+                />
               </div>
-              <input type="text" ref={(ref) => vetorRef.push(ref)} />
+              <input type="text" id="cat1" />
               {inputs}
               {console.log(inputs)}
             </div>
-            <button className="card-form-button button-ghost" onClick={() => Cadastrar()}>
+            <button
+              className="card-form-button button-ghost"
+              onClick={() => Cadastrar()}
+            >
               Cadastrar
             </button>
           </div>
