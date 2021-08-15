@@ -12,6 +12,7 @@ const FormProduto = (props) => {
   const [valores, setValores] = useState([]); //Vetor de estados
   const [inputs, setInputs] = useState([]); //Vetor de estados
   const [imagemNome, setImagemNome] = useState(); //Vetor de estados
+  const [imagemCarregada, setImagemCarregada] = useState(false); //Vetor de estados
 
   var vetorRef = [];
   var produto = [];
@@ -78,7 +79,8 @@ const FormProduto = (props) => {
 
   function onChangeImageHandler(e) {
     console.log(e.target.files);
-    setImagemNome(e.target.files[0].name);
+    setImagemNome(URL.createObjectURL(e.target.files[0]));
+    setImagemCarregada(true);
   }
 
   return (
@@ -113,16 +115,17 @@ const FormProduto = (props) => {
               Cadastrar
             </button>
           </div>
-          <div className="load-img">
-            <BsUpload size="4rem" />
-            Adicionar Imagem
-            <p>{imagemNome}</p>
+          <div className={!imagemCarregada ? "load-img" : "loaded-img"}>
+            {!imagemCarregada && <BsUpload size="4rem" />}
+            {!imagemCarregada && "Adicionar Imagem"}
+            {/* <p>{imagemNome}</p> */}
             <input
               type="file"
               className="inputImagem"
               name="file"
               onChange={(e) => onChangeImageHandler(e)}
             />
+            <img src={imagemNome} className="imgPreview" />
           </div>
         </div>
       </div>

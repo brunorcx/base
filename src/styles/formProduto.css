@@ -103,11 +103,29 @@ input[type="number"] {
   cursor: pointer;
 }
 
+.loaded-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  border-radius: 15px;
+  border: none;
+
+  /* outline: 2px dashed #1e5bc6; */
+}
+
 .inputImagem {
   position: absolute;
   height: 90%;
   opacity: 0;
   cursor: pointer;
+}
+.imgPreview {
+  width: 100%;
+  /* height: 50%; */
 }
 .card-cell {
   text-align: center;
