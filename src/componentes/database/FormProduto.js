@@ -54,27 +54,27 @@ const FormProduto = (props) => {
     if (limiter < 6) {
       limiter++;
 
-      setInputs((oldArray) => [...oldArray, <input type="text" ref={(ref) => vetorRef.push(ref)} />]);
+      setInputs((oldArray) => [
+        ...oldArray,
+        <input type="text" id={limiter} ref={(ref) => vetorRef.push(ref)} />,
+      ]);
     } else {
       alert("O Limite de categorias é 7");
     }
+    console.log(inputs);
     console.log(limiter + "Limiter");
   }
 
   function subTag() {
     if (limiter > 0) {
+      setInputs(inputs.filter((item) => item.props.id !== limiter));
       limiter--;
-
-      setInputs((oldArray) => [
-        oldArray.pop(),
-        // <input type="text" ref={() => vetorRef.pop()} />,
-        //Bug de não mostrar corretamente os inputs. Ele volta para 2 mesmo removendo 1 só
-      ]);
-      vetorRef.pop();
-      console.log(limiter + "Limiter");
+      // setInputs(inputs.filter((item) => item.props.id !== limiter));
     } else {
       alert("Deve existir no minimo 1 categoria!");
     }
+    console.log(inputs);
+    console.log(limiter + "Limiter");
   }
 
   function onChangeImageHandler(e) {
@@ -110,6 +110,7 @@ const FormProduto = (props) => {
               </div>
               <input type="text" ref={(ref) => vetorRef.push(ref)} />
               {inputs}
+              {console.log(inputs)}
             </div>
             <button className="card-form-button button-ghost" onClick={() => Cadastrar()}>
               Cadastrar
