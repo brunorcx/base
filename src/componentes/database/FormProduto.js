@@ -21,8 +21,7 @@ const FormProduto = (props) => {
 
     categorias.push(document.getElementById("cat1").value);
     for (let i = 0; i < 6; i++) {
-      if (document.getElementById(i))
-        categorias.push(document.getElementById(i).value);
+      if (document.getElementById(i)) categorias.push(document.getElementById(i).value);
     }
 
     let produtoNovo = {
@@ -59,10 +58,7 @@ const FormProduto = (props) => {
     if (limiter < 6) {
       limiter++;
 
-      setInputs((oldArray) => [
-        ...oldArray,
-        <input key={limiter} type="text" id={limiter} />,
-      ]);
+      setInputs((oldArray) => [...oldArray, <input key={limiter} type="text" id={limiter} />]);
     } else {
       alert("O Limite de categorias é 7");
     }
@@ -106,25 +102,15 @@ const FormProduto = (props) => {
               <input type="text" id="marca" />
               <div className="tag-div">
                 <label>Categoria</label>
-                <BiMinus
-                  size="1.4rem"
-                  className="less-tag"
-                  onClick={() => subTag()}
-                />
-                <BiPlus
-                  size="1.4rem"
-                  className="plus-tag"
-                  onClick={() => addTag()}
-                />
+                <BiMinus size="1.4rem" className="less-tag" onClick={() => subTag()} />
+                <BiPlus size="1.4rem" className="plus-tag" onClick={() => addTag()} />
               </div>
               <input type="text" id="cat1" />
               {inputs}
               {console.log(inputs)}
             </div>
-            <button
-              className="card-form-button button-ghost"
-              onClick={() => Cadastrar()}
-            >
+            <button className="card-form-button button-ghost" onClick={() => Cadastrar()}>
+              {/** @todo criar mensagem de produto criado para o usuário*/}
               Cadastrar
             </button>
           </div>
