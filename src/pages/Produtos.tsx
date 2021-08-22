@@ -1,6 +1,6 @@
 import { Navbar } from "../componentes/Navbar";
 import { Sidebar } from "../componentes/Sidebar";
-import { ListProdutos } from "../componentes/ListProdutos";
+import ListProdutos from "../componentes/ListProdutos";
 import { Footer } from "../componentes/Footer";
 import "../styles/produtos.css";
 import React, { Component } from "react";
@@ -13,7 +13,7 @@ export class Produtos extends Component {
 
         <div className="corpo">
           <Sidebar className="sidebar-p" />
-          <ListProdutos className="list-produtos-p" />
+          <ListProdutos />
         </div>
         <Footer className="footer-p" />
       </div>
