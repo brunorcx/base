@@ -26,22 +26,25 @@ const FormProduto = (props) => {
       if (document.getElementById(i))
         categorias.push(document.getElementById(i).value);
     }
-    var produtoNovo = new FormData();
-    produtoNovo.append("name", document.getElementById("nome").value);
-    produtoNovo.append("price", document.getElementById("valor").value);
-    produtoNovo.append("qty", document.getElementById("qty").value);
-    produtoNovo.append("brand", document.getElementById("marca").value);
-    produtoNovo.append("tags", categorias);
-    produtoNovo.append("imagem", imagemConteudo);
-    console.log("ProdutoNovo");
-    console.log(produtoNovo);
+    var produtoNovo = new FormData(document.getElementById("card-form"));
+    // produtoNovo.append("name", document.getElementById("nome").value);
+    // produtoNovo.append("price", document.getElementById("valor").value);
+    // produtoNovo.append("qty", document.getElementById("qty").value);
+    // produtoNovo.append("brand", document.getElementById("marca").value);
+    // produtoNovo.append("tags", categorias);
+    produtoNovo.append("img", imagemConteudo);
+
     // let produtoNovo = {
     //   name: document.getElementById("nome").value,
     //   price: document.getElementById("valor").value,
     //   qty: document.getElementById("qty").value,
     //   brand: document.getElementById("marca").value,
     //   tags: categorias,
+    //   imagem: imagemConteudo,
     // };
+
+    console.log("ProdutoNovo");
+    console.log(produtoNovo);
     PostProduto("/products", produtoNovo);
 
     limiter = 0;
@@ -104,17 +107,27 @@ const FormProduto = (props) => {
       <div className="card">
         <h2>Cadastrar Produto</h2>
         <div className="card-grid">
-          <form className="col-50 card-cell card-login">
-            <div className="card-form">
+          <div className="col-50 card-cell card-login">
+            <form
+              id="card-form"
+              className="card-form"
+              enctype="multipart/form-data"
+            >
               <label>Nome</label>
-              <input type="text" id="nome" required />
+              <input type="text" id="nome" required name="name" />
               <label>Valor</label>
-              <input type="number" id="valor" pattern="[0-9]*" required />
+              <input
+                type="number"
+                id="valor"
+                pattern="[0-9]*"
+                required
+                name="price"
+              />
               <label>Quantidade</label>
-              <input type="number" id="qty" required />
+              <input type="number" id="qty" required name="qty" />
 
               <label>Marca</label>
-              <input type="text" id="marca" required />
+              <input type="text" id="marca" required name="brand" />
               <div className="tag-div">
                 <label>Categoria</label>
                 <BiMinus
@@ -128,18 +141,18 @@ const FormProduto = (props) => {
                   onClick={() => addTag()}
                 />
               </div>
-              <input type="text" id="cat1" required />
+              <input type="text" id="cat1" required name="tags" />
               {inputs}
               {console.log(inputs)}
-            </div>
-            <button
-              className="card-form-button button-ghost"
-              onClick={(e) => Cadastrar(e)}
-            >
-              {/** @todo criar mensagem de produto criado para o usuário*/}
-              Cadastrar
-            </button>
-          </form>
+              <button
+                className="card-form-button button-ghost"
+                onClick={(e) => Cadastrar(e)}
+              >
+                {/** @todo criar mensagem de produto criado para o usuário*/}
+                Cadastrar
+              </button>
+            </form>
+          </div>
           <div className={!imagemCarregada ? "load-img" : "loaded-img"}>
             {!imagemCarregada && <BsUpload size="4rem" />}
             {!imagemCarregada && "Adicionar Imagem"}
