@@ -13,24 +13,35 @@ const FormProduto = (props) => {
   const [inputs, setInputs] = useState([]); //Vetor de estados
   const [imagemNome, setImagemNome] = useState(); //Vetor de estados
   const [imagemCarregada, setImagemCarregada] = useState(false); //Vetor de estados
+  const [imagemConteudo, setImagemConteudo] = useState(); //Vetor de estados
 
-  function Cadastrar() {
+  function Cadastrar(e) {
+    e.preventDefault();
     setCadastrar(!cadastrar);
 
     let categorias = [];
 
     categorias.push(document.getElementById("cat1").value);
     for (let i = 0; i < 6; i++) {
-      if (document.getElementById(i)) categorias.push(document.getElementById(i).value);
+      if (document.getElementById(i))
+        categorias.push(document.getElementById(i).value);
     }
-
-    let produtoNovo = {
-      name: document.getElementById("nome").value,
-      price: document.getElementById("valor").value,
-      qty: document.getElementById("qty").value,
-      brand: document.getElementById("marca").value,
-      tags: categorias,
-    };
+    var produtoNovo = new FormData();
+    produtoNovo.append("name", document.getElementById("nome").value);
+    produtoNovo.append("price", document.getElementById("valor").value);
+    produtoNovo.append("qty", document.getElementById("qty").value);
+    produtoNovo.append("brand", document.getElementById("marca").value);
+    produtoNovo.append("tags", categorias);
+    produtoNovo.append("imagem", imagemConteudo);
+    console.log("ProdutoNovo");
+    console.log(produtoNovo);
+    // let produtoNovo = {
+    //   name: document.getElementById("nome").value,
+    //   price: document.getElementById("valor").value,
+    //   qty: document.getElementById("qty").value,
+    //   brand: document.getElementById("marca").value,
+    //   tags: categorias,
+    // };
     PostProduto("/products", produtoNovo);
 
     limiter = 0;
@@ -58,7 +69,10 @@ const FormProduto = (props) => {
     if (limiter < 6) {
       limiter++;
 
-      setInputs((oldArray) => [...oldArray, <input key={limiter} type="text" id={limiter} />]);
+      setInputs((oldArray) => [
+        ...oldArray,
+        <input key={limiter} type="text" id={limiter} required />,
+      ]);
     } else {
       alert("O Limite de categorias é 7");
     }
@@ -81,6 +95,7 @@ const FormProduto = (props) => {
   function onChangeImageHandler(e) {
     console.log(e.target.files);
     setImagemNome(URL.createObjectURL(e.target.files[0]));
+    setImagemConteudo(e.target.files[0]);
     setImagemCarregada(true);
   }
 
@@ -89,31 +104,42 @@ const FormProduto = (props) => {
       <div className="card">
         <h2>Cadastrar Produto</h2>
         <div className="card-grid">
-          <div className="col-50 card-cell card-login">
+          <form className="col-50 card-cell card-login">
             <div className="card-form">
               <label>Nome</label>
-              <input type="text" id="nome" />
+              <input type="text" id="nome" required />
               <label>Valor</label>
-              <input type="number" id="valor" pattern="[0-9]*" />
+              <input type="number" id="valor" pattern="[0-9]*" required />
               <label>Quantidade</label>
-              <input type="number" id="qty" />
+              <input type="number" id="qty" required />
 
               <label>Marca</label>
-              <input type="text" id="marca" />
+              <input type="text" id="marca" required />
               <div className="tag-div">
                 <label>Categoria</label>
-                <BiMinus size="1.4rem" className="less-tag" onClick={() => subTag()} />
-                <BiPlus size="1.4rem" className="plus-tag" onClick={() => addTag()} />
+                <BiMinus
+                  size="1.4rem"
+                  className="less-tag"
+                  onClick={() => subTag()}
+                />
+                <BiPlus
+                  size="1.4rem"
+                  className="plus-tag"
+                  onClick={() => addTag()}
+                />
               </div>
-              <input type="text" id="cat1" />
+              <input type="text" id="cat1" required />
               {inputs}
               {console.log(inputs)}
             </div>
-            <button className="card-form-button button-ghost" onClick={() => Cadastrar()}>
+            <button
+              className="card-form-button button-ghost"
+              onClick={(e) => Cadastrar(e)}
+            >
               {/** @todo criar mensagem de produto criado para o usuário*/}
               Cadastrar
             </button>
-          </div>
+          </form>
           <div className={!imagemCarregada ? "load-img" : "loaded-img"}>
             {!imagemCarregada && <BsUpload size="4rem" />}
             {!imagemCarregada && "Adicionar Imagem"}
