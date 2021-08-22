@@ -103,6 +103,7 @@ git push origin --delete remoteBranchName
 * [ ] Criar página de produtos principais(mínimo 3, olhar segundo link exemplo desodorante)
 * [ ] Reduzir margens laterais em todas as páginas
 * [ ] Criar tema escuro
+* [ ] Olhar Amazon S3 para armazenar imagens e usar o url no mongoDB
 
 
 # Bugs
