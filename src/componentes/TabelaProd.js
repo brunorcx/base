@@ -91,6 +91,7 @@ export default function DataTable() {
               brand: result[i].brand,
               qty: result[i].qty,
               tags: result[i].tags,
+              img: result[i].img,
             },
           ]);
       })
@@ -100,7 +101,13 @@ export default function DataTable() {
   return (
     <div style={{ height: "80vh", width: "100%" }}>
       {console.log(rows)}
-      <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection disableSelectionOnClick />
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        pageSize={5}
+        checkboxSelection
+        disableSelectionOnClick
+      />
     </div>
   );
 }
