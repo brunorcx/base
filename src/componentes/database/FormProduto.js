@@ -6,15 +6,14 @@ import { BiMinus } from "react-icons/bi";
 import { BsUpload } from "react-icons/bs";
 
 var limiter = 0;
-
 const FormProduto = (props) => {
   const [cadastrar, setCadastrar] = useState(false);
   const [valores, setValores] = useState([]); //Vetor de estados
   const [inputs, setInputs] = useState([]); //Vetor de estados
   const [imagemNome, setImagemNome] = useState(); //Vetor de estados
   const [imagemCarregada, setImagemCarregada] = useState(false); //Vetor de estados
-
-  function Cadastrar() {
+  const [imagemArquivo, setImagemArquivo] = useState(null); //Vetor de estados
+  async function Cadastrar() {
     setCadastrar(!cadastrar);
 
     let categorias = [];
@@ -30,6 +29,7 @@ const FormProduto = (props) => {
       qty: document.getElementById("qty").value,
       brand: document.getElementById("marca").value,
       tags: categorias,
+      img: imagemArquivo,
     };
     PostProduto("/products", produtoNovo);
 
@@ -80,6 +80,7 @@ const FormProduto = (props) => {
 
   function onChangeImageHandler(e) {
     console.log(e.target.files);
+    setImagemArquivo(e.target.files[0]);
     setImagemNome(URL.createObjectURL(e.target.files[0]));
     setImagemCarregada(true);
   }
@@ -110,7 +111,7 @@ const FormProduto = (props) => {
               {console.log(inputs)}
             </div>
             <button className="card-form-button button-ghost" onClick={() => Cadastrar()}>
-              {/** @todo criar mensagem de produto criado para o usuário*/}
+              {/*TODO: Criar mensagem de produto criado com sucesso após cadastrar  */}
               Cadastrar
             </button>
           </div>
