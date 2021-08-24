@@ -28,7 +28,12 @@ input[type="number"] {
   visibility: hidden;
   width: 50%;
 }
-
+.extra-tags {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 80%;
+}
 .formProdutoAberto {
   color: #54504e;
   z-index: 100;

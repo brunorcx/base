@@ -17,48 +17,6 @@ const ListProdutos = () => {
         "https://carrefourbr.vtexassets.com/arquivos/ids/7647685-160-160?width=160&height=160&aspect=true",
       tags: "eletrônico, informática",
     },
-    {
-      id: "01",
-      img:
-        "https://carrefourbr.vtexassets.com/arquivos/ids/7647685-160-160?width=160&height=160&aspect=true",
-      description: "description 01",
-      price: "55,99",
-    },
-    {
-      id: "02",
-      img:
-        "https://carrefourbr.vtexassets.com/arquivos/ids/6090814-160-160?width=160&height=160&aspect=true",
-      description: "description 02",
-      price: "100,00",
-    },
-    {
-      id: "03",
-      img:
-        "https://carrefourbr.vtexassets.com/arquivos/ids/11071831-160-160?width=160&height=160&aspect=true",
-      description: "description 03",
-      price: "150,00",
-    },
-    {
-      id: "04",
-      img:
-        "https://carrefourbr.vtexassets.com/arquivos/ids/6065545-160-160?width=160&height=160&aspect=true",
-      description: "description 04",
-      price: "200,00",
-    },
-    {
-      id: "05",
-      img:
-        "https://carrefourbr.vtexassets.com/arquivos/ids/7737029-160-160?width=160&height=160&aspect=true",
-      description: "description 05",
-      price: "250,00",
-    },
-    {
-      id: "06",
-      img:
-        "https://carrefourbr.vtexassets.com/arquivos/ids/12389585-160-160?width=160&height=160&aspect=true",
-      description: "description 06",
-      price: "300,00",
-    },
   ];
   const [products2, setProducts2] = useState(products);
   useEffect(() => {
@@ -99,8 +57,11 @@ const ListProdutos = () => {
           </div>
           <div className="img">
             <img src={props.value.img}></img>
+            {/* <img src={`data:image/jpeg;base64,${props.value.img.data}`}></img> */}
+            {console.log("<___>")}
+            {console.log(props.value.img)}
           </div>
-          <div className="description">Descrição {props.value.description}</div>
+          <div className="description">Descrição {props.value.name}</div>
           <div className="price">R$ {props.value.price}</div>
         </li>
       </Link>
