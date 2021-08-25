@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { PostProduto } from "../../controllers/crud.js";
 import { BiPlus } from "react-icons/bi";
 import { BiMinus } from "react-icons/bi";
+import { BiSubdirectoryRight } from "react-icons/bi";
 import { BsUpload } from "react-icons/bs";
 
 var limiter = 0;
@@ -61,7 +62,10 @@ const FormProduto = (props) => {
 
       setInputs((oldArray) => [
         ...oldArray,
-        <input key={limiter} type="text" id={limiter} required />,
+        <div className="extra-tag">
+          <BiSubdirectoryRight size="1.4rem" className="enter-tag" />
+          <input key={limiter} type="text" id={limiter} required />
+        </div>,
       ]);
     } else {
       alert("O Limite de categorias é 7");
@@ -125,7 +129,7 @@ const FormProduto = (props) => {
                 />
               </div>
               <input type="text" id="cat1" required />
-              <div className="extra-tags">{inputs}</div>
+              {inputs}
               <button
                 className="card-form-button button-ghost"
                 onClick={() => Cadastrar()}
