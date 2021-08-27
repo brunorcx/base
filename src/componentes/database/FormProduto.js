@@ -62,7 +62,7 @@ const FormProduto = (props) => {
 
       setInputs((oldArray) => [
         ...oldArray,
-        <div className="extra-tag">
+        <div className="extra-tag" id={limiter} key={limiter}>
           <BiSubdirectoryRight size="1.4rem" className="enter-tag" />
           <input key={limiter} type="text" id={limiter} required />
         </div>,
