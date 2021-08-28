@@ -21,8 +21,8 @@ const FormProduto = (props) => {
 
     categorias.push(document.getElementById("cat1").value);
     for (let i = 0; i < 6; i++) {
-      if (document.getElementById(i))
-        categorias.push(document.getElementById(i).value);
+      if (document.getElementById("cat0" + i))
+        categorias.push(document.getElementById("cat0" + i).value);
     }
 
     let produtoNovo = {
@@ -31,7 +31,7 @@ const FormProduto = (props) => {
       qty: document.getElementById("qty").value,
       brand: document.getElementById("marca").value,
       tags: categorias,
-      img: imagemArquivo,
+      // img: imagemArquivo,
     };
     PostProduto("/products", produtoNovo);
 
@@ -62,9 +62,15 @@ const FormProduto = (props) => {
 
       setInputs((oldArray) => [
         ...oldArray,
-        <div className="extra-tag" id={limiter} key={limiter}>
+        <div className="extra-tag" id={limiter} key={limiter} autofocus>
           <BiSubdirectoryRight size="1.4rem" className="enter-tag" />
-          <input key={limiter} type="text" id={limiter} required />
+          <input
+            key={"cat0" + limiter}
+            type="text"
+            id={"cat0" + limiter}
+            required
+            autofocus
+          />
         </div>,
       ]);
     } else {
@@ -101,7 +107,7 @@ const FormProduto = (props) => {
           <div className="col-50 card-cell card-login">
             <form className="card-form">
               <label>Nome</label>
-              <input type="text" id="nome" name="name" required />
+              <input type="text" id="nome" name="name" required autofocus />
               <label>Valor</label>
               <input
                 type="number"
@@ -131,6 +137,7 @@ const FormProduto = (props) => {
               <input type="text" id="cat1" required />
               {inputs}
               <button
+                type="submit"
                 className="card-form-button button-ghost"
                 onClick={() => Cadastrar()}
               >
