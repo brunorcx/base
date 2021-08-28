@@ -65,9 +65,7 @@ export class Navbar extends Component {
   render() {
     /* TERMINA AQUI*/
 
-    let carrinho_class = this.state.aberto
-      ? "carrinho-menu"
-      : "carrinho-menu-fechado";
+    let carrinho_class = this.state.aberto ? "carrinho-menu" : "carrinho-menu-fechado";
 
     let background_cart = this.state.aberto
       ? "background-carrinho-dark"
@@ -109,10 +107,7 @@ export class Navbar extends Component {
           </div>
         </div>
 
-        <div
-          className={background_cart}
-          onClick={this.abrirCarrinho.bind(this)}
-        />
+        <div className={background_cart} onClick={this.abrirCarrinho.bind(this)} />
 
         <div className="linha-horizontal" />
         <div className="navbar2" ref={this.refNavbar2}>
@@ -125,7 +120,7 @@ export class Navbar extends Component {
               <Link to="/Produtos">Produtos</Link>
             </li>
             <li>
-              <Link to="/">Usuários</Link>
+              <Link to="/Usuarios">Usuários</Link>
             </li>
             <li>
               <Link to="/CadastroProdutos">Cadastrar Produtos</Link>

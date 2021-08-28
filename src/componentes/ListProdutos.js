@@ -24,7 +24,7 @@ const ListProdutos = () => {
       .then((result) => {
         var tamanho = Object.keys(result).length;
 
-        for (var i = 0; i < tamanho; i++) {
+        for (let i = 0; i < tamanho; i++) {
           setProducts2((oldArray) => [
             ...oldArray,
             {
@@ -48,11 +48,7 @@ const ListProdutos = () => {
         <li className="produtosLI">
           <div className="btn-div">
             <button className="btn">
-              <RiHeartAddLine
-                className="btn-icon"
-                size="1.5rem"
-                color="#ff2724"
-              />
+              <RiHeartAddLine className="btn-icon" size="1.5rem" color="#ff2724" />
             </button>
           </div>
           <div className="img">

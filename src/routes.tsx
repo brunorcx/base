@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Produtos from "./pages/Produtos";
 import Produto from "./pages/Produto";
 import CProduto from "./pages/CadastroProduto";
+import Usuarios from "./pages/Usuarios";
 
 function Routes() {
   return (
@@ -11,6 +12,7 @@ function Routes() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/Produtos" exact component={Produtos} />
+        <Route path="/Usuarios" exact component={Usuarios} />
         <Route path="/Produto" exact component={Produto} />
         <Route path="/CadastroProdutos" exact component={CProduto} />
         {/* <Route path="/pagina2" component={Pagina2}> */}
