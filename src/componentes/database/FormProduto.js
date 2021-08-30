@@ -4,6 +4,7 @@ import { PostProduto } from "../../controllers/crud.js";
 import { BiPlus } from "react-icons/bi";
 import { BiMinus } from "react-icons/bi";
 import { BsUpload } from "react-icons/bs";
+import { BiSubdirectoryRight } from "react-icons/bi";
 
 var limiter = 0;
 const FormProduto = (props) => {
@@ -20,7 +21,8 @@ const FormProduto = (props) => {
 
     categorias.push(document.getElementById("cat1").value);
     for (let i = 0; i < 6; i++) {
-      if (document.getElementById(i)) categorias.push(document.getElementById(i).value);
+      if (document.getElementById("cat0" + i))
+        categorias.push(document.getElementById("cat0" + i).value);
     }
 
     let produtoNovo = {
@@ -29,7 +31,7 @@ const FormProduto = (props) => {
       qty: document.getElementById("qty").value,
       brand: document.getElementById("marca").value,
       tags: categorias,
-      img: imagemArquivo,
+      // img: imagemArquivo,
     };
     PostProduto("/products", produtoNovo);
 
@@ -58,7 +60,13 @@ const FormProduto = (props) => {
     if (limiter < 6) {
       limiter++;
 
-      setInputs((oldArray) => [...oldArray, <input key={limiter} type="text" id={limiter} />]);
+      setInputs((oldArray) => [
+        ...oldArray,
+        <div className="extra-tag" id={limiter} key={limiter} autofocus>
+          <BiSubdirectoryRight size="1.4rem" className="enter-tag" />
+          <input key={"cat0" + limiter} type="text" id={"cat0" + limiter} required autofocus />
+        </div>,
+      ]);
     } else {
       alert("O Limite de categorias é 7");
     }
@@ -91,9 +99,9 @@ const FormProduto = (props) => {
         <h2>Cadastrar Produto</h2>
         <div className="card-grid">
           <div className="col-50 card-cell card-login">
-            <div className="card-form">
+            <form className="card-form">
               <label>Nome</label>
-              <input type="text" id="nome" />
+              <input type="text" id="nome" name="name" required autofocus />
               <label>Valor</label>
               <input type="number" id="valor" pattern="[0-9]*" />
               <label>Quantidade</label>
@@ -108,12 +116,15 @@ const FormProduto = (props) => {
               </div>
               <input type="text" id="cat1" />
               {inputs}
-              {console.log(inputs)}
-            </div>
-            <button className="card-form-button button-ghost" onClick={() => Cadastrar()}>
-              {/*TODO: Criar mensagem de produto criado com sucesso após cadastrar  */}
-              Cadastrar
-            </button>
+              <button
+                type="submit"
+                className="card-form-button button-ghost"
+                onClick={() => Cadastrar()}
+              >
+                {/*TODO: Criar mensagem de produto criado com sucesso após cadastrar  */}
+                Cadastrar
+              </button>
+            </form>
           </div>
           <div className={!imagemCarregada ? "load-img" : "loaded-img"}>
             {!imagemCarregada && <BsUpload size="4rem" />}
