@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { PostProduto } from "../../controllers/crud.js";
 import { BiPlus } from "react-icons/bi";
 import { BiMinus } from "react-icons/bi";
-import { BiSubdirectoryRight } from "react-icons/bi";
 import { BsUpload } from "react-icons/bs";
 
 var limiter = 0;
@@ -21,8 +20,7 @@ const FormProduto = (props) => {
 
     categorias.push(document.getElementById("cat1").value);
     for (let i = 0; i < 6; i++) {
-      if (document.getElementById(i))
-        categorias.push(document.getElementById(i).value);
+      if (document.getElementById(i)) categorias.push(document.getElementById(i).value);
     }
 
     let produtoNovo = {
@@ -60,13 +58,7 @@ const FormProduto = (props) => {
     if (limiter < 6) {
       limiter++;
 
-      setInputs((oldArray) => [
-        ...oldArray,
-        <div className="extra-tag" id={limiter} key={limiter}>
-          <BiSubdirectoryRight size="1.4rem" className="enter-tag" />
-          <input key={limiter} type="text" id={limiter} required />
-        </div>,
-      ]);
+      setInputs((oldArray) => [...oldArray, <input key={limiter} type="text" id={limiter} />]);
     } else {
       alert("O Limite de categorias é 7");
     }
@@ -99,45 +91,29 @@ const FormProduto = (props) => {
         <h2>Cadastrar Produto</h2>
         <div className="card-grid">
           <div className="col-50 card-cell card-login">
-            <form className="card-form">
+            <div className="card-form">
               <label>Nome</label>
-              <input type="text" id="nome" name="name" required />
+              <input type="text" id="nome" />
               <label>Valor</label>
-              <input
-                type="number"
-                id="valor"
-                pattern="[0-9]*"
-                name="price"
-                required
-              />
+              <input type="number" id="valor" pattern="[0-9]*" />
               <label>Quantidade</label>
-              <input type="number" id="qty" name="qty" required />
+              <input type="number" id="qty" />
 
               <label>Marca</label>
-              <input type="text" id="marca" name="brand" required />
+              <input type="text" id="marca" />
               <div className="tag-div">
                 <label>Categoria</label>
-                <BiMinus
-                  size="1.4rem"
-                  className="less-tag"
-                  onClick={() => subTag()}
-                />
-                <BiPlus
-                  size="1.4rem"
-                  className="plus-tag"
-                  onClick={() => addTag()}
-                />
+                <BiMinus size="1.4rem" className="less-tag" onClick={() => subTag()} />
+                <BiPlus size="1.4rem" className="plus-tag" onClick={() => addTag()} />
               </div>
-              <input type="text" id="cat1" required />
+              <input type="text" id="cat1" />
               {inputs}
-              <button
-                className="card-form-button button-ghost"
-                onClick={() => Cadastrar()}
-              >
-                {/*TODO: Criar mensagem de produto criado com sucesso após cadastrar  */}
-                Cadastrar
-              </button>
-            </form>
+              {console.log(inputs)}
+            </div>
+            <button className="card-form-button button-ghost" onClick={() => Cadastrar()}>
+              {/*TODO: Criar mensagem de produto criado com sucesso após cadastrar  */}
+              Cadastrar
+            </button>
           </div>
           <div className={!imagemCarregada ? "load-img" : "loaded-img"}>
             {!imagemCarregada && <BsUpload size="4rem" />}
