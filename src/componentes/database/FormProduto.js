@@ -14,7 +14,9 @@ const FormProduto = (props) => {
   const [imagemNome, setImagemNome] = useState(); //Vetor de estados
   const [imagemCarregada, setImagemCarregada] = useState(false); //Vetor de estados
   const [imagemArquivo, setImagemArquivo] = useState(null); //Vetor de estados
-  async function Cadastrar() {
+
+  async function Cadastrar(e) {
+    e.preventDefault();
     setCadastrar(!cadastrar);
 
     let categorias = [];
@@ -24,16 +26,29 @@ const FormProduto = (props) => {
       if (document.getElementById("cat0" + i))
         categorias.push(document.getElementById("cat0" + i).value);
     }
+    const formData = new FormData();
+    formData.append("name", document.getElementById("nome").value);
+    formData.append("price", document.getElementById("valor").value);
+    formData.append("qty", document.getElementById("qty").value);
+    formData.append("brand", document.getElementById("marca").value);
+    formData.append("tags", categorias);
+    formData.append("img", imagemArquivo);
 
-    let produtoNovo = {
-      name: document.getElementById("nome").value,
-      price: document.getElementById("valor").value,
-      qty: document.getElementById("qty").value,
-      brand: document.getElementById("marca").value,
-      tags: categorias,
-      // img: imagemArquivo,
-    };
-    PostProduto("/products", produtoNovo);
+    // let produtoNovo = {
+    //   name: document.getElementById("nome").value,
+    //   price: document.getElementById("valor").value,
+    //   qty: document.getElementById("qty").value,
+    //   brand: document.getElementById("marca").value,
+    //   tags: categorias,
+    //   img: formData,
+    // };
+    console.log(imagemArquivo);
+    // PostProduto("/products", produtoNovo);
+    for (var key of formData.entries()) {
+      console.log(key[0] + ", " + key[1]);
+    }
+    // console.log(formData.entries());
+    PostProduto("/products/images", formData);
 
     limiter = 0;
     setInputs([]);
@@ -99,7 +114,7 @@ const FormProduto = (props) => {
         <h2>Cadastrar Produto</h2>
         <div className="card-grid">
           <div className="col-50 card-cell card-login">
-            <form className="card-form">
+            <form className="card-form" method="post" enctype="multipart/form-data">
               <label>Nome</label>
               <input type="text" id="nome" name="name" required autofocus />
               <label>Valor</label>
@@ -119,7 +134,7 @@ const FormProduto = (props) => {
               <button
                 type="submit"
                 className="card-form-button button-ghost"
-                onClick={() => Cadastrar()}
+                onClick={(e) => Cadastrar(e)}
               >
                 {/*TODO: Criar mensagem de produto criado com sucesso após cadastrar  */}
                 Cadastrar

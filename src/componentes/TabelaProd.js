@@ -78,7 +78,7 @@ export default function DataTable() {
   useEffect(() => {
     GetResposta("/products")
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         var tamanho = Object.keys(result).length;
 
         for (let i = 0; i < tamanho; i++)
@@ -100,14 +100,8 @@ export default function DataTable() {
 
   return (
     <div style={{ height: "80vh", width: "100%" }}>
-      {console.log(rows)}
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        pageSize={5}
-        checkboxSelection
-        disableSelectionOnClick
-      />
+      {/* {console.log(rows)} */}
+      <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection disableSelectionOnClick />
     </div>
   );
 }
