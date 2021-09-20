@@ -52,7 +52,7 @@ const ListProdutos = () => {
             </button>
           </div>
           <div className="img">
-            <img src={props.value.img}></img>
+            <img src={props.value.img} className="img1"></img>
             {/* <img src={`data:image/jpeg;base64,${props.value.img.data}`}></img> */}
             {console.log("<___>")}
             {console.log(props.value.img)}
