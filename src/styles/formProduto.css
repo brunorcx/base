@@ -30,6 +30,7 @@ input[type="number"] {
 }
 .extra-tag {
   display: flex;
+  width: 100%;
   justify-content: space-between;
 }
 
