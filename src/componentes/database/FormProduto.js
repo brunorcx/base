@@ -1,10 +1,11 @@
 import "../../styles/formProduto.css";
 import { useState, useEffect } from "react";
-import { PostProduto } from "../../controllers/crud.js";
+import { PostProduto, GetResposta } from "../../controllers/crud.js";
 import { BiPlus } from "react-icons/bi";
 import { BiMinus } from "react-icons/bi";
 import { BsUpload } from "react-icons/bs";
 import { BiSubdirectoryRight } from "react-icons/bi";
+import imageCompression from "browser-image-compression";
 
 var limiter = 0;
 const FormProduto = (props) => {
@@ -17,6 +18,7 @@ const FormProduto = (props) => {
 
   async function Cadastrar(e) {
     e.preventDefault();
+
     setCadastrar(!cadastrar);
 
     let categorias = [];
@@ -32,7 +34,29 @@ const FormProduto = (props) => {
     formData.append("qty", document.getElementById("qty").value);
     formData.append("brand", document.getElementById("marca").value);
     formData.append("tags", categorias);
-    formData.append("img", imagemArquivo);
+    const imageCompressed = await ImageCompression(imagemArquivo);
+    formData.append("img", imageCompressed);
+    // formData.append("img", imagemArquivo);
+    //COMEÇA AQUI
+    // const imageFile = imagemArquivo;
+    // console.log("originalFile instanceof Blob", imageFile instanceof Blob); // true
+    // console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
+
+    // const options = {
+    //   maxSizeMB: 1,
+    //   maxWidthOrHeight: 1024,
+    //   useWebWorker: true,
+    // };
+    // try {
+    //   const compressedFile = await imageCompression(imageFile, options);
+    //   console.log("compressedFile instanceof Blob", compressedFile instanceof Blob); // true
+    //   console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
+
+    //   formData.append("img", compressedFile);
+    // } catch (error) {
+    //   console.log(error);
+    // }
+    //TERMINA AQUI
 
     // let produtoNovo = {
     //   name: document.getElementById("nome").value,
@@ -52,6 +76,8 @@ const FormProduto = (props) => {
 
     limiter = 0;
     setInputs([]);
+    console.log(props.produtoCriado);
+    await props.produtoCriadoF(!props.produtoCriado);
   }
 
   var formProdutoStyle;
@@ -106,6 +132,28 @@ const FormProduto = (props) => {
     setImagemArquivo(e.target.files[0]);
     setImagemNome(URL.createObjectURL(e.target.files[0]));
     setImagemCarregada(true);
+  }
+
+  async function ImageCompression(image) {
+    const imageFile = image;
+    // const imageFile = imagemArquivo;
+    console.log("originalFile instanceof Blob", imageFile instanceof Blob); // true
+    console.log(`originalFile size ${imageFile.size / 1024 / 1024} MB`);
+
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 1024,
+      useWebWorker: true,
+    };
+    try {
+      const compressedFile = await imageCompression(imageFile, options);
+      console.log("compressedFile instanceof Blob", compressedFile instanceof Blob); // true
+      console.log(`compressedFile size ${compressedFile.size / 1024 / 1024} MB`); // smaller than maxSizeMB
+
+      return compressedFile;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (

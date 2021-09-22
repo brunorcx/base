@@ -12,6 +12,8 @@ export interface CadastroProdutoProps {}
 
 const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
   const [criarProduto, setCriarProduto] = useState(false); //Valor dentro da função é valor inicial da variável
+  const [produtoCriado, setProdutoCriado] = useState(false);
+  console.log(produtoCriado);
 
   useEffect(() => {
     if (criarProduto) {
@@ -24,6 +26,9 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
     }
   }, [criarProduto]); // Apenas re-execute o efeito quando o count mudar
 
+  useEffect(() => {
+    console.log(produtoCriado);
+  }, [produtoCriado]);
   return (
     <div>
       <Navbar />
@@ -56,7 +61,11 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
         </div>
       </div>
       {/* {criarProduto && <FormProduto novoProduto={criarProduto} />} */}
-      <FormProduto novoProduto={criarProduto} />
+      <FormProduto
+        novoProduto={criarProduto}
+        produtoCriadoF={setProdutoCriado}
+        produtoCriado={produtoCriado}
+      />
 
       {criarProduto && (
         <div className="background_cadastro" onClick={() => setCriarProduto(!criarProduto)} />
