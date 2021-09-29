@@ -11,9 +11,15 @@ function Routes() {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/Produtos" exact component={Produtos} />
+        <Route path="/Produtos" exact component={Produtos}></Route>
+        <Route
+          path="/Produto"
+          exact
+          render={(props) => (
+            <Produto {...props} />
+          )} /*TODO https://www.youtube.com/watch?v=VD7ojK3deWE */
+        />
         <Route path="/Usuarios" exact component={Usuarios} />
-        <Route path="/Produto" exact component={Produto} />
         <Route path="/CadastroProdutos" exact component={CProduto} />
         {/* <Route path="/pagina2" component={Pagina2}> */}
       </Switch>
