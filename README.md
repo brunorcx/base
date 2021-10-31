@@ -96,14 +96,14 @@ git push origin --delete remoteBranchName
 * [ ] Criar página de cadastro de usuários e produtos
 * [ ] Implementar busca produtos
 * [ ] Redirecionar após clicar nas propagandas do Home
-* [ ] Salvar imagens no banco
+* [x] Salvar imagens no banco
 * [ ] Conectar Versel com back-end
-* [ ] Reduzir 50% da segunda navbar em altura(Olhar tamanho de texto), colocar imagem igual da amazom no nosso Home
+* [x] Reduzir 50% da segunda navbar em altura(Olhar tamanho de texto), colocar imagem igual da amazom no nosso Home
 * [ ] Criar banners(propagandas) de rolagem para direita/esquerda conforme site da amazon no nosso Home
 * [ ] Criar página de produtos principais(mínimo 3, olhar segundo link exemplo desodorante)
-* [ ] Reduzir margens laterais em todas as páginas
+* [x] Reduzir margens laterais em todas as páginas
 * [ ] Criar tema escuro
-* [ ] Olhar Amazon S3 para armazenar imagens e usar o url no mongoDB
+* [x] Olhar Amazon S3 para armazenar imagens e usar o url no mongoDB
 
 
 # Bugs
