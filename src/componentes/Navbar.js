@@ -77,13 +77,13 @@ export class Navbar extends Component {
           <div className="logo">
             <FaReact size="2rem" color="#1e5bc6" />
           </div>
-
+          {/* 
           <div id="div-search" className="div-search">
             <input type="text" className="search" placeholder="Search"></input>
           </div>
           <div className="lupa">
             <BsSearch className="lupa-icon" size="1.5rem" color="#fff" />
-          </div>
+          </div> */}
           <div className="navDireita">
             <div className="div-user">
               <HiOutlineUser className="user-icon" size="2rem" />
