@@ -1,5 +1,5 @@
 import { Navbar } from "../componentes/Navbar";
-import { Sidebar } from "../componentes/Sidebar";
+import Sidebar from "../componentes/Sidebar";
 import ListProdutos from "../componentes/ListProdutos";
 import { Footer } from "../componentes/Footer";
 import "../styles/produtos.css";
