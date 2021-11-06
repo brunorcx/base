@@ -42,33 +42,6 @@ const ListProdutos = () => {
       })
       .catch((err) => {});
     //Carregar lista de categorias do back
-    //COPIAR AQUI
-    GetResposta("/products/tags")
-      .then((result) => {
-        var categorias = [];
-        result.forEach((element) => {
-          categorias.push(element);
-          var categoriaMultipla;
-          var index = element.indexOf(","); //Retorna -1 se não encontra
-          if (index !== -1) {
-            //Contains
-            var indexAnt;
-            categoriaMultipla = categorias.pop();
-            while (index !== -1) {
-              categorias.push(categoriaMultipla.substring(0, index));
-              categoriaMultipla = categoriaMultipla.substring(index + 1, categoriaMultipla.length);
-              indexAnt = index;
-              index = categoriaMultipla.indexOf(","); //Retorna -1 se não encontra
-            }
-            categorias.push(categoriaMultipla);
-            categorias = [...new Set(categorias)]; //remover itens duplicados
-            console.log(categorias);
-          }
-        });
-        console.log(result);
-      })
-      .catch((err) => {});
-    //COPIAR ATÉ AQUI
   }, []);
   //Função que renderiza o objeto individual
   function ListItem(props) {
