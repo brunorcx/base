@@ -25,20 +25,27 @@ const Sidebar = (props) => {
             categorias.push(categoriaMultipla);
             categorias = [...new Set(categorias)]; //remover itens duplicados
             setCategorias(categorias);
-            console.log(categorias);
+            // console.log(categorias);
           }
         });
-        console.log(result);
+        // console.log(result);
       })
       .catch((err) => {});
   }, []);
 
+  //Função para pegar checkboxes marcados
+  function handleChange(e) {
+    let isChecked = e.target.checked;
+    console.log("Foi checado " + isChecked);
+    console.log("id é:" + e.target.id);
+    // do whatever you want with isChecked value
+  }
   //Aqui é onde as informações do banco são organizadas
   function CategoryList(props) {
     const categorias = props.categorias;
     const listCategories = categorias.map((category) => (
       <li key={category.toString()}>
-        <input type="checkbox" id={category.toString()} />
+        <input type="checkbox" id={category.toString()} onChange={(e) => handleChange(e)} />
         {category}
       </li>
     ));
@@ -53,7 +60,7 @@ const Sidebar = (props) => {
     <div className="sidebar">
       {/* Chama a Navbar para Rednderizar nesta pagina e nesta posição */}
       <div>
-        <p>Marcas</p>
+        <p>Categorias</p>
         <CategoryList categorias={categorias} />
       </div>
 
