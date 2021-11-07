@@ -5,7 +5,7 @@ import { GetResposta } from "../controllers/crud";
 import "../styles/listProdutos.css";
 import { Link } from "react-router-dom";
 
-const ListProdutos = () => {
+const ListProdutos = (props) => {
   const products = [
     {
       id: 0,

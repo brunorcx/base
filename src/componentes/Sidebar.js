@@ -1,9 +1,10 @@
 import "../styles/sidebar.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { GetResposta } from "../controllers/crud";
 
 const Sidebar = (props) => {
   const [categorias, setCategorias] = useState([]);
+
   useEffect(() => {
     GetResposta("/products/tags")
       .then((result) => {
@@ -34,18 +35,28 @@ const Sidebar = (props) => {
   }, []);
 
   //Função para pegar checkboxes marcados
-  function handleChange(e) {
-    let isChecked = e.target.checked;
-    console.log("Foi checado " + isChecked);
-    console.log("id é:" + e.target.id);
-    // do whatever you want with isChecked value
-  }
+  const handleChange = (e) => {
+    var id = e.target.id;
+    var isChecked = e.target.checked;
+
+    // document.getElementById(id)
+    console.log(isChecked);
+    console.log(id);
+    const checkbox = {
+      id: id,
+      isChecked: isChecked,
+    };
+    // props.categoriaCheckboxFunc(checkbox);
+
+    // checkboxRef.current.checked = true;
+    // setCheckbox(checkbox);
+  };
   //Aqui é onde as informações do banco são organizadas
   function CategoryList(props) {
     const categorias = props.categorias;
-    const listCategories = categorias.map((category) => (
+    const listCategories = categorias.map((category, index) => (
       <li key={category.toString()}>
-        <input type="checkbox" id={category.toString()} onChange={(e) => handleChange(e)} />
+        <input type="checkbox" id={category.toString()} onClick={(e) => handleChange(e)} />
         {category}
       </li>
     ));

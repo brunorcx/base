@@ -3,22 +3,23 @@ import Sidebar from "../componentes/Sidebar";
 import ListProdutos from "../componentes/ListProdutos";
 import { Footer } from "../componentes/Footer";
 import "../styles/produtos.css";
-import React, { Component } from "react";
+import React, { useState, Component } from "react";
 
-export class Produtos extends Component {
-  render() {
-    return (
-      <div>
-        <Navbar className="navbar-p" />
+export interface ProdutosProps {}
+const Produtos: React.FC<ProdutosProps> = () => {
+  const [categoriaCheckbox, setCategoriaCheckbox] = useState({});
 
-        <div className="corpo">
-          <Sidebar className="sidebar-p" />
-          <ListProdutos />
-        </div>
-        <Footer className="footer-p" />
+  return (
+    <div>
+      <Navbar className="navbar-p" />
+
+      <div className="corpo">
+        <Sidebar categoriaCheckbox={categoriaCheckbox} categoriaCheckboxFunc={setCategoriaCheckbox} />
+        <ListProdutos categoriaCheckbox={categoriaCheckbox} categoriaCheckboxFunc={setCategoriaCheckbox} />
       </div>
-    );
-  }
-}
+      <Footer className="footer-p" />
+    </div>
+  );
+};
 
 export default Produtos;
