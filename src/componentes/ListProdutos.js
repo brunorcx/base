@@ -6,6 +6,7 @@ import "../styles/listProdutos.css";
 import { Link } from "react-router-dom";
 
 const ListProdutos = (props) => {
+  console.log(props.categoriaCheckbox);
   const products = [
     {
       id: 0,
@@ -50,22 +51,29 @@ const ListProdutos = (props) => {
         <li className="produtosLI">
           <div className="btn-div">
             <button className="btn">
-              <RiHeartAddLine className="btn-icon" size="1.5rem" color="#ff2724" />
+              <RiHeartAddLine
+                className="btn-icon"
+                size="1.5rem"
+                color="#ff2724"
+              />
             </button>
           </div>
           <div className="img">
             <img src={props.value.img} className="img1"></img>
-            {/* <img src={`data:image/jpeg;base64,${props.value.img.data}`}></img> */}
-            {console.log("<___>")}
-            {console.log(props.value.img)}
           </div>
           <div className="description">Descrição {props.value.name}</div>
           <div className="price">R$ {props.value.price}</div>
-          {console.log(props.value.tags)}
         </li>
       </Link>
     );
   }
+
+  useEffect(() => {
+    console.log("Props: " + props.categoriaCheckbox.id);
+    // products2.map((product, index) => (
+    //   if(product.tags === props.categoriaCheckbox[index]) {}
+    // ))
+  }, [props.categoriaCheckbox]);
 
   //função que percorre o vetor
   function NumberList(props) {
