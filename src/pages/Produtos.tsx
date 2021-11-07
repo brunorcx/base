@@ -8,14 +8,15 @@ import React, { useState, Component } from "react";
 export interface ProdutosProps {}
 const Produtos: React.FC<ProdutosProps> = () => {
   const [categoriaCheckbox, setCategoriaCheckbox] = useState({});
+  console.log(categoriaCheckbox);
 
   return (
     <div>
       <Navbar className="navbar-p" />
 
       <div className="corpo">
-        <Sidebar categoriaCheckbox={categoriaCheckbox} categoriaCheckboxFunc={setCategoriaCheckbox} />
-        <ListProdutos categoriaCheckbox={categoriaCheckbox} categoriaCheckboxFunc={setCategoriaCheckbox} />
+        <Sidebar categoriaCheckboxFunc={setCategoriaCheckbox} />
+        <ListProdutos categoriaCheckbox={categoriaCheckbox} />
       </div>
       <Footer className="footer-p" />
     </div>

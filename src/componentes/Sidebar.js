@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { GetResposta } from "../controllers/crud";
 
 const Sidebar = (props) => {
+  const [checkedItems, setCheckedItems] = useState({});
   const [categorias, setCategorias] = useState([]);
 
   useEffect(() => {
@@ -19,12 +20,16 @@ const Sidebar = (props) => {
             categoriaMultipla = categorias.pop();
             while (index !== -1) {
               categorias.push(categoriaMultipla.substring(0, index));
-              categoriaMultipla = categoriaMultipla.substring(index + 1, categoriaMultipla.length);
+              categoriaMultipla = categoriaMultipla.substring(
+                index + 1,
+                categoriaMultipla.length
+              );
               indexAnt = index;
               index = categoriaMultipla.indexOf(","); //Retorna -1 se não encontra
             }
             categorias.push(categoriaMultipla);
             categorias = [...new Set(categorias)]; //remover itens duplicados
+
             setCategorias(categorias);
             // console.log(categorias);
           }
@@ -35,28 +40,27 @@ const Sidebar = (props) => {
   }, []);
 
   //Função para pegar checkboxes marcados
+
   const handleChange = (e) => {
-    var id = e.target.id;
-    var isChecked = e.target.checked;
-
-    // document.getElementById(id)
-    console.log(isChecked);
-    console.log(id);
-    const checkbox = {
-      id: id,
-      isChecked: isChecked,
-    };
-    // props.categoriaCheckboxFunc(checkbox);
-
-    // checkboxRef.current.checked = true;
-    // setCheckbox(checkbox);
+    setCheckedItems({ ...checkedItems, [e.target.id]: e.target.checked });
+    props.categoriaCheckboxFunc(checkedItems);
   };
+
+  useEffect(() => {
+    console.log(checkedItems);
+  }, [checkedItems]);
+
   //Aqui é onde as informações do banco são organizadas
   function CategoryList(props) {
     const categorias = props.categorias;
-    const listCategories = categorias.map((category, index) => (
+    const listCategories = categorias.map((category) => (
       <li key={category.toString()}>
-        <input type="checkbox" id={category.toString()} onClick={(e) => handleChange(e)} />
+        <input
+          type="checkbox"
+          id={category.toString()}
+          onChange={(e) => handleChange(e)}
+          checked={checkedItems[category]}
+        />
         {category}
       </li>
     ));
