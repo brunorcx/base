@@ -4,9 +4,9 @@ import { GetResposta } from "../controllers/crud";
 
 import "../styles/listProdutos.css";
 import { Link } from "react-router-dom";
+import Produto from "../pages/Produto";
 
 const ListProdutos = (props) => {
-  console.log(props.categoriaCheckbox);
   const products = [
     {
       id: 0,
@@ -14,8 +14,7 @@ const ListProdutos = (props) => {
       price: 5000,
       brand: "Sony",
       qty: 1,
-      img:
-        "https://carrefourbr.vtexassets.com/arquivos/ids/7647685-160-160?width=160&height=160&aspect=true",
+      img: "https://carrefourbr.vtexassets.com/arquivos/ids/7647685-160-160?width=160&height=160&aspect=true",
       tags: "eletrônico, informática",
     },
   ];
@@ -44,6 +43,24 @@ const ListProdutos = (props) => {
       .catch((err) => {});
     //Carregar lista de categorias do back
   }, []);
+
+  useEffect(() => {
+    let produtosFiltrados = [];
+    for (const categoriaID in props.categoriaCheckbox) {
+      for (const produto in products2) {
+        console.log("produto" + produto);
+        console.log("produtoID" + products2[produto].tags);
+        if (products2[produto].tags == categoriaID) {
+          produtosFiltrados.push(products2[produto]);
+        }
+      }
+      console.log(props.categoriaCheckbox[categoriaID]);
+      console.log(categoriaID);
+    }
+    if (produtosFiltrados.length !== 0) {
+      setProducts2(produtosFiltrados);
+    }
+  }, [props.categoriaCheckbox]);
   //Função que renderiza o objeto individual
   function ListItem(props) {
     return (
@@ -51,11 +68,7 @@ const ListProdutos = (props) => {
         <li className="produtosLI">
           <div className="btn-div">
             <button className="btn">
-              <RiHeartAddLine
-                className="btn-icon"
-                size="1.5rem"
-                color="#ff2724"
-              />
+              <RiHeartAddLine className="btn-icon" size="1.5rem" color="#ff2724" />
             </button>
           </div>
           <div className="img">
@@ -67,14 +80,6 @@ const ListProdutos = (props) => {
       </Link>
     );
   }
-
-  useEffect(() => {
-    console.log("Props: " + props.categoriaCheckbox.id);
-    // products2.map((product, index) => (
-    //   if(product.tags === props.categoriaCheckbox[index]) {}
-    // ))
-  }, [props.categoriaCheckbox]);
-
   //função que percorre o vetor
   function NumberList(props) {
     const products = props.products;

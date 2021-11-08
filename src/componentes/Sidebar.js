@@ -20,10 +20,7 @@ const Sidebar = (props) => {
             categoriaMultipla = categorias.pop();
             while (index !== -1) {
               categorias.push(categoriaMultipla.substring(0, index));
-              categoriaMultipla = categoriaMultipla.substring(
-                index + 1,
-                categoriaMultipla.length
-              );
+              categoriaMultipla = categoriaMultipla.substring(index + 1, categoriaMultipla.length);
               indexAnt = index;
               index = categoriaMultipla.indexOf(","); //Retorna -1 se não encontra
             }
@@ -43,11 +40,10 @@ const Sidebar = (props) => {
 
   const handleChange = (e) => {
     setCheckedItems({ ...checkedItems, [e.target.id]: e.target.checked });
-    props.categoriaCheckboxFunc(checkedItems);
   };
 
   useEffect(() => {
-    console.log(checkedItems);
+    props.categoriaCheckboxFunc(checkedItems);
   }, [checkedItems]);
 
   //Aqui é onde as informações do banco são organizadas

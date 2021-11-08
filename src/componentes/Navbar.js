@@ -51,12 +51,10 @@ export class Navbar extends Component {
     }
   }
   componentDidMount() {
-    console.log("Montando " + this.state.topo);
     window.onscroll = this.saiuDoTopo.bind(this);
   }
 
   componentWillUnmount() {
-    console.log("Tirando " + this.state.topo);
     window.onscroll = null;
   }
 
@@ -67,9 +65,7 @@ export class Navbar extends Component {
 
     let carrinho_class = this.state.aberto ? "carrinho-menu" : "carrinho-menu-fechado";
 
-    let background_cart = this.state.aberto
-      ? "background-carrinho-dark"
-      : "background-carrinho-dark-fechado";
+    let background_cart = this.state.aberto ? "background-carrinho-dark" : "background-carrinho-dark-fechado";
 
     return (
       <header className="nav">

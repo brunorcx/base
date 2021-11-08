@@ -8,7 +8,6 @@ import React, { useState, Component } from "react";
 export interface ProdutosProps {}
 const Produtos: React.FC<ProdutosProps> = () => {
   const [categoriaCheckbox, setCategoriaCheckbox] = useState({});
-  console.log(categoriaCheckbox);
 
   return (
     <div>
