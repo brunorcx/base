@@ -19,7 +19,7 @@ const ListProdutos = (props) => {
     },
   ];
   const [products2, setProducts2] = useState(products);
-  const [produtosAtuais, setProdutosAtuais] = useState(null);
+  const [produtosAtuais, setProdutosAtuais] = useState([]);
   useEffect(() => {
     //Carregar lista de produtos do back
     GetResposta("/products")
@@ -47,14 +47,41 @@ const ListProdutos = (props) => {
 
   useEffect(() => {
     let produtosFiltrados = [];
+    let marcadoAnt = false;
     for (const categoriaID in props.categoriaCheckbox) {
       if (props.categoriaCheckbox[categoriaID]) {
         //Se categoria marcada(True)
-        for (const produto in products2) {
-          console.log("produto " + produto);
-          console.log("produtoID " + products2[produto].tags);
-          if (products2[produto].tags == categoriaID) {
-            produtosFiltrados.push(products2[produto]);
+        for (const produto of products2) {
+          console.log("produto " + produto.id);
+          console.log("produtoID " + produto.tags);
+          // console.log("produtoID " + products2[produto].tags);
+          let repetido;
+          if (produto.tags[0].indexOf(",") != -1) {
+            var strArray = produto.tags[0].split(",");
+            for (const palavra of strArray) {
+              if (palavra == categoriaID) {
+                repetido = false;
+                //não incluir produtos repetidos
+                for (const prod in produtosAtuais) {
+                  if (produtosAtuais[prod] === produto) {
+                    repetido = true;
+                    marcadoAnt = true;
+                    break;
+                  }
+                }
+                if (!repetido) produtosFiltrados.push(produto);
+                break;
+              }
+            }
+          } else if (produto.tags == categoriaID) {
+            repetido = false;
+            for (const prod in produtosAtuais) {
+              if (produtosAtuais[prod] === produto) {
+                repetido = true;
+                break;
+              }
+            }
+            if (!repetido) produtosFiltrados.push(produto);
           }
         }
       }
@@ -62,9 +89,15 @@ const ListProdutos = (props) => {
       console.log(categoriaID);
     }
     if (produtosFiltrados.length !== 0) {
-      setProdutosAtuais(produtosFiltrados);
+      if (produtosAtuais !== null) {
+        for (const prod of produtosFiltrados) {
+          setProdutosAtuais((old) => [...old, prod]);
+        }
+      } else {
+        setProdutosAtuais(produtosFiltrados);
+      }
       // setProducts2(produtosFiltrados);
-    } else {
+    } else if (!marcadoAnt) {
       setProdutosAtuais(null);
     }
   }, [props.categoriaCheckbox]);
