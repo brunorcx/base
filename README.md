@@ -75,7 +75,11 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 git branch -d localBranchName
 ### Deletar branch remoto
 git push origin --delete remoteBranchName
-
+### Esperar uma variável ficar pronta
+É preciso que a variável fica dentro de um useEffect para esperar o resultado dela usando hooks:
+  useEffect(() => {
+   FunçãoFazendoAlgo(Item);
+  }, [variávelModificada]);
 # Código node
 ### Para carregador as dependências do nodejs basta usar o comando
 	npm install
