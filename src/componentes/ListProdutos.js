@@ -19,6 +19,7 @@ const ListProdutos = (props) => {
     },
   ];
   const [products2, setProducts2] = useState(products);
+  const [produtosAtuais, setProdutosAtuais] = useState(null);
   useEffect(() => {
     //Carregar lista de produtos do back
     GetResposta("/products")
@@ -47,18 +48,24 @@ const ListProdutos = (props) => {
   useEffect(() => {
     let produtosFiltrados = [];
     for (const categoriaID in props.categoriaCheckbox) {
-      for (const produto in products2) {
-        console.log("produto" + produto);
-        console.log("produtoID" + products2[produto].tags);
-        if (products2[produto].tags == categoriaID) {
-          produtosFiltrados.push(products2[produto]);
+      if (props.categoriaCheckbox[categoriaID]) {
+        //Se categoria marcada(True)
+        for (const produto in products2) {
+          console.log("produto " + produto);
+          console.log("produtoID " + products2[produto].tags);
+          if (products2[produto].tags == categoriaID) {
+            produtosFiltrados.push(products2[produto]);
+          }
         }
       }
       console.log(props.categoriaCheckbox[categoriaID]);
       console.log(categoriaID);
     }
     if (produtosFiltrados.length !== 0) {
-      setProducts2(produtosFiltrados);
+      setProdutosAtuais(produtosFiltrados);
+      // setProducts2(produtosFiltrados);
+    } else {
+      setProdutosAtuais(null);
     }
   }, [props.categoriaCheckbox]);
   //Função que renderiza o objeto individual
@@ -95,7 +102,7 @@ const ListProdutos = (props) => {
   return (
     <div className="total-list">
       <div className="propaganda">PROPAGANDA</div>
-      <NumberList products={products2} />
+      <NumberList products={produtosAtuais ? produtosAtuais : products2} />
     </div>
   );
 };
