@@ -91,9 +91,9 @@ const ListProdutos = (props) => {
         //retirar categoria marcada
         //Retirar produtos
         for (const produto of produtosAtuais) {
-          for (const categoriaID in props.categoriaCheckbox) {
-            if (props.categoriaCheckbox[categoriaID]) {
-              if (produto.tags == categoriaID) {
+          for (const cateID in props.categoriaCheckbox) {
+            if (props.categoriaCheckbox[cateID]) {
+              if (produto.tags == cateID) {
                 prodRemovidos.push(produto);
               }
             }
@@ -101,6 +101,7 @@ const ListProdutos = (props) => {
         }
         if (prodRemovidos.length !== 0) {
           marcadoAnt = true;
+          prodRemovidos = [...new Set(prodRemovidos)];
           setProdutosAtuais(prodRemovidos);
         }
         //Não alterar produtos atuais
