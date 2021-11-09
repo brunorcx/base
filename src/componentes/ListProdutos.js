@@ -48,6 +48,9 @@ const ListProdutos = (props) => {
   useEffect(() => {
     let produtosFiltrados = [];
     let marcadoAnt = false;
+    let prodRemovidos = [];
+
+    //Acrescentar produtos
     for (const categoriaID in props.categoriaCheckbox) {
       if (props.categoriaCheckbox[categoriaID]) {
         //Se categoria marcada(True)
@@ -84,14 +87,48 @@ const ListProdutos = (props) => {
             if (!repetido) produtosFiltrados.push(produto);
           }
         }
+      } else if (props.categoriaCheckbox[categoriaID] === false && produtosAtuais != null) {
+        //retirar categoria marcada
+        //Retirar produtos
+        for (const produto of produtosAtuais) {
+          for (const categoriaID in props.categoriaCheckbox) {
+            if (props.categoriaCheckbox[categoriaID]) {
+              if (produto.tags == categoriaID) {
+                prodRemovidos.push(produto);
+              }
+            }
+          }
+        }
+        if (prodRemovidos.length !== 0) {
+          marcadoAnt = true;
+          setProdutosAtuais(prodRemovidos);
+        }
+        //Não alterar produtos atuais
+        // let prodRemovidos = [];
+        // for (const produto of produtosAtuais) {
+        //   if (produto.tags != categoriaID) {
+        //     prodRemovidos.push(produto);
+        //   }
+        // }
+        // for (const marcado in props.categoriaCheckbox) {
+        //   if (props.categoriaCheckbox[marcado]) {
+        //     marcadoAnt = true;
+        //     break;
+        //   }
+        // }
+        // setProdutosAtuais(prodRemovidos);
+        // setProdutosAtuais(produtosAtuais.filter((item) => item.tags !== categoriaID));
       }
       console.log(props.categoriaCheckbox[categoriaID]);
       console.log(categoriaID);
     }
+
     if (produtosFiltrados.length !== 0) {
       if (produtosAtuais !== null) {
-        for (const prod of produtosFiltrados) {
-          setProdutosAtuais((old) => [...old, prod]);
+        if (produtosFiltrados !== prodRemovidos) {
+          for (const prod of produtosFiltrados) {
+            setProdutosAtuais((old) => [...old, prod]);
+          }
         }
       } else {
         setProdutosAtuais(produtosFiltrados);
