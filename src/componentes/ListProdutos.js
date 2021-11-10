@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { RiHeartAddLine } from "react-icons/ri";
 import { GetResposta } from "../controllers/crud";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import "../styles/listProdutos.css";
 import { Link } from "react-router-dom";
@@ -30,7 +31,7 @@ const ListProdutos = (props) => {
           setProducts2((oldArray) => [
             ...oldArray,
             {
-              id: i + 1,
+              id: result[i]._id,
               name: result[i].name,
               price: result[i].price,
               brand: result[i].brand,
@@ -150,9 +151,9 @@ const ListProdutos = (props) => {
     }
   }, [props.categoriaCheckbox]);
   //Função que renderiza o objeto individual
-  function ListItem(props) {
+  function ListItem(produtos) {
     return (
-      <Link to="/Produto">
+      <Link to={"/Produto/" + produtos.value.id}>
         <li className="produtosLI">
           <div className="btn-div">
             <button className="btn">
@@ -160,17 +161,17 @@ const ListProdutos = (props) => {
             </button>
           </div>
           <div className="img">
-            <img src={props.value.img} className="img1"></img>
+            <img src={produtos.value.img} className="img1"></img>
           </div>
-          <div className="description">Descrição {props.value.name}</div>
-          <div className="price">R$ {props.value.price}</div>
+          <div className="description">Descrição {produtos.value.name}</div>
+          <div className="price">R$ {produtos.value.price}</div>
         </li>
       </Link>
     );
   }
   //função que percorre o vetor
-  function NumberList(props) {
-    const products = props.products;
+  function NumberList(produtos) {
+    const products = produtos.products;
     return (
       <ul className="produtosUL">
         {products.map((product) => (

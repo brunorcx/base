@@ -13,11 +13,9 @@ function Routes() {
         <Route path="/" exact component={Home} />
         <Route path="/Produtos" exact component={Produtos}></Route>
         <Route
-          path="/Produto"
+          path="/Produto/:id"
           exact
-          render={(props) => (
-            <Produto {...props} />
-          )} /*TODO https://www.youtube.com/watch?v=VD7ojK3deWE */
+          render={(props) => <Produto {...props} />} /*TODO https://www.youtube.com/watch?v=VD7ojK3deWE */
         />
         <Route path="/Usuarios" exact component={Usuarios} />
         <Route path="/CadastroProdutos" exact component={CProduto} />
