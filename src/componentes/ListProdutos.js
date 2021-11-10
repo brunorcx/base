@@ -53,7 +53,7 @@ const ListProdutos = (props) => {
     //Acrescentar produtos
     for (const categoriaID in props.categoriaCheckbox) {
       if (props.categoriaCheckbox[categoriaID]) {
-        //Se categoria marcada(True)
+        //Acrescentar categoria
         for (const produto of products2) {
           console.log("produto " + produto.id);
           console.log("produtoID " + produto.tags);
@@ -93,8 +93,18 @@ const ListProdutos = (props) => {
         for (const produto of produtosAtuais) {
           for (const cateID in props.categoriaCheckbox) {
             if (props.categoriaCheckbox[cateID]) {
-              if (produto.tags == cateID) {
-                prodRemovidos.push(produto);
+              if (produto.tags[0].indexOf(",") != -1) {
+                var strArray = produto.tags[0].split(",");
+                for (const cat of strArray) {
+                  if (cat == cateID) {
+                    prodRemovidos.push(produto);
+                    break;
+                  }
+                }
+              } else {
+                if (produto.tags == cateID) {
+                  prodRemovidos.push(produto);
+                }
               }
             }
           }
