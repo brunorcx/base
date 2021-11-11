@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import "../styles/navbar.css";
 import "../styles/carrinho-menu.css";
 import { FaReact } from "react-icons/fa";
@@ -10,32 +10,76 @@ import { Link } from "react-router-dom";
 import { Carrinho } from "./Carrinho";
 
 export class Navbar extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       aberto: false,
+      topo: true,
     };
+
+    this.refNavbar2 = React.createRef();
   }
+
+  //################### INICIO APARECER CARRINHO ####################
 
   abrirCarrinho() {
+    console.log(this.state.aberto);
     this.setState({ aberto: !this.state.aberto });
+    if (!this.state.aberto) {
+      // window.onscroll = null;
+      document.documentElement.style.overflow = "hidden";
+      document.body.scroll = "no"; //Internet Explorer
+    } else {
+      document.documentElement.style.overflow = "auto";
+      document.body.scroll = "yes"; //Internet Explorer
+    }
   }
 
+  //################### FIM APARECER CARRINHO ########################
+
+  //###################### INICIO TOPO SUMIR #########################
+
+  saiuDoTopo() {
+    //Verificar porquê window.pageYOffset dispara tantas vezes
+    if (window.pageYOffset === 0) {
+      this.setState({ topo: true });
+      this.refNavbar2.current.className = "navbar2";
+    } else if (window.pageYOffset >= 100) {
+      this.setState({ topo: false });
+      this.refNavbar2.current.className = "Sumir";
+    }
+  }
+  componentDidMount() {
+    window.onscroll = this.saiuDoTopo.bind(this);
+  }
+
+  componentWillUnmount() {
+    window.onscroll = null;
+  }
+
+  //######################## FIM SUMIR TOPO ##############################
+
   render() {
+    /* TERMINA AQUI*/
+
     let carrinho_class = this.state.aberto ? "carrinho-menu" : "carrinho-menu-fechado";
+
+    let background_cart = this.state.aberto ? "background-carrinho-dark" : "background-carrinho-dark-fechado";
+
     return (
       <header className="nav">
         <div className="navbar1">
           <div className="logo">
             <FaReact size="2rem" color="#1e5bc6" />
           </div>
+          {/* 
           <div id="div-search" className="div-search">
             <input type="text" className="search" placeholder="Search"></input>
           </div>
           <div className="lupa">
             <BsSearch className="lupa-icon" size="1.5rem" color="#fff" />
-          </div>
+          </div> */}
           <div className="navDireita">
             <div className="div-user">
               <HiOutlineUser className="user-icon" size="2rem" />
@@ -54,13 +98,16 @@ export class Navbar extends Component {
               </div>
             </div>
             <div className={carrinho_class}>
-              <Carrinho></Carrinho>
+              <Carrinho />
             </div>
           </div>
         </div>
+
+        <div className={background_cart} onClick={this.abrirCarrinho.bind(this)} />
+
         <div className="linha-horizontal" />
-        <div className="navbar2">
-          <AiOutlineMenu className="hamburguer" size="2rem" />
+        <div className="navbar2" ref={this.refNavbar2}>
+          {/* <AiOutlineMenu className="hamburguer" size="2rem" /> */}
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -69,10 +116,10 @@ export class Navbar extends Component {
               <Link to="/Produtos">Produtos</Link>
             </li>
             <li>
-              <Link to="/">Usuários</Link>
+              <Link to="/Usuarios">Usuários</Link>
             </li>
             <li>
-              <Link to="/">Contato</Link>
+              <Link to="/CadastroProdutos">Cadastrar Produtos</Link>
             </li>
           </ul>
         </div>

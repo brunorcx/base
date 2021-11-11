@@ -1,12 +1,16 @@
 .footer {
-  display: grid;
-  justify-content: center;
-  justify-items: center;
-  background-color: #00a1a1;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #1e5bc6;
   width: 100%;
+  margin: auto 0;
   margin-top: 1%;
 }
-.footer p {
-  margin: 3% 0 3%;
-  color: #fff;
+.footer div {
+  margin-top: 25px;
+}
+
+.direita {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }

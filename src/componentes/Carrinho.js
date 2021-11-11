@@ -11,7 +11,7 @@ export class Carrinho extends Component {
           Main area
           <ul>
             <li>
-              <img src="https://carrefourbr.vtexassets.com/arquivos/ids/12023333-150-auto?width=150&height=auto&aspect=true"></img>
+              <img src="https://carrefourbr.vtexassets.com/arquivos/ids/24030216-160-160?v=637692975683530000&width=160&height=160&aspect=true"></img>
               <div className="description">
                 <p>Nome item 1</p>
                 <p>R$ 200</p>

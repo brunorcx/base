@@ -1,0 +1,210 @@
+/*Tirar as setas do input number*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/*Tirar as setas FIM*/
+.formProdutoFechado {
+  color: #54504e;
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  background-color: white;
+  transition: 0.3s;
+  transform: scale(0.5);
+  position: absolute;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 10px #000000;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  visibility: hidden;
+  width: 50%;
+}
+.extra-tag {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.enter-tag {
+  color: #1e5bc6;
+}
+.formProdutoAberto {
+  color: #54504e;
+  z-index: 100;
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  box-shadow: 0 0 15px #000000;
+  background-color: white;
+  border-radius: 1%;
+  opacity: 100;
+  transition: 0.5s;
+  transform: scale(1);
+  position: absolute;
+  visibility: visible;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.7);
+  position: relative;
+  z-index: 99;
+  width: 80%;
+  margin: 2% auto;
+  text-align: center;
+}
+
+.card h2 {
+  color: #1e5bc6;
+  margin: 0;
+}
+
+.card-grid {
+  display: flex;
+  height: 65vh;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+.card-grid::-webkit-scrollbar {
+  width: 7px;
+}
+.card-grid::-webkit-scrollbar-track {
+  background: rgb(221, 221, 221);
+}
+
+.card-grid::-webkit-scrollbar-thumb {
+  background-color: rgb(200, 200, 200);
+  border-radius: 15px;
+  /* border: 2px solid orange; */
+}
+
+.col-50 {
+  width: 50%;
+}
+
+.load-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  border: 1px dashed #1e5bc6;
+  border-radius: 15px;
+  /* outline: 2px dashed #1e5bc6; */
+}
+.load-img:hover {
+  background: rgb(241, 241, 241);
+  cursor: pointer;
+}
+
+.loaded-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  border-radius: 15px;
+  border: none;
+
+  /* outline: 2px dashed #1e5bc6; */
+}
+
+.inputImagem {
+  position: absolute;
+  height: 90%;
+  opacity: 0;
+  cursor: pointer;
+}
+.imgPreview {
+  width: 100%;
+  /* height: 50%; */
+}
+.card-cell {
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
+.card-form {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 2em;
+  text-align: left;
+}
+.card-form input {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #bab6b4;
+  padding: 5px;
+  font-size: 1em;
+  margin-bottom: 15px;
+  width: 100%;
+}
+.card-form input:focus {
+  outline: none;
+  border-bottom: 2px solid #1e5bc6;
+}
+
+.card-form-button {
+  background: #1e5bc6;
+  border: none;
+  border-radius: 25px;
+  color: #ffffff;
+  padding: 15px 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 300;
+  cursor: pointer;
+  /* transition: all 300ms; */
+}
+.card-form-button:hover {
+  background: #1e5bc6;
+}
+.card-form-button:focus {
+  outline: none;
+}
+
+.tag-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.plus-tag {
+  color: #1e5bc6;
+}
+
+.plus-tag:hover {
+  cursor: pointer;
+}
+
+.less-tag {
+  color: #1e5bc6;
+}
+.less-tag:hover {
+  cursor: pointer;
+}
+
+.button-ghost {
+  background: transparent;
+  color: #1e5bc6;
+  border: 2px solid #1e5bc6;
+}
+.button-ghost:hover {
+  color: #ffffff;
+}

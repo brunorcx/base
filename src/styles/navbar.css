@@ -5,6 +5,7 @@ header {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  z-index: 100;
 }
 
 .navbar1 {
@@ -18,15 +19,19 @@ header {
 .linha-horizontal {
   height: unset;
   width: 100wv;
-  border-top: 0.2rem solid #e6e6e6;
+  border-top: 0.15rem solid #e6e6e6;
 }
 
 .navbar2 {
   background-color: #ffffff;
   margin: 0 5% 0;
+  justify-content: center;
   display: flex;
   align-items: center;
-  flex: 1;
+  flex: 1 0 30px;
+  font-size: 15px;
+  opacity: 1;
+  transition: visibility 0.3s linear, opacity 1s ease-in;
 }
 
 .logo {
@@ -101,15 +106,19 @@ header {
 .navbar2 ul {
   display: flex;
   margin: 0;
+
   padding: 0;
 }
 
 .navbar2 li {
   align-self: center;
-  padding: 0.5rem 1rem 1rem;
+  padding: 0.25rem 1rem 0.5rem;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   margin-top: 0.2rem;
+}
+.navbar2 li a {
+  text-decoration: none;
 }
 
 .navbar2 li:hover {
@@ -129,6 +138,8 @@ header {
 .grudar {
   position: fixed;
 }
+
+/* START CARRINHO */
 .carrinho-img {
   margin-left: auto;
   margin-right: 0;
@@ -139,6 +150,37 @@ header {
 .carrinhoCompra:hover {
   color: #8faad8;
   cursor: pointer;
+}
+.background-carrinho-dark {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+  transition: 0.5s;
+  background-color: rgb(0, 0, 0);
+  visibility: visible;
+}
+.background-carrinho-dark-fechado {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  opacity: 0;
+  transition: 0.5s;
+  visibility: hidden;
+}
+/* END CARRINHO */
+
+.Sumir {
+  display: flex;
+  transition: visibility 0.3s linear, opacity 1s ease-out;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
@@ -157,13 +199,19 @@ header {
     justify-content: center;
     padding: 0;
   }
+  .navbar1 {
+    margin: 0 1% 0;
+  }
   .navbar1 #div-search {
-    width: 85vw;
+    width: 80%;
   }
   .div-user {
     display: none;
   }
 
+  .navDireita {
+    width: 7%;
+  }
   .user-icon {
     width: 100%;
   }

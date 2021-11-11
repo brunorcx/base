@@ -1,112 +1,191 @@
-import React, { Component } from "react";
+import { useState, useEffect } from "react";
 import { RiHeartAddLine } from "react-icons/ri";
+import { GetResposta } from "../controllers/crud";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
 import "../styles/listProdutos.css";
 import { Link } from "react-router-dom";
+import Produto from "../pages/Produto";
 
-//Função que renderiza o objeto individual
-function ListItem(props) {
-  return (
-    <Link to="/Produto">
-      <li className="produtosLI">
-        <div className="btn-div">
-          <button className="btn">
-            <RiHeartAddLine
-              className="btn-icon"
-              size="1.5rem"
-              color="#ff2724"
-            />
-          </button>
-        </div>
-        <div className="img">
-          <img src={props.value.img}></img>
-        </div>
-        <div className="description">Descrição {props.value.description}</div>
-        <div className="price">R$ {props.value.price}</div>
-      </li>
-    </Link>
-  );
-}
-//função que percorre o vetor
-function NumberList(props) {
-  const products = props.products;
-  return (
-    <ul className="produtosUL">
-      {products.map((product) => (
-        <ListItem key={product.id} value={product} />
-      ))}
-    </ul>
-  );
-}
-// Um vetor de Objetos que é passado para uma função que irá percorer
-const products = [
-  {
-    id: "01",
-    img:
-      "https://carrefourbr.vtexassets.com/arquivos/ids/7647685-160-160?width=160&height=160&aspect=true",
-    description: "description 01",
-    price: "55,99",
-  },
-  {
-    id: "02",
-    img:
-      "https://carrefourbr.vtexassets.com/arquivos/ids/6090814-160-160?width=160&height=160&aspect=true",
-    description: "description 02",
-    price: "100,00",
-  },
-  {
-    id: "03",
-    img:
-      "https://carrefourbr.vtexassets.com/arquivos/ids/11071831-160-160?width=160&height=160&aspect=true",
-    description: "description 03",
-    price: "150,00",
-  },
-  {
-    id: "04",
-    img:
-      "https://carrefourbr.vtexassets.com/arquivos/ids/6065545-160-160?width=160&height=160&aspect=true",
-    description: "description 04",
-    price: "200,00",
-  },
-  {
-    id: "05",
-    img:
-      "https://carrefourbr.vtexassets.com/arquivos/ids/7737029-160-160?width=160&height=160&aspect=true",
-    description: "description 05",
-    price: "250,00",
-  },
-  {
-    id: "06",
-    img:
-      "https://carrefourbr.vtexassets.com/arquivos/ids/12389585-160-160?width=160&height=160&aspect=true",
-    description: "description 06",
-    price: "300,00",
-  },
-];
+const ListProdutos = (props) => {
+  const products = [
+    {
+      id: 0,
+      name: "Playstation 5",
+      price: 5000,
+      brand: "Sony",
+      qty: 1,
+      img: "https://carrefourbr.vtexassets.com/arquivos/ids/7647685-160-160?width=160&height=160&aspect=true",
+      tags: "eletrônico, informática",
+    },
+  ];
+  const [products2, setProducts2] = useState(products);
+  const [produtosAtuais, setProdutosAtuais] = useState([]);
+  useEffect(() => {
+    //Carregar lista de produtos do back
+    GetResposta("/products")
+      .then((result) => {
+        var tamanho = Object.keys(result).length;
 
-export class ListProdutos extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { apiResponse: "" };
-  }
+        for (let i = 0; i < tamanho; i++) {
+          setProducts2((oldArray) => [
+            ...oldArray,
+            {
+              id: result[i]._id,
+              name: result[i].name,
+              price: result[i].price,
+              brand: result[i].brand,
+              qty: result[i].qty,
+              tags: result[i].tags,
+              img: result[i].img,
+            },
+          ]);
+        }
+      })
+      .catch((err) => {});
+    //Carregar lista de categorias do back
+  }, []);
 
-  callAPI() {
-    fetch("http://localhost:3030")
-      .then((res) => res.text())
-      .then((res) => this.setState({ apiResponse: res }));
-  }
+  useEffect(() => {
+    let produtosFiltrados = [];
+    let marcadoAnt = false;
+    let prodRemovidos = [];
 
-  componentWillMount() {
-    this.callAPI();
-  }
-  render() {
+    //Acrescentar produtos
+    for (const categoriaID in props.categoriaCheckbox) {
+      if (props.categoriaCheckbox[categoriaID]) {
+        //Acrescentar categoria
+        for (const produto of products2) {
+          console.log("produto " + produto.id);
+          console.log("produtoID " + produto.tags);
+          // console.log("produtoID " + products2[produto].tags);
+          let repetido;
+          if (produto.tags[0].indexOf(",") != -1) {
+            var strArray = produto.tags[0].split(",");
+            for (const palavra of strArray) {
+              if (palavra == categoriaID) {
+                repetido = false;
+                //não incluir produtos repetidos
+                for (const prod in produtosAtuais) {
+                  if (produtosAtuais[prod] === produto) {
+                    repetido = true;
+                    marcadoAnt = true;
+                    break;
+                  }
+                }
+                if (!repetido) produtosFiltrados.push(produto);
+                break;
+              }
+            }
+          } else if (produto.tags == categoriaID) {
+            repetido = false;
+            for (const prod in produtosAtuais) {
+              if (produtosAtuais[prod] === produto) {
+                repetido = true;
+                break;
+              }
+            }
+            if (!repetido) produtosFiltrados.push(produto);
+          }
+        }
+      } else if (props.categoriaCheckbox[categoriaID] === false && produtosAtuais != null) {
+        //retirar categoria marcada
+        //Retirar produtos
+        for (const produto of produtosAtuais) {
+          for (const cateID in props.categoriaCheckbox) {
+            if (props.categoriaCheckbox[cateID]) {
+              if (produto.tags[0].indexOf(",") != -1) {
+                var strArray = produto.tags[0].split(",");
+                for (const cat of strArray) {
+                  if (cat == cateID) {
+                    prodRemovidos.push(produto);
+                    break;
+                  }
+                }
+              } else {
+                if (produto.tags == cateID) {
+                  prodRemovidos.push(produto);
+                }
+              }
+            }
+          }
+        }
+        if (prodRemovidos.length !== 0) {
+          marcadoAnt = true;
+          prodRemovidos = [...new Set(prodRemovidos)];
+          setProdutosAtuais(prodRemovidos);
+        }
+        //Não alterar produtos atuais
+        // let prodRemovidos = [];
+        // for (const produto of produtosAtuais) {
+        //   if (produto.tags != categoriaID) {
+        //     prodRemovidos.push(produto);
+        //   }
+        // }
+        // for (const marcado in props.categoriaCheckbox) {
+        //   if (props.categoriaCheckbox[marcado]) {
+        //     marcadoAnt = true;
+        //     break;
+        //   }
+        // }
+        // setProdutosAtuais(prodRemovidos);
+        // setProdutosAtuais(produtosAtuais.filter((item) => item.tags !== categoriaID));
+      }
+      console.log(props.categoriaCheckbox[categoriaID]);
+      console.log(categoriaID);
+    }
+
+    if (produtosFiltrados.length !== 0) {
+      if (produtosAtuais !== null) {
+        if (produtosFiltrados !== prodRemovidos) {
+          for (const prod of produtosFiltrados) {
+            setProdutosAtuais((old) => [...old, prod]);
+          }
+        }
+      } else {
+        setProdutosAtuais(produtosFiltrados);
+      }
+      // setProducts2(produtosFiltrados);
+    } else if (!marcadoAnt) {
+      setProdutosAtuais(null);
+    }
+  }, [props.categoriaCheckbox]);
+  //Função que renderiza o objeto individual
+  function ListItem(produtos) {
     return (
-      <div className="total-list">
-        <p>Objeto do banco {this.state.apiResponse}</p>
-        <div className="propaganda">PROAGANDA</div>
-        <NumberList products={products} />
-      </div>
+      <Link to={"/Produto/" + produtos.value.id}>
+        <li className="produtosLI">
+          <div className="btn-div">
+            <button className="btn">
+              <RiHeartAddLine className="btn-icon" size="1.5rem" color="#ff2724" />
+            </button>
+          </div>
+          <div className="img">
+            <img src={produtos.value.img} className="img1"></img>
+          </div>
+          <div className="description">Descrição {produtos.value.name}</div>
+          <div className="price">R$ {produtos.value.price}</div>
+        </li>
+      </Link>
     );
   }
-}
-
+  //função que percorre o vetor
+  function NumberList(produtos) {
+    const products = produtos.products;
+    return (
+      <ul className="produtosUL">
+        {products.map((product) => (
+          <ListItem key={product.id} value={product} />
+        ))}
+      </ul>
+    );
+  }
+  // Um vetor de Objetos que é passado para uma função que irá percorer
+  return (
+    <div className="total-list">
+      <div className="propaganda">PROPAGANDA</div>
+      <NumberList products={produtosAtuais ? produtosAtuais : products2} />
+    </div>
+  );
+};
 export default ListProdutos;
