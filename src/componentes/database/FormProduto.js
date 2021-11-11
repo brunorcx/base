@@ -25,8 +25,7 @@ const FormProduto = (props) => {
 
     categorias.push(document.getElementById("cat1").value);
     for (let i = 0; i < 6; i++) {
-      if (document.getElementById("cat0" + i))
-        categorias.push(document.getElementById("cat0" + i).value);
+      if (document.getElementById("cat0" + i)) categorias.push(document.getElementById("cat0" + i).value);
     }
     const formData = new FormData();
     formData.append("name", document.getElementById("nome").value);
@@ -103,9 +102,9 @@ const FormProduto = (props) => {
 
       setInputs((oldArray) => [
         ...oldArray,
-        <div className="extra-tag" id={limiter} key={limiter} autofocus>
+        <div className="extra-tag" id={limiter} key={limiter} autoFocus>
           <BiSubdirectoryRight size="1.4rem" className="enter-tag" />
-          <input key={"cat0" + limiter} type="text" id={"cat0" + limiter} required autofocus />
+          <input key={"cat0" + limiter} type="text" id={"cat0" + limiter} required autoFocus />
         </div>,
       ]);
     } else {
@@ -162,9 +161,9 @@ const FormProduto = (props) => {
         <h2>Cadastrar Produto</h2>
         <div className="card-grid">
           <div className="col-50 card-cell card-login">
-            <form className="card-form" method="post" enctype="multipart/form-data">
+            <form className="card-form" method="post" encType="multipart/form-data">
               <label>Nome</label>
-              <input type="text" id="nome" name="name" required autofocus />
+              <input type="text" id="nome" name="name" required autoFocus />
               <label>Valor</label>
               <input type="number" id="valor" pattern="[0-9]*" />
               <label>Quantidade</label>
@@ -179,11 +178,7 @@ const FormProduto = (props) => {
               </div>
               <input type="text" id="cat1" />
               {inputs}
-              <button
-                type="submit"
-                className="card-form-button button-ghost"
-                onClick={(e) => Cadastrar(e)}
-              >
+              <button type="submit" className="card-form-button button-ghost" onClick={(e) => Cadastrar(e)}>
                 {/*TODO: Criar mensagem de produto criado com sucesso após cadastrar  */}
                 Cadastrar
               </button>
@@ -193,12 +188,7 @@ const FormProduto = (props) => {
             {!imagemCarregada && <BsUpload size="4rem" />}
             {!imagemCarregada && "Adicionar Imagem"}
             {/* <p>{imagemNome}</p> */}
-            <input
-              type="file"
-              className="inputImagem"
-              name="file"
-              onChange={(e) => onChangeImageHandler(e)}
-            />
+            <input type="file" className="inputImagem" name="file" onChange={(e) => onChangeImageHandler(e)} />
             <img src={imagemNome} className="imgPreview" />
           </div>
         </div>
