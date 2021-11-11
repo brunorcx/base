@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseUrl = process.env.NEXT_STATIC_BASE_URL || "http://localhost:3030";
-const baseTempTeste = process.env.NEXT_STATIC_BASE_URL || "http://192.168.0.102:3030";
+const baseUrlOnline = process.env.NEXT_STATIC_BASE_URL || "http://107.20.30.175:3030/";
 async function PostProduto(url, data) {
   try {
     console.log("ENTROU NO POST");
@@ -16,6 +16,11 @@ async function PostProduto(url, data) {
     return response.data;
   } catch (e) {
     console.error(e);
+    let response = await axios.post(baseUrlOnline + url, data, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
   }
 }
 async function GetResposta(url) {
@@ -25,6 +30,7 @@ async function GetResposta(url) {
     return response.data;
   } catch (e) {
     console.error(e);
+    let response = await axios.get(baseUrlOnline + url);
   }
 }
 
