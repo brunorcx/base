@@ -30,6 +30,15 @@ const Product = () => {
               <li>
                 <img src="https://carrefourbr.vtexassets.com/arquivos/ids/7739094-150-auto?width=150&height=auto&aspect=true" />
               </li>
+              <li>
+                <img src="https://carrefourbr.vtexassets.com/arquivos/ids/7739094-150-auto?width=150&height=auto&aspect=true" />
+              </li>
+              <li>
+                <img src="https://carrefourbr.vtexassets.com/arquivos/ids/7739094-150-auto?width=150&height=auto&aspect=true" />
+              </li>
+              <li>
+                <img src="https://carrefourbr.vtexassets.com/arquivos/ids/7739094-150-auto?width=150&height=auto&aspect=true" />
+              </li>
             </ul>
           </div>
           <div className="img-max">

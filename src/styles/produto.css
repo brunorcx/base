@@ -29,12 +29,14 @@
   flex-direction: column; */
 }
 .img-max {
-  flex: 5;
+  flex: 4;
   display: flex;
   box-shadow: 0 0 1px #fff;
   object-fit: cover;
   margin-right: 1%;
   background-color: #fff;
+  max-height: 600px;
+
   /* box-shadow: 0 0 1px #555555; */
   /* align-content: center;
   justify-content: center;*/
@@ -46,6 +48,7 @@
   overflow-y: scroll;
   height: 100%;
   background-color: #fff;
+  max-height: 600px;
 }
 .img-min li {
   margin-bottom: 10px;
