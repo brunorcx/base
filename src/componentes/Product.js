@@ -46,17 +46,19 @@ const Product = () => {
           </div>
         </div>
         <div className="infor">
-          <h2>
-            Smartphone Samsung Galaxy A31 128GB Azul Tela 6.4 Pol. Câmera 48MP Selfie 20MP Dual Chip Android 10.0
-          </h2>
+          <h1>
+            {produto
+              ? produto.name
+              : " Smartphone Samsung Galaxy A31 128GB Azul Tela 6.4 Pol. Câmera 48MP Selfie 20MP Dual Chip Android 10.0"}
+          </h1>
           <div className="divider" />
           <div className="infor-2">
             <div className="preço">
-              <h2>R$1.000,00</h2>
+              <h2>{produto ? "R$" + produto.price : "R$1.000,00"}</h2>
             </div>
-            <div className="comprar">
-              <p>Comprar</p>
-            </div>
+          </div>
+          <div className="comprar">
+            <p>Comprar</p>
           </div>
         </div>
       </div>
