@@ -47,6 +47,7 @@
   margin-right: 3%;
 }
 .imagens {
+  flex: 2;
   display: flex;
 }
 
