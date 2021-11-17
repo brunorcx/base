@@ -4,6 +4,7 @@ import { BsSearch } from "react-icons/bs";
 import React, { useState, useEffect } from "react";
 import { MdAddBox } from "react-icons/md";
 import { MdIndeterminateCheckBox } from "react-icons/md";
+import TabelaUser from "../componentes/TabelaUser";
 
 export interface UsuariosProps {}
 
@@ -23,7 +24,8 @@ const Usuarios: React.SFC<UsuariosProps> = () => {
   return (
     <div>
       <Navbar />
-      <div className="cUserHeader">
+      <TabelaUser />
+      {/* <div className="cUserHeader">
         <div className="cUserHeaderPart1">Cadastro Usuários</div>
         <div className="cUserHeaderPart2">
           <div className="divSearchPequena">
@@ -49,7 +51,7 @@ const Usuarios: React.SFC<UsuariosProps> = () => {
             />
           )}
         </div>
-      </div>
+      </div> */}
       <Footer />
     </div>
   );
