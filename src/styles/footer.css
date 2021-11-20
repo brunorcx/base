@@ -6,11 +6,63 @@
   margin: auto 0;
   margin-top: 1%;
 }
+.direita {
+  width: 40vw;
+  margin: 0 20px;
+  margin-bottom: 20px;
+}
+.esquerda {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 40vw;
+
+  color: azure;
+}
+.esquerda h1 {
+  font-family: "Montagu Slab", sans-serif;
+  font-weight: 500;
+}
+.esquerda h2 {
+  font-family: "Montagu Slab", sans-serif;
+  font-weight: 400;
+}
 .footer div {
   margin-top: 25px;
 }
+.footer input {
+  margin: 7px;
+  border-color: rgba(255, 255, 255, 0);
+  background-color: rgb(15, 44, 189);
+  font-family: "Montagu Slab", sans-serif;
+  font-weight: 400;
+  color: white;
+}
+.nome-contato {
+  height: 35px;
+  grid-area: nc;
+}
+.empresa-contato {
+  height: 35px;
+  grid-area: ec;
+}
+.email-contato {
+  height: 35px;
+  grid-area: emc;
+}
+.texto-contato {
+  grid-area: tc;
+  padding-bottom: 100px;
+  box-sizing: border-box;
+}
 
-.direita {
+.form-dir {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr 1fr 3fr;
+  grid-template-areas:
+    "nc ec"
+    "emc emc"
+    "tc tc";
 }

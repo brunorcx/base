@@ -1,6 +1,6 @@
 import { Navbar } from "../componentes/Navbar";
 import { Footer } from "../componentes/Footer";
-import { Product } from "../componentes/Product";
+import Product from "../componentes/Product";
 import "../styles/produtoPage.css";
 import React, { Component } from "react";
 
