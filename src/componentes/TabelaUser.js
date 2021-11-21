@@ -14,6 +14,8 @@ import {
 import { ThemeProvider } from "@material-ui/styles";
 import { GetResposta } from "../controllers/crud";
 
+import "../styles/tabelaProd.css";
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -84,10 +86,13 @@ const TabelaUser = () => {
               />
             ),
           },
-          { title: "Nome", field: "name" },
-          { title: "Senha", field: "password" },
-          { title: "E-mail", field: "email" },
-          { title: "Favoritos", field: "wishlist" },
+          { title: <div className="cHeader">Nome</div>, field: "name" },
+          { title: <div className="cHeader">Senha</div>, field: "password" },
+          { title: <div className="cHeader">E-mail</div>, field: "email" },
+          {
+            title: <div className="cHeader">Favoritos</div>,
+            field: "wishlist",
+          },
 
           // { title: "Birth Year", field: "birthYear", type: "numeric" },
           // {
