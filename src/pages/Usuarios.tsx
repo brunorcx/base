@@ -25,33 +25,6 @@ const Usuarios: React.SFC<UsuariosProps> = () => {
     <div>
       <Navbar />
       <TabelaUser />
-      {/* <div className="cUserHeader">
-        <div className="cUserHeaderPart1">Cadastro Usuários</div>
-        <div className="cUserHeaderPart2">
-          <div className="divSearchPequena">
-            <input type="text" className="searchPequena" placeholder="Busca"></input>
-            <div className="lupa">
-              <BsSearch className="lupa-icon" size="1.5rem" color="#fff" />
-            </div>
-          </div>
-          {criarUsuario && (
-            <MdIndeterminateCheckBox
-              className="blassProuctBtn"
-              size="1.5rem"
-              color="#fff"
-              onClick={() => setCriarUsuario(!criarUsuario)}
-            />
-          )}
-          {!criarUsuario && (
-            <MdAddBox
-              className="addProdutoBtn"
-              size="1.5rem"
-              color="#fff"
-              onClick={() => setCriarUsuario(!criarUsuario)}
-            />
-          )}
-        </div>
-      </div> */}
       <Footer />
     </div>
   );

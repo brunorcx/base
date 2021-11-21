@@ -32,49 +32,7 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
   return (
     <div>
       <Navbar />
-      <div className="cUserHeader">
-        {/* <div className="cUserHeaderPart1">Cadastro Produtos</div> */}
-        <div className="cUserHeaderPart2">
-          <div className="divSearchPequena">
-            {/* <input
-              type="text"
-              className="searchPequena"
-              placeholder="Busca"
-            ></input> */}
-            {/* <div className="lupa">
-              <BsSearch className="lupa-icon" size="1.5rem" color="#fff" />
-            </div> */}
-          </div>
 
-          {criarProduto && (
-            <MdIndeterminateCheckBox
-              className="blassProuctBtn"
-              size="1.5rem"
-              color="#fff"
-              onClick={() => setCriarProduto(!criarProduto)}
-            />
-          )}
-          {!criarProduto && (
-            <MdAddBox
-              className="addProdutoBtn"
-              size="1.5rem"
-              color="#fff"
-              onClick={() => setCriarProduto(!criarProduto)}
-            />
-          )}
-        </div>
-      </div>
-      <FormProduto
-        novoProduto={criarProduto}
-        produtoCriadoF={setProdutoCriado}
-        produtoCriado={produtoCriado}
-      />
-      {criarProduto && (
-        <div
-          className="background_cadastro"
-          onClick={() => setCriarProduto(!criarProduto)}
-        />
-      )}
       <TabelaProd />
       <Footer />
     </div>

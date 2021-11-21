@@ -21,6 +21,8 @@ input[type="number"] {
   position: absolute;
   left: 0;
   right: 0;
+  top: 10%;
+
   box-shadow: 0 0 10px #000000;
   margin-left: auto;
   margin-right: auto;
@@ -39,7 +41,7 @@ input[type="number"] {
 }
 .formProdutoAberto {
   color: #54504e;
-  z-index: 100;
+  z-index: 101;
   font-family: "Lato", sans-serif;
   margin: 0;
   box-shadow: 0 0 15px #000000;
@@ -52,6 +54,7 @@ input[type="number"] {
   visibility: visible;
   left: 0;
   right: 0;
+  top: 10%;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
