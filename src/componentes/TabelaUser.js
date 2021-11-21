@@ -1,6 +1,6 @@
 import MaterialTable from "material-table";
 import { createTheme } from "@material-ui/core/styles";
-import { forwardRef, useState } from "react";
+import { forwardRef, useState, useEffect } from "react";
 import { BsSearch } from "react-icons/bs";
 import { MdAddBox, MdOutlineClear } from "react-icons/md";
 import {
@@ -12,6 +12,7 @@ import {
   BiLastPage,
 } from "react-icons/bi";
 import { ThemeProvider } from "@material-ui/styles";
+import { GetResposta } from "../controllers/crud";
 
 const theme = createTheme({
   palette: {
@@ -19,7 +20,7 @@ const theme = createTheme({
       main: "#4caf50",
     },
     secondary: {
-      main: "#ff9100",
+      main: "#1e5bc6",
     },
   },
   root: {
@@ -57,21 +58,40 @@ const tableIcons = {
 
 const TabelaUser = () => {
   const [selectedRow, setSelectedRow] = useState(null);
+  const [usuarios, setUsuarios] = useState();
+
+  useEffect(() => {
+    GetResposta("/users")
+      .then((result) => {
+        setUsuarios(result);
+      })
+      .catch((err) => {});
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
       <MaterialTable
-        title="Basic Selection Preview"
+        title="Cadastro de usuários"
         columns={[
-          { title: "Name", field: "name" },
-          { title: "Surname", field: "surname" },
-          { title: "Birth Year", field: "birthYear", type: "numeric" },
+          // { title: "ID", field: "_id" },
           {
-            title: "Birth Place",
-            field: "birthCity",
-            lookup: { 34: "İstanbul", 63: "Şanlıurfa" },
+            title: "Imagem",
+            field: "image",
+            render: (rowData) => <img src={rowData.image} style={{ width: 40, borderRadius: "50%" }} />,
           },
+          { title: "Nome", field: "name" },
+          { title: "Senha", field: "password" },
+          { title: "E-mail", field: "email" },
+          { title: "Favoritos", field: "wishlist" },
+
+          // { title: "Birth Year", field: "birthYear", type: "numeric" },
+          // {
+          //   title: "Birth Place",
+          //   field: "birthCity",
+          //   lookup: { 34: "İstanbul", 63: "Şanlıurfa" },
+          // },
         ]}
+<<<<<<< HEAD
         data={[
           { name: "Mehmet", surname: "Baran", birthYear: 1987, birthCity: 63 },
           {
@@ -84,6 +104,10 @@ const TabelaUser = () => {
         onRowClick={(evt, selectedRow) =>
           setSelectedRow(selectedRow.tableData.id)
         }
+=======
+        data={usuarios}
+        onRowClick={(evt, selectedRow) => setSelectedRow(selectedRow.tableData.id)}
+>>>>>>> b03033889096db4ec530270362eaf258559e6721
         options={{
           selection: true,
           rowStyle: (rowData) => ({
@@ -101,11 +125,11 @@ const TabelaUser = () => {
             tooltip: "Add User",
             isFreeAction: true,
             onClick: (event) => alert("You want to add a new row"),
-            cellStyle: {
-              hover: {
-                backgroundColor: "green",
-              },
-            },
+            // cellStyle: {
+            //   hover: {
+            //     backgroundColor: "green",
+            //   },
+            // },
           },
         ]}
         icons={tableIcons}
