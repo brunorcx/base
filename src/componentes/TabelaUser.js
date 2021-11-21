@@ -19,6 +19,8 @@ import FormUsuario from "../componentes/database/FormUsuario";
 
 // import styles from "../styles/tabelaProd.css";
 
+import "../styles/tabelaProd.css";
+
 const theme = createTheme({
   palette: {
     primary: {
