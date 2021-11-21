@@ -38,7 +38,18 @@
   font-family: "Montagu Slab", sans-serif;
   font-weight: 400;
   color: white;
+  border-radius: 5px;
 }
+
+.footer input:hover {
+  background-color: rgb(10, 30, 192);
+}
+.footer input:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: rgb(0, 17, 255);
+}
+
 .nome-contato {
   height: 35px;
   grid-area: nc;

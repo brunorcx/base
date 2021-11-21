@@ -10,7 +10,8 @@ export class Footer extends Component {
           <h2>
             Precisando de um site profissional?
             <br />
-            Entre em contato, que nós temos a solução ideal para você.
+            Não perca tempo, Entre em contato, que nós temos a solução ideal
+            para você.
           </h2>
         </div>
         <div className="direita">
