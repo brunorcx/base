@@ -6,6 +6,8 @@ import { MdAddBox, MdOutlineClear } from "react-icons/md";
 import { BiPlus, BiDownArrowAlt, BiChevronLeft, BiChevronRight, BiFirstPage, BiLastPage } from "react-icons/bi";
 import { ThemeProvider } from "@material-ui/styles";
 import { GetResposta } from "../controllers/crud";
+import "../styles/tabelaProd.css";
+// import styles from "../styles/tabelaProd.css";
 
 const theme = createTheme({
   palette: {
@@ -13,12 +15,13 @@ const theme = createTheme({
       main: "#4caf50",
     },
     secondary: {
-      main: "#1e5bc6",
+      main: "#0F2CBD",
     },
-  },
-  root: {
-    "&:hover": {
-      backgroundColor: "#4caf50",
+    colHeader: {
+      color: "red",
+      "&:hover": {
+        color: "blue",
+      },
     },
   },
 });
@@ -62,15 +65,15 @@ const TabelaUser = () => {
         columns={[
           // { title: "ID", field: "_id" },
           {
-            title: "Imagem",
+            // title: "Imagem",
+            title: <div className="cHeader"> Imagem </div>,
             field: "image",
             render: (rowData) => <img src={rowData.image} style={{ width: 40, borderRadius: "50%" }} />,
           },
-          { title: "Nome", field: "name" },
-          { title: "Senha", field: "password" },
-          { title: "E-mail", field: "email" },
-          { title: "Favoritos", field: "wishlist" },
-
+          { title: <div className="cHeader"> Nome </div>, field: "name" },
+          { title: <div className="cHeader"> Senha </div>, field: "password" },
+          { title: <div className="cHeader"> E-mail </div>, field: "email" },
+          { title: <div className="cHeader"> Favoritos </div>, field: "wishlist" },
           // { title: "Birth Year", field: "birthYear", type: "numeric" },
           // {
           //   title: "Birth Place",

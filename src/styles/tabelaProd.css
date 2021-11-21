@@ -2,3 +2,6 @@
   text-align: left !important;
   /* background-color: rgb(87, 117, 216); */
 }
+.cHeader:hover {
+  color: #92ddfc;
+}
