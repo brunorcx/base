@@ -91,6 +91,12 @@ const TabelaProd = () => {
         <MaterialTable
           title="Proutos"
           columns={[
+            {
+              // title: "Imagem",
+              title: <div className="cHeader"> Imagem </div>,
+              field: "image",
+              render: (rowData) => <img src={rowData.img} style={{ width: "40%", borderRadius: "50%" }} />,
+            },
             { title: <div className="cHeader">Nome</div>, field: "name" },
             { title: <div className="cHeader">Valor</div>, field: "price" },
             { title: <div className="cHeader">Forneceor</div>, field: "brand" },
