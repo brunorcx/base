@@ -1,22 +1,39 @@
 import MaterialTable from "material-table";
 import { createTheme } from "@material-ui/core/styles";
-import { forwardRef, useState } from "react";
+import { forwardRef, useState, useEffect } from "react";
 import { BsSearch } from "react-icons/bs";
 import { MdAddBox, MdOutlineClear } from "react-icons/md";
-import { BiPlus, BiDownArrowAlt, BiChevronLeft, BiChevronRight, BiFirstPage, BiLastPage } from "react-icons/bi";
+import {
+  BiMinus,
+  BiPlus,
+  BiDownArrowAlt,
+  BiChevronLeft,
+  BiChevronRight,
+  BiFirstPage,
+  BiLastPage,
+} from "react-icons/bi";
 import { ThemeProvider } from "@material-ui/styles";
+import { GetResposta } from "../controllers/crud";
+import "../styles/tabelaProd.css";
+import FormUsuario from "../componentes/database/FormUsuario";
+
+// import styles from "../styles/tabelaProd.css";
+
+import "../styles/tabelaProd.css";
+
 const theme = createTheme({
   palette: {
     primary: {
       main: "#4caf50",
     },
     secondary: {
-      main: "#ff9100",
+      main: "#0F2CBD",
     },
-  },
-  root: {
-    "&:hover": {
-      backgroundColor: "#4caf50",
+    colHeader: {
+      color: "red",
+      "&:hover": {
+        color: "blue",
+      },
     },
   },
 });
@@ -43,52 +60,87 @@ const tableIcons = {
 
 const TabelaUser = () => {
   const [selectedRow, setSelectedRow] = useState(null);
+  const [usuarios, setUsuarios] = useState();
+  const [novoUsuario, setNovoUsuario] = useState();
 
+  useEffect(() => {
+    GetResposta("/users")
+      .then((result) => {
+        setUsuarios(result);
+      })
+      .catch((err) => {});
+  }, []);
+
+  useEffect(() => {
+    if (novoUsuario) {
+      // window.onscroll = null;
+      document.documentElement.style.overflow = "hidden";
+      // document.body.scroll = "no"; //Internet Explorer
+    } else {
+      document.documentElement.style.overflow = "auto";
+      // document.body.scroll = "yes"; //Internet Explorer
+    }
+  }, [novoUsuario]); // Apenas re-execute o efeito quando o count mudar
   return (
-    <ThemeProvider theme={theme}>
-      <MaterialTable
-        title="Basic Selection Preview"
-        columns={[
-          { title: "Name", field: "name" },
-          { title: "Surname", field: "surname" },
-          { title: "Birth Year", field: "birthYear", type: "numeric" },
-          {
-            title: "Birth Place",
-            field: "birthCity",
-            lookup: { 34: "İstanbul", 63: "Şanlıurfa" },
-          },
-        ]}
-        data={[
-          { name: "Mehmet", surname: "Baran", birthYear: 1987, birthCity: 63 },
-          { name: "Zerya Betül", surname: "Baran", birthYear: 2017, birthCity: 34 },
-        ]}
-        onRowClick={(evt, selectedRow) => setSelectedRow(selectedRow.tableData.id)}
-        options={{
-          selection: true,
-          rowStyle: (rowData) => ({
-            backgroundColor: selectedRow === rowData.tableData.id ? "#1e5cc63f" : "#FFF",
-          }),
-          headerStyle: {
-            backgroundColor: "#1e5bc6",
-            color: "#FFF",
-          },
-        }}
-        actions={[
-          {
-            icon: BiPlus,
-            tooltip: "Add User",
-            isFreeAction: true,
-            onClick: (event) => alert("You want to add a new row"),
-            cellStyle: {
-              hover: {
-                backgroundColor: "green",
-              },
+    <div>
+      <ThemeProvider theme={theme}>
+        <MaterialTable
+          title="Cadastro de usuários"
+          columns={[
+            // { title: "ID", field: "_id" },
+            {
+              // title: "Imagem",
+              title: <div className="cHeader"> Imagem </div>,
+              field: "image",
+              render: (rowData) => (
+                <img
+                  src={rowData.image}
+                  style={{ height: "70px", width: "70px", objectFit: "cover", borderRadius: "50%" }}
+                />
+              ),
             },
-          },
-        ]}
-        icons={tableIcons}
-      />
-    </ThemeProvider>
+            { title: <div className="cHeader"> Nome </div>, field: "name" },
+            { title: <div className="cHeader"> Senha </div>, field: "password" },
+            { title: <div className="cHeader"> E-mail </div>, field: "email" },
+            { title: <div className="cHeader"> Favoritos </div>, field: "wishlist" },
+            // { title: "Birth Year", field: "birthYear", type: "numeric" },
+            // {
+            //   title: "Birth Place",
+            //   field: "birthCity",
+            //   lookup: { 34: "İstanbul", 63: "Şanlıurfa" },
+            // },
+          ]}
+          data={usuarios}
+          onRowClick={(evt, selectedRow) => setSelectedRow(selectedRow.tableData.id)}
+          options={{
+            selection: true,
+            rowStyle: (rowData) => ({
+              backgroundColor: selectedRow === rowData.tableData.id ? "#1e5cc63f" : "#FFF",
+            }),
+            headerStyle: {
+              backgroundColor: "#1e5bc6",
+              color: "#FFF",
+            },
+          }}
+          actions={[
+            {
+              icon: novoUsuario ? BiMinus : BiPlus,
+              tooltip: "Add User",
+              isFreeAction: true,
+              onClick: () => setNovoUsuario(!novoUsuario),
+              // cellStyle: {
+              //   hover: {
+              //     backgroundColor: "green",
+              //   },
+              // },
+            },
+          ]}
+          icons={tableIcons}
+        />
+      </ThemeProvider>
+      <FormUsuario novoUsuario={novoUsuario} />
+      {novoUsuario && <div className="background_cadastro" onClick={() => setNovoUsuario(!novoUsuario)}></div>}
+    </div>
   );
 };
 
