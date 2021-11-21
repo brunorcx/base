@@ -92,7 +92,12 @@ const TabelaUser = () => {
               // title: "Imagem",
               title: <div className="cHeader"> Imagem </div>,
               field: "image",
-              render: (rowData) => <img src={rowData.image} style={{ width: "40%", borderRadius: "50%" }} />,
+              render: (rowData) => (
+                <img
+                  src={rowData.image}
+                  style={{ height: "70px", width: "70px", objectFit: "cover", borderRadius: "50%" }}
+                />
+              ),
             },
             { title: <div className="cHeader"> Nome </div>, field: "name" },
             { title: <div className="cHeader"> Senha </div>, field: "password" },

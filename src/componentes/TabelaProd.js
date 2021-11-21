@@ -95,7 +95,12 @@ const TabelaProd = () => {
               // title: "Imagem",
               title: <div className="cHeader"> Imagem </div>,
               field: "image",
-              render: (rowData) => <img src={rowData.img} style={{ width: "40%", borderRadius: "50%" }} />,
+              render: (rowData) => (
+                <img
+                  src={rowData.img}
+                  style={{ height: "70px", width: "70px", objectFit: "cover", borderRadius: "50%" }}
+                />
+              ),
             },
             { title: <div className="cHeader">Nome</div>, field: "name" },
             { title: <div className="cHeader">Valor</div>, field: "price" },
