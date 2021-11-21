@@ -78,7 +78,7 @@ const TabelaProd = () => {
   }, [produtoCriado]);
 
   useEffect(() => {
-    GetResposta("/products/")
+    GetResposta("/products")
       .then((result) => {
         setProdutos(result);
       })
