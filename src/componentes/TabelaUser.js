@@ -71,6 +71,16 @@ const TabelaUser = () => {
       .catch((err) => {});
   }, []);
 
+  useEffect(() => {
+    if (novoUsuario) {
+      // window.onscroll = null;
+      document.documentElement.style.overflow = "hidden";
+      // document.body.scroll = "no"; //Internet Explorer
+    } else {
+      document.documentElement.style.overflow = "auto";
+      // document.body.scroll = "yes"; //Internet Explorer
+    }
+  }, [novoUsuario]); // Apenas re-execute o efeito quando o count mudar
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -123,7 +133,8 @@ const TabelaUser = () => {
           icons={tableIcons}
         />
       </ThemeProvider>
-      {novoUsuario && <FormUsuario></FormUsuario>}
+      <FormUsuario novoUsuario={novoUsuario} />
+      {novoUsuario && <div className="background_cadastro" onClick={() => setNovoUsuario(!novoUsuario)}></div>}
     </div>
   );
 };
