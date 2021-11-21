@@ -14,9 +14,6 @@ import {
 import { ThemeProvider } from "@material-ui/styles";
 import { GetResposta } from "../controllers/crud";
 import "../styles/tabelaProd.css";
-// import styles from "../styles/tabelaProd.css";
-
-import "../styles/tabelaProd.css";
 
 const theme = createTheme({
   palette: {
