@@ -64,7 +64,7 @@ const TabelaUser = () => {
   const [novoUsuario, setNovoUsuario] = useState();
 
   useEffect(() => {
-    GetResposta("/users")
+    GetResposta("/users/")
       .then((result) => {
         setUsuarios(result);
       })
