@@ -77,7 +77,12 @@ const TabelaUser = () => {
           {
             title: "Imagem",
             field: "image",
-            render: (rowData) => <img src={rowData.image} style={{ width: 40, borderRadius: "50%" }} />,
+            render: (rowData) => (
+              <img
+                src={rowData.image}
+                style={{ width: 40, borderRadius: "50%" }}
+              />
+            ),
           },
           { title: "Nome", field: "name" },
           { title: "Senha", field: "password" },
@@ -91,23 +96,10 @@ const TabelaUser = () => {
           //   lookup: { 34: "İstanbul", 63: "Şanlıurfa" },
           // },
         ]}
-<<<<<<< HEAD
-        data={[
-          { name: "Mehmet", surname: "Baran", birthYear: 1987, birthCity: 63 },
-          {
-            name: "Zerya Betül",
-            surname: "Baran",
-            birthYear: 2017,
-            birthCity: 34,
-          },
-        ]}
+        data={usuarios}
         onRowClick={(evt, selectedRow) =>
           setSelectedRow(selectedRow.tableData.id)
         }
-=======
-        data={usuarios}
-        onRowClick={(evt, selectedRow) => setSelectedRow(selectedRow.tableData.id)}
->>>>>>> b03033889096db4ec530270362eaf258559e6721
         options={{
           selection: true,
           rowStyle: (rowData) => ({
