@@ -58,14 +58,18 @@ const TabelaUser = () => {
   return (
     <ThemeProvider theme={theme}>
       <MaterialTable
-        title="Basic Selection Preview"
+        title="Cadastro de usuários"
         columns={[
-          { title: "ID", field: "_id" },
+          // { title: "ID", field: "_id" },
+          {
+            title: "Imagem",
+            field: "image",
+            render: (rowData) => <img src={rowData.image} style={{ width: 40, borderRadius: "50%" }} />,
+          },
           { title: "Nome", field: "name" },
           { title: "Senha", field: "password" },
           { title: "E-mail", field: "email" },
           { title: "Favoritos", field: "wishlist" },
-          { title: "Imagem", field: "image" },
 
           // { title: "Birth Year", field: "birthYear", type: "numeric" },
           // {
@@ -75,7 +79,7 @@ const TabelaUser = () => {
           // },
         ]}
         data={usuarios}
-        onRowClick={(evt, selectedRow) => setSelectedRow(selectedRow.tableData._id)}
+        onRowClick={(evt, selectedRow) => setSelectedRow(selectedRow.tableData.id)}
         options={{
           selection: true,
           rowStyle: (rowData) => ({
