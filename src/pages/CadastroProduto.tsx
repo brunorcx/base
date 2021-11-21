@@ -1,11 +1,11 @@
 import { Navbar } from "../componentes/Navbar";
 import { Footer } from "../componentes/Footer";
-import TabelaProd from "../componentes/TabelaProd";
 import "../styles/cadastroProdutos.css";
 import React, { useState, useEffect, useRef } from "react";
 import { BsSearch } from "react-icons/bs";
 import { MdAddBox } from "react-icons/md";
 import { MdIndeterminateCheckBox } from "react-icons/md";
+import TabelaProd from "../componentes/TabelaProd";
 import FormProduto from "../componentes/database/FormProduto";
 
 export interface CadastroProdutoProps {}
@@ -33,13 +33,17 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
     <div>
       <Navbar />
       <div className="cUserHeader">
-        <div className="cUserHeaderPart1">Cadastro Produtos</div>
+        {/* <div className="cUserHeaderPart1">Cadastro Produtos</div> */}
         <div className="cUserHeaderPart2">
           <div className="divSearchPequena">
-            <input type="text" className="searchPequena" placeholder="Busca"></input>
-            <div className="lupa">
+            {/* <input
+              type="text"
+              className="searchPequena"
+              placeholder="Busca"
+            ></input> */}
+            {/* <div className="lupa">
               <BsSearch className="lupa-icon" size="1.5rem" color="#fff" />
-            </div>
+            </div> */}
           </div>
 
           {criarProduto && (
@@ -60,17 +64,17 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
           )}
         </div>
       </div>
-      {/* {criarProduto && <FormProduto novoProduto={criarProduto} />} */}
       <FormProduto
         novoProduto={criarProduto}
         produtoCriadoF={setProdutoCriado}
         produtoCriado={produtoCriado}
       />
-
       {criarProduto && (
-        <div className="background_cadastro" onClick={() => setCriarProduto(!criarProduto)} />
+        <div
+          className="background_cadastro"
+          onClick={() => setCriarProduto(!criarProduto)}
+        />
       )}
-
       <TabelaProd />
       <Footer />
     </div>
