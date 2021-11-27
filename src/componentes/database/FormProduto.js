@@ -17,7 +17,7 @@ const FormProduto = (props) => {
   const [imagemArquivo, setImagemArquivo] = useState(null); //Vetor de estados
 
   async function Cadastrar(e) {
-    // e.preventDefault();
+    e.preventDefault();
     //TODO preventDefault apenas para não refresh na pagina e não dar posterrado.
     setCadastrar(!cadastrar);
 
