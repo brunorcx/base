@@ -83,12 +83,44 @@ git push origin --delete remoteBranchName
 # Código node
 ### Para carregador as dependências do nodejs basta usar o comando
 	npm install
-	
 # Tarefas
-* [ ] Atualizar botões do navbar conforme layout do carrefour[ Bruno ]
-* [ ] Criar menu lateral vertical(vtex) checkbox [ Gabriel ] 
-* [ ] Criar carrinho
-* [x] baz
+* [x] Fechar menu carrinho quando clicar fora dele
+* [x] Criar controller, model, schema para produtos
+* [x] Verificar conexão do front com back
+* [x] Pesquisar layouts modernos
+* [x] Travar rolamento de tela após abrir o carrinho
+* [x] Centralizar menus/links do navbar
+* [x] Arrumar GET usando axios no front pelo controller
+* [x] Mandar solicitação GetProduto na função Cadastrar() do formulário
+* [x] Adicionar categorias a mais em tempo de execução
+* [x] Ajustar vetor para vários campos no back POST
+* [ ] Retirar menu hamburguer e colocar somente para mobile
+* [ ] Colocar logo Rodrigues dev
+* [ ] Criar um diagrama de banco de dados
+* [ ] Criar página de cadastro de usuários e produtos
+* [ ] Implementar busca produtos
+* [ ] Redirecionar após clicar nas propagandas do Home
+* [x] Salvar imagens no banco
+* [ ] Conectar Versel com back-end
+* [x] Reduzir 50% da segunda navbar em altura(Olhar tamanho de texto), colocar imagem igual da amazom no nosso Home
+* [ ] Criar banners(propagandas) de rolagem para direita/esquerda conforme site da amazon no nosso Home
+* [ ] Criar página de produtos principais(mínimo 3, olhar segundo link exemplo desodorante)
+* [x] Reduzir margens laterais em todas as páginas
+* [ ] Criar tema escuro
+* [x] Olhar Amazon S3 para armazenar imagens e usar o url no mongoDB
 
-	
-	
+
+# Bugs
+* [ ] Mudar de Home para Produto faz o footer carrinho e usuário piscarem 
+* [x] exemplo
+# Exemplo sites
+https://www.carolinezhurley.com/blogs/journal
+
+https://www.harrys.com/en/us/shop/deodorant
+
+https://www.ception.ai/
+# Logística
+* [ ] Entrar em contato com a sebrae conversar sobre divulgar o produto, atendimento, canais de vendas, clientes APÓS fazer um plano de negócios
+* [ ] Clientes não sabem como funciona a plataforma, sistema de pagamento, motores de busca (SEO), marketing digital, mídias sociais
+* [ ] Oferecer serviço completo
+* [ ] Procurar ferramenta de prototipação react. EX: https://meetalva.io/

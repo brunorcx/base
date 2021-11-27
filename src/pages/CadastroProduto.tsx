@@ -32,7 +32,6 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
   return (
     <div>
       <Navbar />
-
       <TabelaProd />
       <Footer />
     </div>
