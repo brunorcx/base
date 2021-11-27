@@ -16,6 +16,7 @@ const FormUsuario = (props) => {
   const [imagemArquivo, setImagemArquivo] = useState(null); //Vetor de estados
 
   async function Cadastrar(e) {
+    e.preventDefault();
     const formData = new FormData();
     formData.append("name", document.getElementById("name").value);
     formData.append("password", document.getElementById("password").value);
