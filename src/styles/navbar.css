@@ -119,13 +119,14 @@ header {
 }
 .navbar2 li a {
   text-decoration: none;
+  padding-bottom: 9px;
+}
+.navbar2 li a:hover {
+  color: #1e5bc6;
+  border-bottom: solid 2px #1e5bc6;
 }
 
-.navbar2 li:hover {
-  background-color: #e6e6e6;
-}
 .navDireita {
-  /* width: 100%; */
   display: flex;
   justify-content: flex-end;
   align-items: center;

@@ -39,19 +39,11 @@ const tableIcons = {
   FirstPage: forwardRef((props, ref) => <BiFirstPage {...props} ref={ref} />),
   LastPage: forwardRef((props, ref) => <BiLastPage {...props} ref={ref} />),
   NextPage: forwardRef((props, ref) => <BiChevronRight {...props} ref={ref} />),
-  PreviousPage: forwardRef((props, ref) => (
-    <BiChevronLeft {...props} ref={ref} />
-  )),
-  ResetSearch: forwardRef((props, ref) => (
-    <MdOutlineClear {...props} ref={ref} />
-  )),
+  PreviousPage: forwardRef((props, ref) => <BiChevronLeft {...props} ref={ref} />),
+  ResetSearch: forwardRef((props, ref) => <MdOutlineClear {...props} ref={ref} />),
   Search: forwardRef((props, ref) => <BsSearch {...props} ref={ref} />),
-  SortArrow: forwardRef((props, ref) => (
-    <BiDownArrowAlt size="1.3rem" color="white" {...props} ref={ref} />
-  )),
-  Pluss: forwardRef((props, ref) => (
-    <BiPlus size="1.3rem" color="white" {...props} ref={ref} />
-  )),
+  SortArrow: forwardRef((props, ref) => <BiDownArrowAlt size="1.3rem" color="white" {...props} ref={ref} />),
+  Pluss: forwardRef((props, ref) => <BiPlus size="1.3rem" color="white" {...props} ref={ref} />),
 };
 
 const TabelaProd = () => {
@@ -85,11 +77,7 @@ const TabelaProd = () => {
   }, []);
 
   function Icon() {
-    return criarProduto ? (
-      <BiMinus size="5px" />
-    ) : (
-      <BiPlus size="5px" color="#fff" />
-    );
+    return criarProduto ? <BiMinus size="5px" /> : <BiPlus size="5px" color="#fff" />;
   }
   return (
     <div>
@@ -120,14 +108,11 @@ const TabelaProd = () => {
             { title: <div className="cHeader">Categoria</div>, field: "tags" },
           ]}
           data={produtos}
-          onRowClick={(evt, selectedRow) =>
-            setSelectedRow(selectedRow.tableData.id)
-          }
+          onRowClick={(evt, selectedRow) => setSelectedRow(selectedRow.tableData.id)}
           options={{
             selection: true,
             rowStyle: (rowData) => ({
-              backgroundColor:
-                selectedRow === rowData.tableData.id ? "#1e5cc63f" : "#fff",
+              backgroundColor: selectedRow === rowData.tableData.id ? "#1e5cc63f" : "#fff",
             }),
             headerStyle: {
               backgroundColor: "#1e5bc6",
@@ -140,11 +125,7 @@ const TabelaProd = () => {
           actions={[
             {
               icon: () => {
-                return criarProduto ? (
-                  <BiMinus className="btn" />
-                ) : (
-                  <BiPlus className="btn" />
-                );
+                return criarProduto ? <BiMinus className="btn" /> : <BiPlus className="btn" />;
               },
               tooltip: "Add User",
               isFreeAction: true,
@@ -154,17 +135,8 @@ const TabelaProd = () => {
           icons={tableIcons}
         />
       </ThemeProvider>
-      <FormProduto
-        novoProduto={criarProduto}
-        produtoCriadoF={setProdutoCriado}
-        produtoCriado={produtoCriado}
-      />
-      {criarProduto && (
-        <div
-          className="background_cadastro"
-          onClick={() => setCriarProduto(!criarProduto)}
-        />
-      )}
+      <FormProduto novoProduto={criarProduto} produtoCriadoF={setProdutoCriado} produtoCriado={produtoCriado} />
+      {criarProduto && <div className="background_cadastro" onClick={() => setCriarProduto(!criarProduto)} />}
     </div>
   );
 };
