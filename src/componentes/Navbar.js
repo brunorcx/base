@@ -67,11 +67,21 @@ export class Navbar extends Component {
 
     let background_cart = this.state.aberto ? "background-carrinho-dark" : "background-carrinho-dark-fechado";
 
+    const btnMobile = document.getElementById('btn-mobile');
+    function toggleMenu() {
+      const navbar2 = document.getElementById('navbar2');
+      navbar2.classList.toggle('active')
+    } 
+    
+    // btnMobile.addEventListener('click', toggleMenu)
+
     return (
       <header className="nav">
         <div className="navbar1">
           <div className="logo">
-            <FaReact size="2rem" color="#1e5bc6" />
+            <button className={"btn-mobile"} id={"btn-mobile"} onClick={toggleMenu}>Menu</button>
+
+            {/*<FaReact size="2rem" color="#1e5bc6" />*/}
           </div>
           {/* 
           <div id="div-search" className="div-search">
@@ -106,9 +116,9 @@ export class Navbar extends Component {
         <div className={background_cart} onClick={this.abrirCarrinho.bind(this)} />
 
         <div className="linha-horizontal" />
-        <div className="navbar2" ref={this.refNavbar2}>
+        <div className="navbar2" id={'navbar2'} ref={this.refNavbar2}>
           {/* <AiOutlineMenu className="hamburguer" size="2rem" /> */}
-          <ul>
+          <ul className={'menu'}>
             <li>
               <Link to="/">Home</Link>
             </li>

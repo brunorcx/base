@@ -11,14 +11,16 @@ header {
 .navbar1 {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex: 1;
+  height: 70px;
   margin: 0 5% 0;
   background-color: #ffffff;
 }
 
 .linha-horizontal {
   height: unset;
-  width: 100wv;
+  width: 100%;
   border-top: 0.15rem solid #e6e6e6;
 }
 
@@ -95,19 +97,21 @@ header {
 
 .hamburguer {
   background-color: inherit;
-  margin: 0 0.5rem 0rem;
+  margin: 0 0.5rem 0;
   padding: 0 0.5rem 0.25rem;
 }
 
 .link {
   background-color: #ffffff;
 }
-
-.navbar2 ul {
+.menu {
   display: flex;
   margin: 0;
-
   padding: 0;
+}
+.menu a {
+  display: block;
+  padding: 0.5rem;
 }
 
 .navbar2 li {
@@ -184,22 +188,54 @@ header {
   overflow: hidden;
 }
 
+.btn-mobile {
+  display: none;
+}
+
 @media (max-width: 768px) {
-  .navbar2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  .btn-mobile {
+    display: block;
   }
+.navbar2{
+  display: none;
+}
+  .menu {
+    display: block;
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    top: 40px;
+    right: 0;
+    background: #ffffff;
+    z-index: 1000;
+    height: 0;
+    transition: .6s;
+    overflow-y: hidden;
+  }
+  .navbar2.active .menu {
+    height: calc(100vh - 70px);
+    visibility: visible;
+    overflow-y: auto;
+  }
+  .navbar2.active {
+    display: block;
+    margin: 0;
+    padding: 0;
+    height: 0;
+  }
+
+
+  .menu a {
+    padding: 1rem 0;
+    margin: 0 1rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+  }
+
   .limite {
     margin: 0.2%;
     align-self: center;
   }
-  .navbar2 ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0;
-  }
+
   .navbar1 {
     margin: 0 1% 0;
   }
@@ -215,9 +251,5 @@ header {
   }
   .user-icon {
     width: 100%;
-  }
-  .navbar2 ul li {
-    display: flex;
-    justify-content: center;
   }
 }
