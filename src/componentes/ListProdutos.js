@@ -9,15 +9,15 @@ import Produto from "../pages/Produto";
 
 const ListProdutos = (props) => {
   const products = [
-    {
-      id: 0,
-      name: "Playstation 5",
-      price: 5000,
-      brand: "Sony",
-      qty: 1,
-      img: "https://carrefourbr.vtexassets.com/arquivos/ids/7647685-160-160?width=160&height=160&aspect=true",
-      tags: "eletrônico, informática",
-    },
+    // {
+    //   id: 0,
+    //   name: "Playstation 5",
+    //   price: 5000,
+    //   brand: "Sony",
+    //   qty: 1,
+    //   img: "https://carrefourbr.vtexassets.com/arquivos/ids/7647685-160-160?width=160&height=160&aspect=true",
+    //   tags: "eletrônico, informática",
+    // },
   ];
   const [products2, setProducts2] = useState(products);
   const [produtosAtuais, setProdutosAtuais] = useState([]);
@@ -184,7 +184,9 @@ const ListProdutos = (props) => {
   return (
     <div className="total-list">
       <div className="propaganda">PROPAGANDA</div>
+      {products2 ?
       <NumberList products={produtosAtuais ? produtosAtuais : products2} />
+      : <span>Loadings...</span>}
     </div>
   );
 };
