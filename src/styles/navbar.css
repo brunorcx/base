@@ -111,8 +111,7 @@ header {
 }
 .menu a {
   display: block;
-  padding-top: 0.25rem;
-  padding-bottom: 0.5rem;
+  padding: 0.25rem;
 }
 
 .navbar2 li {
