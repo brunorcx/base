@@ -2,6 +2,7 @@
   background-color: #fff;
   border: 1px solid #aaaaaa;
   font-weight: 400;
+  box-shadow: 0 2px 1rem #aaaaaa;
 }
 .divider {
   margin: 5%;
