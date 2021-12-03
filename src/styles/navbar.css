@@ -111,19 +111,19 @@ header {
 }
 .menu a {
   display: block;
-  padding: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.5rem;
 }
 
 .navbar2 li {
   align-self: center;
-  padding: 0.25rem 1rem 0.5rem;
+  padding: 0 1rem 0;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   margin-top: 0.2rem;
 }
 .navbar2 li a {
   text-decoration: none;
-  padding-bottom: 8px;
   border-bottom: solid 2px transparent;
 }
 .navbar2 li a:hover {
