@@ -41,13 +41,21 @@ export class Navbar extends Component {
   //###################### INICIO TOPO SUMIR #########################
 
   saiuDoTopo() {
-    //Verificar porquê window.pageYOffset dispara tantas vezes
-    if (window.pageYOffset === 0) {
-      this.setState({ topo: true });
-      this.refNavbar2.current.className = "navbar2";
-    } else if (window.pageYOffset >= 100) {
-      this.setState({ topo: false });
-      this.refNavbar2.current.className = "Sumir";
+    //Verifica a larguara para não ter o efeito de sumir e aparecer no modo mobile
+    var largura =
+      window.innerWidth ||
+      document.documentElement.clientWidth ||
+      document.body.clientWidth;
+
+    if (largura > 768) {
+      //Verificar porquê window.pageYOffset dispara tantas vezes
+      if (window.pageYOffset === 0) {
+        this.setState({ topo: true });
+        this.refNavbar2.current.className = "navbar2";
+      } else if (window.pageYOffset >= 100) {
+        this.setState({ topo: false });
+        this.refNavbar2.current.className = "Sumir";
+      }
     }
   }
   componentDidMount() {
@@ -63,23 +71,33 @@ export class Navbar extends Component {
   render() {
     /* TERMINA AQUI*/
 
-    let carrinho_class = this.state.aberto ? "carrinho-menu" : "carrinho-menu-fechado";
+    let carrinho_class = this.state.aberto
+      ? "carrinho-menu"
+      : "carrinho-menu-fechado";
 
-    let background_cart = this.state.aberto ? "background-carrinho-dark" : "background-carrinho-dark-fechado";
+    let background_cart = this.state.aberto
+      ? "background-carrinho-dark"
+      : "background-carrinho-dark-fechado";
 
-    const btnMobile = document.getElementById('btn-mobile');
+    const btnMobile = document.getElementById("btn-mobile");
     function toggleMenu() {
-      const navbar2 = document.getElementById('navbar2');
-      navbar2.classList.toggle('active')
-    } 
-    
+      const navbar2 = document.getElementById("navbar2");
+      navbar2.classList.toggle("active");
+    }
+
     // btnMobile.addEventListener('click', toggleMenu)
 
     return (
       <header className="nav">
         <div className="navbar1">
           <div className="logo">
-            <button className={"btn-mobile"} id={"btn-mobile"} onClick={toggleMenu}>Menu</button>
+            <button
+              className={"btn-mobile"}
+              id={"btn-mobile"}
+              onClick={toggleMenu}
+            >
+              <span id="hamburguer" className="hamburguer"></span>
+            </button>
 
             {/*<FaReact size="2rem" color="#1e5bc6" />*/}
           </div>
@@ -113,12 +131,15 @@ export class Navbar extends Component {
           </div>
         </div>
 
-        <div className={background_cart} onClick={this.abrirCarrinho.bind(this)} />
+        <div
+          className={background_cart}
+          onClick={this.abrirCarrinho.bind(this)}
+        />
 
         <div className="linha-horizontal" />
-        <div className="navbar2" id={'navbar2'} ref={this.refNavbar2}>
+        <div className="navbar2" id={"navbar2"} ref={this.refNavbar2}>
           {/* <AiOutlineMenu className="hamburguer" size="2rem" /> */}
-          <ul className={'menu'}>
+          <ul className={"menu"}>
             <li>
               <Link to="/">Home</Link>
             </li>
