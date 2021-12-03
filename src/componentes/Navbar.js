@@ -90,15 +90,10 @@ export class Navbar extends Component {
     return (
       <header className="nav">
         <div className="navbar1">
+          <button className="btn-mobile" id="btn-mobile" onClick={toggleMenu}>
+            <div id="hamburguer" className="hamburguer"></div>
+          </button>
           <div className="logo">
-            <button
-              className={"btn-mobile"}
-              id={"btn-mobile"}
-              onClick={toggleMenu}
-            >
-              <span id="hamburguer" className="hamburguer"></span>
-            </button>
-
             {/*<FaReact size="2rem" color="#1e5bc6" />*/}
           </div>
           {/* 
