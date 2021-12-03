@@ -124,6 +124,7 @@ header {
 .navbar2 li a {
   text-decoration: none;
   padding-bottom: 8px;
+  border-bottom: solid 2px transparent;
 }
 .navbar2 li a:hover {
   color: #1e5bc6;
@@ -196,9 +197,9 @@ header {
   .btn-mobile {
     display: block;
   }
-.navbar2{
-  display: none;
-}
+  .navbar2 {
+    display: none;
+  }
   .menu {
     display: block;
     visibility: hidden;
@@ -209,7 +210,7 @@ header {
     background: #ffffff;
     z-index: 1000;
     height: 0;
-    transition: .6s;
+    transition: 0.6s;
     overflow-y: hidden;
   }
   .navbar2.active .menu {
@@ -223,7 +224,6 @@ header {
     padding: 0;
     height: 0;
   }
-
 
   .menu a {
     padding: 1rem 0;
