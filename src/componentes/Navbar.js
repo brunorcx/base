@@ -79,19 +79,19 @@ export class Navbar extends Component {
       ? "background-carrinho-dark"
       : "background-carrinho-dark-fechado";
 
-    const btnMobile = document.getElementById("btn-mobile");
+    // const btnMobile = document.getElementById("btn-mobile");
     function toggleMenu() {
-      const navbar2 = document.getElementById("navbar2");
-      navbar2.classList.toggle("active");
+      const nav = document.getElementById("nav");
+      nav.classList.toggle("active");
     }
 
     // btnMobile.addEventListener('click', toggleMenu)
 
     return (
-      <header className="nav">
+      <header id="nav" className="nav">
         <div className="navbar1">
           <button className="btn-mobile" id="btn-mobile" onClick={toggleMenu}>
-            <div id="hamburguer" className="hamburguer"></div>
+            <span id="hamburguer" className="hamburguer"></span>
           </button>
           <div className="logo">
             {/*<FaReact size="2rem" color="#1e5bc6" />*/}
