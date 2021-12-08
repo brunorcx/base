@@ -140,6 +140,7 @@ header {
 /* START CARRINHO */
 .carrinho-img {
   margin-left: auto;
+  transition: 0.6s;
   margin-right: 0;
 }
 .carrinhoCompra {
@@ -193,6 +194,7 @@ header {
     right: 0;
     bottom: 0;
     z-index: 0;
+    margin: 0;
     transition: transform 250ms;
     transform: translateY(-100%);
   }
@@ -202,9 +204,14 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 0;
+    margin: 0;
+    z-index: 10;
     transition: transform 250ms;
     transform: translateY(0%);
+  }
+  .nav.active .carrinho-img {
+    visibility: hidden;
+    transform: rotate(270deg) scale(0);
   }
   .menu {
     display: block;

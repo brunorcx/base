@@ -77,3 +77,33 @@
     "emc emc"
     "tc tc";
 }
+
+@media (max-width: 768px) {
+  .footer {
+    display: grid;
+    justify-items: center;
+    width: 100%;
+  }
+  .esquerda {
+    width: 90%;
+    justify-content: center;
+    text-align: center;
+  }
+  .esquerda h1 {
+    align-self: center;
+  }
+  .direita {
+    width: 100vw;
+  }
+  .form-dir {
+    width: 90vw;
+    margin: auto;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr 1fr 1fr 3fr;
+    grid-template-areas:
+      "nc"
+      "ec"
+      "emc"
+      "tc";
+  }
+}

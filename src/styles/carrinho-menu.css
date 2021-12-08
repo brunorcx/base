@@ -90,3 +90,13 @@ figure {
   width: fit-content;
 } */
 /*Ajustar para carrinho menu fiar com tamanho fixo*/
+
+@media (max-width: 768px) {
+  .carrinho-menu {
+    transform: translateX(50%);
+  }
+  #page > main {
+    width: max-content;
+    margin: 0 7px;
+  }
+}
