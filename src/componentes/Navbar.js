@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
 import "../styles/navbar.css";
 import "../styles/carrinho-menu.css";
+import "../styles/login.css";
 import { FaReact } from "react-icons/fa";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
@@ -8,6 +9,7 @@ import { HiOutlineUser } from "react-icons/hi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { Carrinho } from "./Carrinho";
+import Login from "./Login";
 
 export class Navbar extends Component {
   constructor(props) {
@@ -16,18 +18,27 @@ export class Navbar extends Component {
     this.state = {
       aberto: false,
       topo: true,
+      login: false,
     };
 
     this.refNavbar2 = React.createRef();
   }
 
+  abrirLogin() {
+    this.setState({ login: !this.state.login });
+    if (!this.state.login) {
+      document.documentElement.style.overflow = "hidden";
+      document.body.scroll = "no"; //Internet Explorer
+    } else {
+      document.documentElement.style.overflow = "auto";
+      document.body.scroll = "yes"; //Internet Explorer
+    }
+  }
   //################### INICIO APARECER CARRINHO ####################
-
   abrirCarrinho() {
     console.log(this.state.aberto);
     this.setState({ aberto: !this.state.aberto });
     if (!this.state.aberto) {
-      // window.onscroll = null;
       document.documentElement.style.overflow = "hidden";
       document.body.scroll = "no"; //Internet Explorer
     } else {
@@ -41,11 +52,8 @@ export class Navbar extends Component {
   //###################### INICIO TOPO SUMIR #########################
 
   saiuDoTopo() {
-    //Verifica a larguara para não ter o efeito de sumir e aparecer no modo mobile
-    var largura =
-      window.innerWidth ||
-      document.documentElement.clientWidth ||
-      document.body.clientWidth;
+    //Verifica a largura para não ter o efeito de sumir e aparecer no modo mobile
+    var largura = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
     if (largura > 768) {
       //Verificar porquê window.pageYOffset dispara tantas vezes
@@ -71,13 +79,12 @@ export class Navbar extends Component {
   render() {
     /* TERMINA AQUI*/
 
-    let carrinho_class = this.state.aberto
-      ? "carrinho-menu"
-      : "carrinho-menu-fechado";
+    let login_class = this.state.login ? "login" : "login-fechado";
 
-    let background_cart = this.state.aberto
-      ? "background-carrinho-dark"
-      : "background-carrinho-dark-fechado";
+    let carrinho_class = this.state.aberto ? "carrinho-menu" : "carrinho-menu-fechado";
+
+    let background_cart =
+      this.state.aberto || this.state.login ? "background-carrinho-dark" : "background-carrinho-dark-fechado";
 
     // const btnMobile = document.getElementById("btn-mobile");
     function toggleMenu() {
@@ -93,9 +100,7 @@ export class Navbar extends Component {
           <button className="btn-mobile" id="btn-mobile" onClick={toggleMenu}>
             <span id="hamburguer" className="hamburguer"></span>
           </button>
-          <div className="logo">
-            {/*<FaReact size="2rem" color="#1e5bc6" />*/}
-          </div>
+          <div className="logo">{/*<FaReact size="2rem" color="#1e5bc6" />*/}</div>
           {/* 
           <div id="div-search" className="div-search">
             <input type="text" className="search" placeholder="Search"></input>
@@ -104,7 +109,7 @@ export class Navbar extends Component {
             <BsSearch className="lupa-icon" size="1.5rem" color="#fff" />
           </div> */}
           <div className="navDireita">
-            <div className="div-user">
+            <div className="div-user" onClick={this.abrirLogin.bind(this)}>
               <HiOutlineUser className="user-icon" size="2rem" />
               <div className="bem-vindo">
                 <label className="label-bv">Bem Vindo</label>
@@ -123,12 +128,15 @@ export class Navbar extends Component {
             <div className={carrinho_class}>
               <Carrinho />
             </div>
+            <div className={login_class}>
+              <Login />
+            </div>
           </div>
         </div>
 
         <div
           className={background_cart}
-          onClick={this.abrirCarrinho.bind(this)}
+          onClick={this.state.login ? this.abrirLogin.bind(this) : this.abrirCarrinho.bind(this)}
         />
 
         <div className="linha-horizontal" />
