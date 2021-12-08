@@ -73,6 +73,15 @@ header {
   font-weight: 600;
   margin-left: 1rem;
 }
+.div-user > *,
+.div-user > * > label {
+  cursor: pointer;
+}
+
+.div-user > *:hover,
+.div-user > * > label:hover {
+  color: #8faad8;
+}
 
 .div-user {
   display: flex;
@@ -180,7 +189,6 @@ header {
   height: 0;
   overflow: hidden;
 }
-
 .btn-mobile {
   display: none;
 }
