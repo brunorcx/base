@@ -276,6 +276,7 @@ header {
     border: none;
     background: none;
     cursor: pointer;
+    z-index: 100;
   }
   .hamburguer {
     display: block;
