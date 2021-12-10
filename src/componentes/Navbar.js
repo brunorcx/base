@@ -27,10 +27,11 @@ export class Navbar extends Component {
   abrirLogin() {
     this.setState({ login: !this.state.login });
     if (!this.state.login) {
-      document.documentElement.style.overflow = "hidden";
+      //padding para tirar a largura da scrollbar
+      document.documentElement.style = "padding-right:7px; overflow:hidden";
       document.body.scroll = "no"; //Internet Explorer
     } else {
-      document.documentElement.style.overflow = "auto";
+      document.documentElement.style = "padding-right:0px; overflow:auto";
       document.body.scroll = "yes"; //Internet Explorer
     }
   }
@@ -39,10 +40,10 @@ export class Navbar extends Component {
     console.log(this.state.aberto);
     this.setState({ aberto: !this.state.aberto });
     if (!this.state.aberto) {
-      document.documentElement.style.overflow = "hidden";
+      document.documentElement.style = "padding-right:7px; overflow:hidden";
       document.body.scroll = "no"; //Internet Explorer
     } else {
-      document.documentElement.style.overflow = "auto";
+      document.documentElement.style = "padding-right:0px; overflow:auto";
       document.body.scroll = "yes"; //Internet Explorer
     }
   }
