@@ -103,7 +103,7 @@ const TabelaProd = () => {
             },
             { title: <div className="cHeader">Nome</div>, field: "name" },
             { title: <div className="cHeader">Valor</div>, field: "price" },
-            { title: <div className="cHeader">Forneceor</div>, field: "brand" },
+            { title: <div className="cHeader">Fornecedor</div>, field: "brand" },
             { title: <div className="cHeader">Quantidade</div>, field: "qty" },
             { title: <div className="cHeader">Categoria</div>, field: "tags" },
           ]}
@@ -118,7 +118,7 @@ const TabelaProd = () => {
               backgroundColor: "#1e5bc6",
               color: "#fff",
               "&:hover": {
-                color: "#bbdefb",
+                color: "#1e5bc6",
               },
             },
           }}

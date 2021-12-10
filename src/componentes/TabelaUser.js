@@ -125,6 +125,8 @@ const TabelaUser = () => {
           actions={[
             {
               icon: novoUsuario ? BiMinus : BiPlus,
+              backgroundColor: "blue",
+              color: "blue",
               tooltip: "Add User",
               isFreeAction: true,
               onClick: () => setNovoUsuario(!novoUsuario),
