@@ -12,8 +12,7 @@ function RoutesFunc() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Produtos" element={<Produtos />}></Route>
-        <Route path="/Produto/:id" />
-        {/* render={(props) => <Produto {...props} />} /*TODO https://www.youtube.com/watch?v=VD7ojK3deWE * */}
+        <Route path="/Produto/:id" element={<Produto />} />
         <Route path="/Usuarios" element={<Usuarios />} />
         <Route path="/CadastroProdutos" element={<CProduto />} />
         {/* <Route path="/pagina2" component={Pagina2}> */}
