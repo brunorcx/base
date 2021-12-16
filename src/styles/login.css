@@ -17,7 +17,7 @@
   margin-right: auto;
   border-radius: 10px;
 }
-.login-fechado {
+.closedLogin {
   font-weight: 400;
   position: fixed;
   top: 0;

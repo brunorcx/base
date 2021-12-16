@@ -1,10 +1,9 @@
 import { Navbar } from "../componentes/Navbar";
 import { Footer } from "../componentes/Footer";
 import Product from "../componentes/Product";
-import "../styles/produtoPage.css";
-import React, { Component } from "react";
+import { Component } from "react";
 
-export class Produto extends Component {
+export class ProductPage extends Component {
   render() {
     return (
       <div>
@@ -16,4 +15,4 @@ export class Produto extends Component {
   }
 }
 
-export default Produto;
+export default ProductPage;

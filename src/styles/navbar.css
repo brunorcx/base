@@ -19,7 +19,7 @@ header {
   z-index: auto;
 }
 
-.linha-horizontal {
+.horizontalLine {
   height: unset;
   width: 100%;
   border-top: 0.15rem solid #e6e6e6;
@@ -91,7 +91,7 @@ header {
   color: #1e5bc6;
   width: max-content;
 }
-.bem-vindo {
+.welcome {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -134,7 +134,7 @@ header {
   border-bottom: solid 2px #1e5bc6;
 }
 
-.navDireita {
+.rightNav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -147,19 +147,19 @@ header {
 }
 
 /* START CARRINHO */
-.carrinho-img {
+.imgCart {
   margin-left: auto;
   transition: 0.6s;
   margin-right: 0;
 }
-.carrinhoCompra {
+.cartIcon {
   color: #1e5bc6;
 }
-.carrinhoCompra:hover {
+.cartIcon:hover {
   color: #8faad8;
   cursor: pointer;
 }
-.background-carrinho-dark {
+.darkBackgroundCart {
   position: absolute;
   height: 100vh;
   width: 100vw;
@@ -170,7 +170,7 @@ header {
   background-color: rgb(0, 0, 0);
   visibility: visible;
 }
-.background-carrinho-dark-fechado {
+.closedDarkBackgroundCart {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -183,7 +183,7 @@ header {
 }
 /* END CARRINHO */
 
-.Sumir {
+.fade {
   display: flex;
   transition: visibility 0.3s linear, opacity 1s ease-out;
   opacity: 0;
@@ -217,7 +217,7 @@ header {
     transition: transform 250ms;
     transform: translateY(0%);
   }
-  .nav.active .carrinho-img {
+  .nav.active .imgCart {
     visibility: hidden;
     transform: rotate(270deg) scale(0);
   }
@@ -263,7 +263,7 @@ header {
     display: none;
   }
 
-  .navDireita {
+  .rightNav {
     width: 7%;
   }
   .user-icon {

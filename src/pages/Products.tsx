@@ -1,25 +1,25 @@
 import { Navbar } from "../componentes/Navbar";
 import { Footer } from "../componentes/Footer";
-import "../styles/produtos.css";
+import "../styles/products.css";
 import React, { useState, Suspense } from "react";
 import Spinner from "../componentes/Spinner";
-const ListProdutos = React.lazy(() => import("../componentes/ListProdutos"));
+const ProductList = React.lazy(() => import("../componentes/ProductList"));
 const Sidebar = React.lazy(() => import("../componentes/Sidebar"));
-export interface ProdutosProps {}
+export interface ProductsProps {}
 
-const Produtos: React.FC<ProdutosProps> = () => {
-  const [categoriaCheckbox, setCategoriaCheckbox] = useState({});
+const Products: React.FC<ProductsProps> = () => {
+  const [checkboxCategory, setCheckboxCategory] = useState({});
 
   return (
     <div>
       <Navbar className="navbar-p" />
 
-      <div className="corpo">
+      <div className="productsBody">
         <Suspense fallback={<Spinner />}>
-          <Sidebar categoriaCheckboxFunc={setCategoriaCheckbox} />
+          <Sidebar checkboxCategoryFunc={setCheckboxCategory} />
         </Suspense>
         <Suspense fallback={<Spinner />}>
-          <ListProdutos categoriaCheckbox={categoriaCheckbox} />
+          <ProductList checkboxCategory={checkboxCategory} />
         </Suspense>
       </div>
       <Footer className="footer-p" />
@@ -27,5 +27,5 @@ const Produtos: React.FC<ProdutosProps> = () => {
   );
 };
 
-export default Produtos;
+export default Products;
 //Para usar Suspense é preciso ter um lazy import

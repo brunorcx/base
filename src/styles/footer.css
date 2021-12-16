@@ -6,12 +6,12 @@
   margin: auto 0;
   margin-top: 1%;
 }
-.direita {
+.right {
   width: 40vw;
   margin: 0 20px;
   margin-bottom: 20px;
 }
-.esquerda {
+.left {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,11 +20,11 @@
 
   color: azure;
 }
-.esquerda h1 {
+.left h1 {
   font-family: "Montagu Slab", sans-serif;
   font-weight: 500;
 }
-.esquerda h2 {
+.left h2 {
   font-family: "Montagu Slab", sans-serif;
   font-weight: 400;
 }
@@ -50,25 +50,25 @@
   border-color: rgb(0, 17, 255);
 }
 
-.nome-contato {
+.contactName {
   height: 35px;
   grid-area: nc;
 }
-.empresa-contato {
+.contactCompany {
   height: 35px;
   grid-area: ec;
 }
-.email-contato {
+.contactEmail {
   height: 35px;
   grid-area: emc;
 }
-.texto-contato {
+.contactText {
   grid-area: tc;
   padding-bottom: 100px;
   box-sizing: border-box;
 }
 
-.form-dir {
+.rightForm {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: 1fr 1fr 3fr;
@@ -84,18 +84,18 @@
     justify-items: center;
     width: 100%;
   }
-  .esquerda {
+  .left {
     width: 90%;
     justify-content: center;
     text-align: center;
   }
-  .esquerda h1 {
+  .left h1 {
     align-self: center;
   }
-  .direita {
+  .right {
     width: 100vw;
   }
-  .form-dir {
+  .rightForm {
     width: 90vw;
     margin: auto;
     grid-template-columns: 1fr;

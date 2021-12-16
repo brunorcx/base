@@ -2,7 +2,7 @@ import axios from "axios";
 
 const baseUrl = process.env.NEXT_STATIC_BASE_URL || "http://localhost:3030";
 const baseUrlOnline = process.env.NEXT_STATIC_BASE_URL || "http://107.20.30.175:3030";
-async function PostProduto(url, data) {
+async function Post(url, data) {
   try {
     console.log("ENTROU NO POST");
     console.log(data);
@@ -23,7 +23,7 @@ async function PostProduto(url, data) {
     });
   }
 }
-async function GetResposta(url) {
+async function Get(url) {
   try {
     let response = await axios.get(baseUrl + url);
     // console.log(response.data);
@@ -34,4 +34,4 @@ async function GetResposta(url) {
   }
 }
 
-export { PostProduto, GetResposta };
+export { Post, Get };

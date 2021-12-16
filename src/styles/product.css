@@ -2,7 +2,7 @@
   display: flex;
 }
 
-.imagens {
+.images {
   flex: 3;
   display: flex;
 }
@@ -68,7 +68,7 @@
   display: flex;
 }
 
-.preço {
+.price {
   /* flex: 1; */
   display: flex;
   height: 40px;
@@ -77,7 +77,7 @@
   justify-content: center; */
 }
 
-.comprar {
+.buy {
   /* flex: 1; */
   height: 40px;
   display: flex;

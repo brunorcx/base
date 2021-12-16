@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import "../styles/propaganda.css";
 
 export class Propaganda extends Component {
@@ -6,25 +6,46 @@ export class Propaganda extends Component {
     return (
       <div className="all">
         <div className="p1">
-          <img src="https://www.fastshop.com.br/wcsstore/FastShop/img/home/2021/09/23/intpro-_-230921-_-03-_-FastPrime-_-ND-_-ND-_-ND-_-homedesk.jpg"></img>
+          <img
+            alt="lado 1"
+            src="https://www.fastshop.com.br/wcsstore/FastShop/img/home/2021/09/23/intpro-_-230921-_-03-_-FastPrime-_-ND-_-ND-_-ND-_-homedesk.jpg"
+          ></img>
         </div>
         <div className="p2">
-          <img src="https://carrefourbr.vtexassets.com/assets/vtex.file-manager-graphql/images/0ad00ac0-9bf1-4f4c-b164-63b66a3f258f___6dc7fcef0b6b8d93ffd880ef125088b7.jpg"></img>
+          <img
+            alt="lado 2"
+            src="https://carrefourbr.vtexassets.com/assets/vtex.file-manager-graphql/images/0ad00ac0-9bf1-4f4c-b164-63b66a3f258f___6dc7fcef0b6b8d93ffd880ef125088b7.jpg"
+          ></img>
         </div>
         <div className="p3">
-          <img src="https://www.fastshop.com.br/wcsstore/FastShop/img/home/2021/09/23/intpro-_-260921-_-01-_-48hSmartTvs-_-ND-_-ND-_-Grupo-_-homedesk.jpg"></img>
+          <img
+            alt="lado 3"
+            src="https://www.fastshop.com.br/wcsstore/FastShop/img/home/2021/09/23/intpro-_-260921-_-01-_-48hSmartTvs-_-ND-_-ND-_-Grupo-_-homedesk.jpg"
+          ></img>
         </div>
         <div className="p4">
-          <img src="https://images-na.ssl-images-amazon.com/images/G/32/kindle/email/Julho_2021/New_Wave-PR/379x304._SY304_CB665344963_.jpg"></img>
+          <img
+            alt="lado 4"
+            src="https://images-na.ssl-images-amazon.com/images/G/32/kindle/email/Julho_2021/New_Wave-PR/379x304._SY304_CB665344963_.jpg"
+          ></img>
         </div>
         <div className="p5">
-          <img src="https://carrefourbr.vtexassets.com/assets/vtex.file-manager-graphql/images/8af058b6-1306-4b5b-afbf-099511559d5e___65152e05cb21ce1f64ba2674a29cc36c.jpg"></img>
+          <img
+            alt="lado 5"
+            src="https://carrefourbr.vtexassets.com/assets/vtex.file-manager-graphql/images/8af058b6-1306-4b5b-afbf-099511559d5e___65152e05cb21ce1f64ba2674a29cc36c.jpg"
+          ></img>
         </div>
         <div className="p6">
-          <img src="https://carrefourbr.vtexassets.com/assets/vtex.file-manager-graphql/images/dc67f16c-5ee5-449b-a30b-38a6c32ccd28___3681655ea8adb442689e462b4e958909.gif"></img>
+          <img
+            alt="lado 6"
+            src="https://carrefourbr.vtexassets.com/assets/vtex.file-manager-graphql/images/dc67f16c-5ee5-449b-a30b-38a6c32ccd28___3681655ea8adb442689e462b4e958909.gif"
+          ></img>
         </div>
         <div className="p7">
-          <img src="https://d1kvbg99uxpcu.cloudfront.net/Custom/Content/Banners/24/24_banner637680782726862157.png"></img>
+          <img
+            alt="lado 7"
+            src="https://d1kvbg99uxpcu.cloudfront.net/Custom/Content/Banners/24/24_banner637680782726862157.png"
+          ></img>
         </div>
       </div>
     );

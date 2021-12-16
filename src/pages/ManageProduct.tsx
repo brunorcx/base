@@ -1,16 +1,12 @@
 import { Navbar } from "../componentes/Navbar";
 import { Footer } from "../componentes/Footer";
-import "../styles/cadastroProdutos.css";
-import React, { useState, useEffect, useRef } from "react";
-import { BsSearch } from "react-icons/bs";
-import { MdAddBox } from "react-icons/md";
-import { MdIndeterminateCheckBox } from "react-icons/md";
-import TabelaProd from "../componentes/TabelaProd";
-import FormProduto from "../componentes/database/FormProduto";
+import "../styles/manageProduct.css";
+import React, { useState, useEffect } from "react";
+import ProductTable from "../componentes/ProductTable";
 
-export interface CadastroProdutoProps {}
+export interface ManageProductProps {}
 
-const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
+const ManageProduct: React.FC<ManageProductProps> = () => {
   const [criarProduto, setCriarProduto] = useState(false); //Valor dentro da função é valor inicial da variável
   const [produtoCriado, setProdutoCriado] = useState(false);
   console.log(produtoCriado);
@@ -32,11 +28,11 @@ const CadastroProduto: React.FC<CadastroProdutoProps> = () => {
   return (
     <div>
       <Navbar />
-      <TabelaProd />
+      <ProductTable />
       <Footer />
     </div>
   );
 };
 
-export default CadastroProduto;
+export default ManageProduct;
 //https://codepen.io/7br_uno/pen/XWMjGaw

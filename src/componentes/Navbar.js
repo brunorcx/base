@@ -1,14 +1,11 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component } from "react";
 import "../styles/navbar.css";
-import "../styles/carrinho-menu.css";
+import "../styles/shoppingCart.css";
 import "../styles/login.css";
-import { FaReact } from "react-icons/fa";
-import { AiOutlineMenu } from "react-icons/ai";
-import { BsSearch } from "react-icons/bs";
 import { HiOutlineUser } from "react-icons/hi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { Carrinho } from "./Carrinho";
+import { Cart } from "./Cart";
 import Login from "./Login";
 
 export class Navbar extends Component {
@@ -16,15 +13,15 @@ export class Navbar extends Component {
     super(props);
 
     this.state = {
-      aberto: false,
-      topo: true,
+      open: false,
+      top: true,
       login: false,
     };
 
     this.refNavbar2 = React.createRef();
   }
 
-  abrirLogin() {
+  OpenLogin() {
     this.setState({ login: !this.state.login });
     if (!this.state.login) {
       //padding para tirar a largura da scrollbar
@@ -36,10 +33,10 @@ export class Navbar extends Component {
     }
   }
   //################### INICIO APARECER CARRINHO ####################
-  abrirCarrinho() {
-    console.log(this.state.aberto);
-    this.setState({ aberto: !this.state.aberto });
-    if (!this.state.aberto) {
+  OpenCart() {
+    console.log(this.state.open);
+    this.setState({ open: !this.state.open });
+    if (!this.state.open) {
       document.documentElement.style = "padding-right:7px; overflow:hidden";
       document.body.scroll = "no"; //Internet Explorer
     } else {
@@ -52,23 +49,23 @@ export class Navbar extends Component {
 
   //###################### INICIO TOPO SUMIR #########################
 
-  saiuDoTopo() {
+  OffTheTop() {
     //Verifica a largura para não ter o efeito de sumir e aparecer no modo mobile
-    var largura = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
-    if (largura > 768) {
+    if (width > 768) {
       //Verificar porquê window.pageYOffset dispara tantas vezes
       if (window.pageYOffset === 0) {
-        this.setState({ topo: true });
+        this.setState({ top: true });
         this.refNavbar2.current.className = "navbar2";
       } else if (window.pageYOffset >= 100) {
-        this.setState({ topo: false });
-        this.refNavbar2.current.className = "Sumir";
+        this.setState({ top: false });
+        this.refNavbar2.current.className = "fade";
       }
     }
   }
   componentDidMount() {
-    window.onscroll = this.saiuDoTopo.bind(this);
+    window.onscroll = this.OffTheTop.bind(this);
   }
 
   componentWillUnmount() {
@@ -80,20 +77,16 @@ export class Navbar extends Component {
   render() {
     /* TERMINA AQUI*/
 
-    let login_class = this.state.login ? "login" : "login-fechado";
+    let login_class = this.state.login ? "login" : "closedLogin";
 
-    let carrinho_class = this.state.aberto ? "carrinho-menu" : "carrinho-menu-fechado";
+    let cart_class = this.state.open ? "shoppingCart" : "closedShoppingCart";
 
-    let background_cart =
-      this.state.aberto || this.state.login ? "background-carrinho-dark" : "background-carrinho-dark-fechado";
+    let background_cart = this.state.open || this.state.login ? "darkBackgroundCart" : "closedDarkBackgroundCart";
 
-    // const btnMobile = document.getElementById("btn-mobile");
     function toggleMenu() {
       const nav = document.getElementById("nav");
       nav.classList.toggle("active");
     }
-
-    // btnMobile.addEventListener('click', toggleMenu)
 
     return (
       <header id="nav" className="nav">
@@ -101,33 +94,22 @@ export class Navbar extends Component {
           <button className="btn-mobile" id="btn-mobile" onClick={toggleMenu}>
             <span id="hamburguer" className="hamburguer"></span>
           </button>
-          <div className="logo">{/*<FaReact size="2rem" color="#1e5bc6" />*/}</div>
-          {/* 
-          <div id="div-search" className="div-search">
-            <input type="text" className="search" placeholder="Search"></input>
-          </div>
-          <div className="lupa">
-            <BsSearch className="lupa-icon" size="1.5rem" color="#fff" />
-          </div> */}
-          <div className="navDireita">
-            <div className="div-user" onClick={this.abrirLogin.bind(this)}>
+          <div className="logo"></div>
+          <div className="rightNav">
+            <div className="div-user" onClick={this.OpenLogin.bind(this)}>
               <HiOutlineUser className="user-icon" size="2rem" />
-              <div className="bem-vindo">
+              <div className="welcome">
                 <label className="label-bv">Bem Vindo</label>
                 <label> Entre</label>
               </div>
             </div>
             <div>
-              <div className="carrinho-img">
-                <AiOutlineShoppingCart
-                  className="carrinhoCompra"
-                  size="2rem"
-                  onClick={this.abrirCarrinho.bind(this)}
-                />
+              <div className="imgCart">
+                <AiOutlineShoppingCart className="cartIcon" size="2rem" onClick={this.OpenCart.bind(this)} />
               </div>
             </div>
-            <div className={carrinho_class}>
-              <Carrinho />
+            <div className={cart_class}>
+              <Cart />
             </div>
             <div className={login_class}>
               <Login />
@@ -137,10 +119,10 @@ export class Navbar extends Component {
 
         <div
           className={background_cart}
-          onClick={this.state.login ? this.abrirLogin.bind(this) : this.abrirCarrinho.bind(this)}
+          onClick={this.state.login ? this.OpenLogin.bind(this) : this.OpenCart.bind(this)}
         />
 
-        <div className="linha-horizontal" />
+        <div className="horizontalLine" />
         <div className="navbar2" id={"navbar2"} ref={this.refNavbar2}>
           {/* <AiOutlineMenu className="hamburguer" size="2rem" /> */}
           <ul className={"menu"}>

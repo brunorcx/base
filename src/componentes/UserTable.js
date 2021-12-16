@@ -2,7 +2,7 @@ import MaterialTable from "material-table";
 import { createTheme } from "@material-ui/core/styles";
 import { forwardRef, useState, useEffect } from "react";
 import { BsSearch } from "react-icons/bs";
-import { MdAddBox, MdOutlineClear } from "react-icons/md";
+import { MdOutlineClear } from "react-icons/md";
 import {
   BiMinus,
   BiPlus,
@@ -13,13 +13,9 @@ import {
   BiLastPage,
 } from "react-icons/bi";
 import { ThemeProvider } from "@material-ui/styles";
-import { GetResposta } from "../controllers/crud";
-import "../styles/tabelaProd.css";
-import FormUsuario from "../componentes/database/FormUsuario";
-
-// import styles from "../styles/tabelaProd.css";
-
-import "../styles/tabelaProd.css";
+import { Get } from "../controllers/crud";
+import "../styles/productTable.css";
+import UserForm from "./database/UserForm";
 
 const theme = createTheme({
   palette: {
@@ -39,14 +35,6 @@ const theme = createTheme({
 });
 
 const tableIcons = {
-  // Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
-  // Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
-  // Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
-  // Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref} />),
-  // DetailPanel: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
-  // Edit: forwardRef((props, ref) => <Edit {...props} ref={ref} />),
-  // Export: forwardRef((props, ref) => <SaveAlt {...props} ref={ref} />),
-  // Filter: forwardRef((props, ref) => <FilterList {...props} ref={ref} />),
   FirstPage: forwardRef((props, ref) => <BiFirstPage {...props} ref={ref} />),
   LastPage: forwardRef((props, ref) => <BiLastPage {...props} ref={ref} />),
   NextPage: forwardRef((props, ref) => <BiChevronRight {...props} ref={ref} />),
@@ -54,25 +42,23 @@ const tableIcons = {
   ResetSearch: forwardRef((props, ref) => <MdOutlineClear {...props} ref={ref} />),
   Search: forwardRef((props, ref) => <BsSearch {...props} ref={ref} />),
   SortArrow: forwardRef((props, ref) => <BiDownArrowAlt size="1.3rem" color="white" {...props} ref={ref} />),
-  // ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
-  // ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
-const TabelaUser = () => {
+const UserTable = () => {
   const [selectedRow, setSelectedRow] = useState(null);
-  const [usuarios, setUsuarios] = useState();
-  const [novoUsuario, setNovoUsuario] = useState();
+  const [users, setUsers] = useState();
+  const [newUser, setNewUser] = useState();
 
   useEffect(() => {
-    GetResposta("/users")
+    Get("/users")
       .then((result) => {
-        setUsuarios(result);
+        setUsers(result);
       })
       .catch((err) => {});
   }, []);
 
   useEffect(() => {
-    if (novoUsuario) {
+    if (newUser) {
       // window.onscroll = null;
       document.documentElement.style.overflow = "hidden";
       // document.body.scroll = "no"; //Internet Explorer
@@ -80,20 +66,19 @@ const TabelaUser = () => {
       document.documentElement.style.overflow = "auto";
       // document.body.scroll = "yes"; //Internet Explorer
     }
-  }, [novoUsuario]); // Apenas re-execute o efeito quando o count mudar
+  }, [newUser]); // Apenas re-execute o efeito quando o count mudar
   return (
     <div>
       <ThemeProvider theme={theme}>
         <MaterialTable
           title="Cadastro de usuários"
           columns={[
-            // { title: "ID", field: "_id" },
             {
-              // title: "Imagem",
               title: <div className="cHeader"> Imagem </div>,
               field: "image",
               render: (rowData) => (
                 <img
+                  alt="imagem usuário"
                   src={rowData.image}
                   style={{ height: "70px", width: "70px", objectFit: "cover", borderRadius: "50%" }}
                 />
@@ -110,7 +95,7 @@ const TabelaUser = () => {
             //   lookup: { 34: "İstanbul", 63: "Şanlıurfa" },
             // },
           ]}
-          data={usuarios}
+          data={users}
           onRowClick={(evt, selectedRow) => setSelectedRow(selectedRow.tableData.id)}
           options={{
             selection: true,
@@ -124,10 +109,10 @@ const TabelaUser = () => {
           }}
           actions={[
             {
-              icon: novoUsuario ? BiMinus : BiPlus,
+              icon: newUser ? BiMinus : BiPlus,
               tooltip: "Add User",
               isFreeAction: true,
-              onClick: () => setNovoUsuario(!novoUsuario),
+              onClick: () => setNewUser(!newUser),
               // cellStyle: {
               //   hover: {
               //     backgroundColor: "green",
@@ -138,10 +123,10 @@ const TabelaUser = () => {
           icons={tableIcons}
         />
       </ThemeProvider>
-      <FormUsuario novoUsuario={novoUsuario} />
-      {novoUsuario && <div className="background_cadastro" onClick={() => setNovoUsuario(!novoUsuario)}></div>}
+      <UserForm newUser={newUser} />
+      {newUser && <div className="registerBackground" onClick={() => setNewUser(!newUser)}></div>}
     </div>
   );
 };
 
-export default TabelaUser;
+export default UserTable;
