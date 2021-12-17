@@ -1,5 +1,6 @@
 # Criação de um site de vendas completo utilizando Nodejs, Javascript e Typescript.
 *Leia este arquivo em outras linguagens: [Inglês](README.md), [Português](README.pt.md)*
+
 No tratamento de informações foi usado MongoDB Atlas para armazenar dados de usuários, clientes e produtos. Tendo uma pequena diferença quanto ao armazenamento de imagens, em que o arquivo é carregado na Amazom S3 Cloud e o url gerado armazenado no MongoDB. Sua interface foi feita com React, HTML e CSS.
 
 OBS1: URL atual aponta para a interface. A API está localizada em: https://github.com/Machado21/node
