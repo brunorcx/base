@@ -1,4 +1,4 @@
-# Criação de um site de vendas completo utilizando Nodejs, Javascript e Typescript.
+# Site de vendas completo *full-stack*
 *Leia este arquivo em outras linguagens: [Inglês](README.md), [Português](README.pt.md)*
 
 ## Como iniciar
