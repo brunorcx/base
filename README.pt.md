@@ -6,9 +6,10 @@ Tenha certeza de baixar todos os arquivos dos diretórios: [Front](README.md), [
 
 Na pasta deste projeto, você pode digitar:
 ### `npm install`
-Para baixar e instalar os módules node necessários
+Para baixar e instalar os módulos node necessários.
 ### `npm start`
-Para executar o aplicativo no modo de desenvolvimento
+Para executar o aplicativo no modo de desenvolvimento.
+
 Abra [http://localhost:3000](http://localhost:3000) para poder visualizar no navegador.
 
 A página irá recarregar se você editar os arquivos.\
