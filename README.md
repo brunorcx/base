@@ -1,4 +1,6 @@
 # Creation of a complete E-commerce website using Nodejs, Javascript and Typescript. 
+*Read this in other languages: [English](README.md), [Portuguese](README.pt.md)*
+
 MongoDB Atlas will store user, customer and product data. Image in the other end is stored in Amazom S3 Cloud, which will generate a URL that will be stored in MongoDB. Its interface was made with React, HTML and CSS.
 
 *PS1: Current URL points to the interface. The API is located at: https://github.com/Machado21/node*
