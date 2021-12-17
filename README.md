@@ -1,4 +1,4 @@
-# Creation of a complete E-commerce website using Nodejs, Javascript and Typescript. 
+# Complete full-stack E-commerce website
 *Read this in other languages: [English](README.md), [Portuguese](README.pt.md)*
 
 ## How to run
