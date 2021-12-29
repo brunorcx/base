@@ -32,7 +32,7 @@
   margin-top: 25px;
 }
 .footer input {
-  margin: 7px;
+  margin: 3px 7px;
   border-color: rgba(255, 255, 255, 0);
   background-color: rgb(15, 44, 189);
   font-family: "Montagu Slab", sans-serif;
@@ -41,8 +41,25 @@
   border-radius: 5px;
 }
 
+.footer button {
+  background-color: white;
+  /* border: none; */
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 3px 7px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font-family: "Montagu Slab", sans-serif;
+  font-weight: 400;
+  border-radius: 5px;
+}
+
 .footer input:hover {
   background-color: rgb(10, 30, 192);
+  border-color: rgb(0, 17, 255);
 }
 .footer input:focus {
   outline: none;
@@ -67,15 +84,25 @@
   padding-bottom: 100px;
   box-sizing: border-box;
 }
-
+.contactSendButton {
+  grid-area: btn;
+  height: 35px;
+  color: #1e5bc6;
+  border: 2px solid rgb(10, 30, 192);
+}
+.contactSendButton:hover {
+  background-color: rgb(10, 30, 192);
+  color: white;
+}
 .rightForm {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 1fr 1fr 3fr;
+  grid-auto-rows: 1fr 1fr 3fr 1fr;
   grid-template-areas:
     "nc ec"
     "emc emc"
-    "tc tc";
+    "tc tc"
+    "btn btn";
 }
 
 @media (max-width: 768px) {
