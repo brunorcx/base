@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseUrl = process.env.NEXT_STATIC_BASE_URL || "http://localhost:3030";
-const baseUrlOnline = process.env.NEXT_STATIC_BASE_URL || "https://rodriguesdevnode.herokuapp.com/";
+const baseUrlOnline = process.env.NEXT_STATIC_BASE_URL || "https://rodriguesdevnode.herokuapp.com";
 async function Post(url, data) {
   try {
     console.log("ENTROU NO POST");
