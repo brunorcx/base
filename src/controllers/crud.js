@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseUrl = process.env.NEXT_STATIC_BASE_URL || "http://localhost:3030";
-const baseUrlOnline = process.env.NEXT_STATIC_BASE_URL || "http://107.20.30.175:3030";
+const baseUrlOnline = process.env.NEXT_STATIC_BASE_URL || "https://rodriguesdevnode.herokuapp.com";
 async function Post(url, data) {
   try {
     console.log("ENTROU NO POST");
@@ -21,6 +21,8 @@ async function Post(url, data) {
         "Content-Type": "multipart/form-data",
       },
     });
+    console.log(response.data);
+    return response.data;
   }
 }
 async function Get(url) {
@@ -31,6 +33,8 @@ async function Get(url) {
   } catch (e) {
     console.error(e);
     let response = await axios.get(baseUrlOnline + url);
+    console.log(response.data);
+    return response.data;
   }
 }
 
