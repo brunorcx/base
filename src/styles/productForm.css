@@ -11,7 +11,7 @@ input[type="number"] {
 }
 
 /*Tirar as setas FIM*/
-.formProdutoFechado {
+.ClosedProductForm {
   color: #54504e;
   font-family: "Lato", sans-serif;
   margin: 0;
@@ -22,7 +22,6 @@ input[type="number"] {
   left: 0;
   right: 0;
   top: 10%;
-
   box-shadow: 0 0 10px #000000;
   margin-left: auto;
   margin-right: auto;
@@ -39,7 +38,7 @@ input[type="number"] {
 .enter-tag {
   color: #1e5bc6;
 }
-.formProdutoAberto {
+.OpenProductForm {
   color: #54504e;
   z-index: 101;
   font-family: "Lato", sans-serif;
@@ -128,7 +127,7 @@ input[type="number"] {
   /* outline: 2px dashed #1e5bc6; */
 }
 
-.inputImagem {
+.imgInput {
   position: absolute;
   height: 90%;
   opacity: 0;

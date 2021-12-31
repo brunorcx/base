@@ -1,28 +1,22 @@
-import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Produtos from "./pages/Produtos";
-import Produto from "./pages/Produto";
-import CProduto from "./pages/CadastroProduto";
-import Usuarios from "./pages/Usuarios";
+import Products from "./pages/Products";
+import ProductPage from "./pages/ProductPage";
+import ManageProduct from "./pages/ManageProduct";
+import Users from "./pages/Users";
 
-function Routes() {
+function RoutesFunc() {
   return (
     <BrowserRouter>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/Produtos" exact component={Produtos}></Route>
-        <Route
-          path="/Produto/:id"
-          exact
-          render={(props) => <Produto {...props} />} /*TODO https://www.youtube.com/watch?v=VD7ojK3deWE */
-        />
-        <Route path="/Usuarios" exact component={Usuarios} />
-        <Route path="/CadastroProdutos" exact component={CProduto} />
-        {/* <Route path="/pagina2" component={Pagina2}> */}
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Produtos" element={<Products />}></Route>
+        <Route path="/Produto/:id" element={<ProductPage />} />
+        <Route path="/Usuarios" element={<Users />} />
+        <Route path="/CadastroProdutos" element={<ManageProduct />} />
+      </Routes>
     </BrowserRouter>
   );
 }
 
-export default Routes;
+export default RoutesFunc;

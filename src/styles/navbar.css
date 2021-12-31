@@ -11,14 +11,17 @@ header {
 .navbar1 {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex: 1;
+  height: 70px;
   margin: 0 5% 0;
   background-color: #ffffff;
+  z-index: auto;
 }
 
-.linha-horizontal {
+.horizontalLine {
   height: unset;
-  width: 100wv;
+  width: 100%;
   border-top: 0.15rem solid #e6e6e6;
 }
 
@@ -70,6 +73,15 @@ header {
   font-weight: 600;
   margin-left: 1rem;
 }
+.div-user > *,
+.div-user > * > label {
+  cursor: pointer;
+}
+
+.div-user > *:hover,
+.div-user > * > label:hover {
+  color: #8faad8;
+}
 
 .div-user {
   display: flex;
@@ -79,7 +91,7 @@ header {
   color: #1e5bc6;
   width: max-content;
 }
-.bem-vindo {
+.welcome {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -93,68 +105,64 @@ header {
   font-weight: 800;
 }
 
-.hamburguer {
-  background-color: inherit;
-  margin: 0 0.5rem 0rem;
-  padding: 0 0.5rem 0.25rem;
-}
-
 .link {
   background-color: #ffffff;
 }
-
-.navbar2 ul {
+.menu {
   display: flex;
   margin: 0;
-
   padding: 0;
+}
+.menu a {
+  display: block;
+  padding: 0.25rem;
 }
 
 .navbar2 li {
   align-self: center;
-  padding: 0.25rem 1rem 0.5rem;
+  padding: 0 1rem 0;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   margin-top: 0.2rem;
 }
-.navbar2 li a {
+.nav li a {
   text-decoration: none;
+  border-bottom: solid 2px transparent;
+}
+.nav li a:hover {
+  color: #1e5bc6;
+  border-bottom: solid 2px #1e5bc6;
 }
 
-.navbar2 li:hover {
-  background-color: #e6e6e6;
-}
-.navDireita {
-  /* width: 100%; */
+.rightNav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   margin-right: 2%;
   width: 100%;
 }
-.hamburguer:hover {
-  background-color: #e6e6e6;
-}
+
 .grudar {
   position: fixed;
 }
 
 /* START CARRINHO */
-.carrinho-img {
+.imgCart {
   margin-left: auto;
+  transition: 0.6s;
   margin-right: 0;
 }
-.carrinhoCompra {
+.cartIcon {
   color: #1e5bc6;
 }
-.carrinhoCompra:hover {
+.cartIcon:hover {
   color: #8faad8;
   cursor: pointer;
 }
-.background-carrinho-dark {
+.darkBackgroundCart {
   position: absolute;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   top: 0;
   left: 0;
   opacity: 0.7;
@@ -162,7 +170,7 @@ header {
   background-color: rgb(0, 0, 0);
   visibility: visible;
 }
-.background-carrinho-dark-fechado {
+.closedDarkBackgroundCart {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -175,30 +183,76 @@ header {
 }
 /* END CARRINHO */
 
-.Sumir {
+.fade {
   display: flex;
   transition: visibility 0.3s linear, opacity 1s ease-out;
   opacity: 0;
   height: 0;
   overflow: hidden;
 }
+.btn-mobile {
+  display: none;
+}
 
 @media (max-width: 768px) {
   .navbar2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    margin: 0;
+    transition: transform 250ms;
+    transform: translateY(-100%);
   }
+  .nav.active .navbar2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    z-index: 10;
+    transition: transform 250ms;
+    transform: translateY(0%);
+  }
+  .nav.active .imgCart {
+    visibility: hidden;
+    transform: rotate(270deg) scale(0);
+  }
+  .menu {
+    display: block;
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    top: 40px;
+    right: 0;
+    background: #ffffff;
+    z-index: 1000;
+    height: 0;
+    transition: 0.6s;
+    overflow-y: hidden;
+  }
+  .nav.active .menu {
+    height: calc(100vh - 50px);
+    visibility: visible;
+    overflow-y: auto;
+    transition: 0.6s;
+  }
+
+  .menu a {
+    padding: 1rem 0;
+    margin: 0 1rem;
+    text-decoration: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+  }
+
   .limite {
     margin: 0.2%;
     align-self: center;
   }
-  .navbar2 ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0;
-  }
+
   .navbar1 {
     margin: 0 1% 0;
   }
@@ -209,14 +263,45 @@ header {
     display: none;
   }
 
-  .navDireita {
+  .rightNav {
     width: 7%;
   }
   .user-icon {
     width: 100%;
   }
-  .navbar2 ul li {
+  .btn-mobile {
     display: flex;
-    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    z-index: 100;
+  }
+  .hamburguer {
+    display: block;
+    border-top: 2px solid rgb(0, 0, 0);
+    color: black;
+  }
+  .hamburguer::after,
+  .hamburguer::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    margin-top: 5px;
+    transition: 0.3s;
+    position: relative;
+  }
+  .nav.active .hamburguer {
+    border-top-color: transparent;
+  }
+  .nav.active .hamburguer::before {
+    transform: rotate(135deg);
+  }
+  .nav.active .hamburguer::after {
+    transform: rotate(-135deg);
+    top: -7px;
   }
 }

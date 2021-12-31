@@ -1,4 +1,3 @@
-import { render } from "@testing-library/react";
 import React, { Component } from "react";
 import "../styles/home.css";
 import { Navbar } from "../componentes/Navbar";

@@ -1,7 +1,6 @@
 import MaterialTable from "material-table";
 import { forwardRef, useEffect, useState } from "react";
-// import { DataGrid } from "@material-ui/data-grid";
-import { GetResposta } from "../controllers/crud";
+import { Get } from "../controllers/crud";
 import { createTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { BsSearch } from "react-icons/bs";
@@ -15,9 +14,9 @@ import {
   BiFirstPage,
   BiLastPage,
 } from "react-icons/bi";
-import FormProduto from "../componentes/database/FormProduto";
-import "../styles/formProduto.css";
-import "../styles/tabelaProd.css";
+import ProductForm from "./database/ProductForm";
+import "../styles/productForm.css";
+import "../styles/productTable.css";
 
 const theme = createTheme({
   palette: {
@@ -39,30 +38,22 @@ const tableIcons = {
   FirstPage: forwardRef((props, ref) => <BiFirstPage {...props} ref={ref} />),
   LastPage: forwardRef((props, ref) => <BiLastPage {...props} ref={ref} />),
   NextPage: forwardRef((props, ref) => <BiChevronRight {...props} ref={ref} />),
-  PreviousPage: forwardRef((props, ref) => (
-    <BiChevronLeft {...props} ref={ref} />
-  )),
-  ResetSearch: forwardRef((props, ref) => (
-    <MdOutlineClear {...props} ref={ref} />
-  )),
+  PreviousPage: forwardRef((props, ref) => <BiChevronLeft {...props} ref={ref} />),
+  ResetSearch: forwardRef((props, ref) => <MdOutlineClear {...props} ref={ref} />),
   Search: forwardRef((props, ref) => <BsSearch {...props} ref={ref} />),
-  SortArrow: forwardRef((props, ref) => (
-    <BiDownArrowAlt size="1.3rem" color="white" {...props} ref={ref} />
-  )),
-  Pluss: forwardRef((props, ref) => (
-    <BiPlus size="1.3rem" color="white" {...props} ref={ref} />
-  )),
+  SortArrow: forwardRef((props, ref) => <BiDownArrowAlt size="1.3rem" color="white" {...props} ref={ref} />),
+  Pluss: forwardRef((props, ref) => <BiPlus size="1.3rem" color="white" {...props} ref={ref} />),
 };
 
-const TabelaProd = () => {
+const ProductTable = () => {
   const [selectedRow, setSelectedRow] = useState(null);
-  const [produtos, setProdutos] = useState();
-  const [produtoCriado, setProdutoCriado] = useState(false);
+  const [products, setProducts] = useState();
+  const [createdProduct, setCreatedProduct] = useState(false);
 
-  const [criarProduto, setCriarProduto] = useState(false); //Valor dentro da função é valor inicial da variável
+  const [createProduct, setCreateProduct] = useState(false); //Valor dentro da função é valor inicial da variável
 
   useEffect(() => {
-    if (criarProduto) {
+    if (createProduct) {
       // window.onscroll = null;
       document.documentElement.style.overflow = "hidden";
       // document.body.scroll = "no"; //Internet Explorer
@@ -70,32 +61,25 @@ const TabelaProd = () => {
       document.documentElement.style.overflow = "auto";
       // document.body.scroll = "yes"; //Internet Explorer
     }
-  }, [criarProduto]); // Apenas re-execute o efeito quando o count mudar
+  }, [createProduct]); // Apenas re-execute o efeito quando o count mudar
 
   useEffect(() => {
-    console.log(produtoCriado);
-  }, [produtoCriado]);
+    console.log(createdProduct);
+  }, [createdProduct]);
 
   useEffect(() => {
-    GetResposta("/products")
+    Get("/products")
       .then((result) => {
-        setProdutos(result);
+        setProducts(result);
       })
       .catch((err) => {});
   }, []);
 
-  function Icon() {
-    return criarProduto ? (
-      <BiMinus size="5px" />
-    ) : (
-      <BiPlus size="5px" color="#fff" />
-    );
-  }
   return (
     <div>
       <ThemeProvider theme={theme}>
         <MaterialTable
-          title="Proutos"
+          title="Produtos"
           columns={[
             {
               // title: "Imagem",
@@ -103,6 +87,7 @@ const TabelaProd = () => {
               field: "image",
               render: (rowData) => (
                 <img
+                  alt="add"
                   src={rowData.img}
                   style={{
                     height: "70px",
@@ -115,58 +100,46 @@ const TabelaProd = () => {
             },
             { title: <div className="cHeader">Nome</div>, field: "name" },
             { title: <div className="cHeader">Valor</div>, field: "price" },
-            { title: <div className="cHeader">Forneceor</div>, field: "brand" },
+            { title: <div className="cHeader">Fornecedor</div>, field: "brand" },
             { title: <div className="cHeader">Quantidade</div>, field: "qty" },
             { title: <div className="cHeader">Categoria</div>, field: "tags" },
           ]}
-          data={produtos}
-          onRowClick={(evt, selectedRow) =>
-            setSelectedRow(selectedRow.tableData.id)
-          }
+          data={products}
+          onRowClick={(evt, selectedRow) => setSelectedRow(selectedRow.tableData.id)}
           options={{
             selection: true,
             rowStyle: (rowData) => ({
-              backgroundColor:
-                selectedRow === rowData.tableData.id ? "#1e5cc63f" : "#fff",
+              backgroundColor: selectedRow === rowData.tableData.id ? "#1e5cc63f" : "#fff",
             }),
             headerStyle: {
               backgroundColor: "#1e5bc6",
               color: "#fff",
               "&:hover": {
-                color: "#bbdefb",
+                color: "#1e5bc6",
               },
             },
           }}
           actions={[
             {
               icon: () => {
-                return criarProduto ? (
-                  <BiMinus className="btn" />
-                ) : (
-                  <BiPlus className="btn" />
-                );
+                return createProduct ? <BiMinus className="btn" /> : <BiPlus className="btn" />;
               },
               tooltip: "Add User",
               isFreeAction: true,
-              onClick: (event) => setCriarProduto(!criarProduto),
+              onClick: (event) => setCreateProduct(!createProduct),
             },
           ]}
           icons={tableIcons}
         />
       </ThemeProvider>
-      <FormProduto
-        novoProduto={criarProduto}
-        produtoCriadoF={setProdutoCriado}
-        produtoCriado={produtoCriado}
+      <ProductForm
+        newProduct={createProduct}
+        createdProductF={setCreatedProduct}
+        createdProduct={createdProduct}
       />
-      {criarProduto && (
-        <div
-          className="background_cadastro"
-          onClick={() => setCriarProduto(!criarProduto)}
-        />
-      )}
+      {createProduct && <div className="registerBackground" onClick={() => setCreateProduct(!createProduct)} />}
     </div>
   );
 };
-export default TabelaProd;
+export default ProductTable;
 //##### fim #####
