@@ -5,33 +5,23 @@ export class Footer extends Component {
   render() {
     return (
       <div className="footer">
-        <div className="esquerda">
+        <div className="left">
           <h1>Entre em contato</h1>
           <h2>
             Precisando de um site profissional?
             <br />
-            Não perca tempo, Entre em contato, que nós temos a solução ideal
-            para você.
+            Não perca tempo, entre em contato que nós temos a solução ideal para você.
           </h2>
         </div>
-        <div className="direita">
-          <form className="form-dir">
-            <input type="text" className="nome-contato" placeholder="Nome:" />
-            <input
-              type="text"
-              className="empresa-contato"
-              placeholder="Empresa:"
-            />
-            <input
-              type="email"
-              className="email-contato"
-              placeholder="Email:"
-            />
-            <input
-              type="text"
-              className="texto-contato"
-              placeholder="Escreva sua mensagem aqui"
-            />
+        <div className="right">
+          <form className="rightForm">
+            <input type="text" className="contactName" placeholder="Nome:" />
+            <input type="text" className="contactCompany" placeholder="Empresa:" />
+            <input type="email" className="contactEmail" placeholder="Email:" />
+            <input type="text" className="contactText" placeholder="Escreva sua mensagem aqui" />
+            <button type="submit" className="contactSendButton" text="Enviar">
+              Enviar
+            </button>
           </form>
         </div>
       </div>

@@ -7,7 +7,7 @@
   color: #92ddfc;
 }
 
-.background_cadastro {
+.registerBackground {
   position: absolute;
   height: 120%;
   width: 100%;
@@ -23,6 +23,13 @@
 
 .btn:hover {
   size: 7px;
-  background-color: #d7d7d7;
   border-radius: 7px;
+}
+
+.MuiIconButton-colorInherit:hover {
+  background-color: #f3f3f3b7 !important;
+  color: #1e5bc6 !important;
+}
+.cHeader {
+  color: white;
 }

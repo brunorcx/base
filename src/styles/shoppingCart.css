@@ -1,4 +1,4 @@
-.carrinho-menu {
+.shoppingCart {
   border: 1px solid #aaaaaa;
   font-weight: 400;
   /* background: rgb(255, 94, 0); */
@@ -12,9 +12,8 @@
   transition: transform 250ms cubic-bezier(0.5, 0, 0.5, 1);
   transform: translateX(75%);
 }
-.carrinho-menu-fechado {
+.closedShoppingCart {
   background: rgb(42, 76, 121);
-
   position: fixed;
   top: 0;
   bottom: 0;
@@ -91,3 +90,13 @@ figure {
   width: fit-content;
 } */
 /*Ajustar para carrinho menu fiar com tamanho fixo*/
+
+@media (max-width: 768px) {
+  .shoppingCart {
+    transform: translateX(50%);
+  }
+  #page > main {
+    width: max-content;
+    margin: 0 7px;
+  }
+}

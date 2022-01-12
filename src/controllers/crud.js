@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const baseUrl = process.env.NEXT_STATIC_BASE_URL || "http://localhost:3030";
-const baseUrlOnline = process.env.NEXT_STATIC_BASE_URL || "http://107.20.30.175:3030";
-async function PostProduto(url, data) {
+const baseUrlOnline = process.env.NEXT_STATIC_BASE_URL || "https://rodriguesdevnode.herokuapp.com";
+async function Post(url, data) {
   try {
     console.log("ENTROU NO POST");
     console.log(data);
@@ -21,9 +21,11 @@ async function PostProduto(url, data) {
         "Content-Type": "multipart/form-data",
       },
     });
+    console.log(response.data);
+    return response.data;
   }
 }
-async function GetResposta(url) {
+async function Get(url) {
   try {
     let response = await axios.get(baseUrl + url);
     // console.log(response.data);
@@ -31,7 +33,9 @@ async function GetResposta(url) {
   } catch (e) {
     console.error(e);
     let response = await axios.get(baseUrlOnline + url);
+    console.log(response.data);
+    return response.data;
   }
 }
 
-export { PostProduto, GetResposta };
+export { Post, Get };

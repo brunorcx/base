@@ -1,126 +1,41 @@
-# Getting Started with Create React App
+# Complete full-stack E-commerce website
+*Read this in other languages: [English](README.md), [Portuguese](README.pt.md)*
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+## How to run
+Make sure to download all repositories: [Front](README.md), [Back](https://github.com/Machado21/node/tree/main)
 
 In the project directory, you can run:
-
+### `npm install`
+To download and install all necessary node modules
 ### `npm start`
-
-Runs the app in the development mode.\
+To Run the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+*You have to do this procedure for both repositories*
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## About the project
+MongoDB Atlas will store user, customer and product data. Image in the other end is stored in Amazom S3 Cloud, which will generate a URL that will be stored in MongoDB. Its interface was made with React, HTML and CSS.
 
-### `npm run build`
+*PS1: Current URL points to the interface. The API is located at: https://github.com/Machado21/node*
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+*PS2: We are working to host the site on the Vercel platform to make it available to use. The URL will be informed soon.*
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-# Códigos git
-### Primeiro adicionar os arquivos
-`git add .`
-### Segundo fazer um commit 
-`git commit -m "mensagem"`
-### Terceiro dar um push
-`git push`
-
-### Mudar e criar novo branch
-`git checkout -b novoBranch`
-### Mudar para novo branch 
-`git checkout novoBranch`
-### Mudar para o branch mais atual
-`git checkout branchMaisAtual`
-
-`git pull`
-
-`git checkout branchAntigo`
-
-`git pull`
-
-`git merge branchMaisAtual`
-
-`git commit -a -m "Mensagem"`
-
-`git push`
-### Deletar branch local
-git branch -d localBranchName
-### Deletar branch remoto
-git push origin --delete remoteBranchName
-### Esperar uma variável ficar pronta
-É preciso que a variável fica dentro de um useEffect para esperar o resultado dela usando hooks:
-  useEffect(() => {
-   FunçãoFazendoAlgo(Item);
-  }, [variávelModificada]);
-# Código node
-### Para carregador as dependências do nodejs basta usar o comando
-	npm install
-# Tarefas
-* [x] Fechar menu carrinho quando clicar fora dele
-* [x] Criar controller, model, schema para produtos
-* [x] Verificar conexão do front com back
-* [x] Pesquisar layouts modernos
-* [x] Travar rolamento de tela após abrir o carrinho
-* [x] Centralizar menus/links do navbar
-* [x] Arrumar GET usando axios no front pelo controller
-* [x] Mandar solicitação GetProduto na função Cadastrar() do formulário
-* [x] Adicionar categorias a mais em tempo de execução
-* [x] Ajustar vetor para vários campos no back POST
-* [ ] Retirar menu hamburguer e colocar somente para mobile
-* [ ] Colocar logo Rodrigues dev
-* [ ] Criar um diagrama de banco de dados
-* [ ] Criar página de cadastro de usuários e produtos
-* [ ] Implementar busca produtos
-* [ ] Redirecionar após clicar nas propagandas do Home
-* [x] Salvar imagens no banco
-* [ ] Conectar Versel com back-end
-* [x] Reduzir 50% da segunda navbar em altura(Olhar tamanho de texto), colocar imagem igual da amazom no nosso Home
-* [ ] Criar banners(propagandas) de rolagem para direita/esquerda conforme site da amazon no nosso Home
-* [ ] Criar página de produtos principais(mínimo 3, olhar segundo link exemplo desodorante)
-* [x] Reduzir margens laterais em todas as páginas
-* [ ] Criar tema escuro
-* [x] Olhar Amazon S3 para armazenar imagens e usar o url no mongoDB
+*PS3: Issue and bugs management is done by the boards in Gitlab and not in Github. You can access the project at: https://gitlab.com/brunorcx/base*
 
 
-# Bugs
-* [ ] Mudar de Home para Produto faz o footer carrinho e usuário piscarem 
-* [x] exemplo
-# Exemplo sites
-https://www.carolinezhurley.com/blogs/journal
 
-https://www.harrys.com/en/us/shop/deodorant
-
-https://www.ception.ai/
-# Logística
-* [ ] Entrar em contato com a sebrae conversar sobre divulgar o produto, atendimento, canais de vendas, clientes APÓS fazer um plano de negócios
-* [ ] Clientes não sabem como funciona a plataforma, sistema de pagamento, motores de busca (SEO), marketing digital, mídias sociais
-* [ ] Oferecer serviço completo
-* [ ] Procurar ferramenta de prototipação react. EX: https://meetalva.io/
+<div style="display: inline_block"><br>
+  <img align="center" alt="Javascript" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
+  <img align="center" alt="Typescript" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg">
+  <img align="center" alt="React" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
+  <img align="center" alt="HTML" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
+  <img align="center" alt="CSS" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
+  <img align="center" alt="Nodejs" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg">
+  <img align="center" alt="Amazom" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg">
+  <img align="center" alt="MongoDB" height="30" width="40" src="https://github.com/devicons/devicon/blob/master/icons/mongodb/mongodb-original.svg">
+  
+  </div>
+  <br/>  
