@@ -25,15 +25,15 @@
 }
 #page {
   display: grid;
-  width: 100%;
+  width: 25%;
   height: 100%;
-  grid-template-rows: 1fr 6fr 6fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 10fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-areas:
-    "head head head head"
-    "main main main main"
-    "main main main main"
-    "foot foot foot foot";
+    "head"
+    "main"
+    "main"
+    "foot";
   /* grid-template-areas:
     "head head head head"
     "nav main main main"
