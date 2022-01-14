@@ -40,6 +40,7 @@
   grid-area: p1;
   height: 400%;
   background: linear-gradient(#1e5bc6, white);
+  margin: 0 -8%;
 }
 .p2 {
   grid-area: p2;
