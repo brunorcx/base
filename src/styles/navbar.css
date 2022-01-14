@@ -36,6 +36,9 @@ header {
   opacity: 1;
   transition: visibility 0.3s linear, opacity 1s ease-in;
 }
+a {
+  color: #666666;
+}
 
 .logo {
   display: flex;

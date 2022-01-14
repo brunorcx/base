@@ -6,7 +6,7 @@ export class Propaganda extends Component {
   render() {
     return (
       <div className="all">
-        <div className="p1">TESTE PROPAGANDA</div>
+        <div className="p1"></div>
         <div className="p2">
           <h2> Ofertas do Dia </h2>
           <img
