@@ -2,10 +2,12 @@ import { Navbar } from "../componentes/Navbar";
 import { Footer } from "../componentes/Footer";
 import React, { useState, useEffect } from "react";
 import UserTable from "../componentes/UserTable";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export interface UserProps {}
 
 const Users: React.FC<UserProps> = () => {
+  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [createUser, setCreateUser] = useState(false); //Valor dentro da função é valor inicial da variável
 
   useEffect(() => {
@@ -21,7 +23,8 @@ const Users: React.FC<UserProps> = () => {
   return (
     <div>
       <Navbar />
-      <UserTable />
+      {isAuthenticated && <UserTable />}
+      {user ? console.log(user.sub) : false}
       <Footer />
     </div>
   );

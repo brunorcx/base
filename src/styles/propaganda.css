@@ -39,7 +39,9 @@
 .p1 {
   grid-area: p1;
   height: 400%;
-  background: linear-gradient(#1e5bc6, white);
+  background: linear-gradient(#1e5bc6, #f7f7f7);
+  margin: 0 -5.57%;
+  border-radius: 0% !important;
 }
 .p2 {
   grid-area: p2;
