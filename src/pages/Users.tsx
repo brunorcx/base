@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import UserTable from "../componentes/UserTable";
 import { useAuth0 } from "@auth0/auth0-react";
 var axios = require("axios").default;
-const jwtAuthz = require("express-jwt-authz");
+// const jwtAuthz = require("express-jwt-authz");
 
 export interface UserProps {}
 
@@ -20,7 +20,7 @@ const Users: React.FC<UserProps> = () => {
       url: "https://rodriguesdev.us.auth0.com/api/v2/users/" + userID + "/roles",
       headers: { authorization: "Bearer " + token },
     };
-    var optionsJWT = { customScopeKey: "permissions" }; // This is necessary to support the direct-user permissions
+    // var optionsJWT = { customScopeKey: "permissions" }; // This is necessary to support the direct-user permissions
     // const checkScopes = jwtAuthz(["read:protected", "read:roles", "read:users", "read:role_members"]);
 
     axios
