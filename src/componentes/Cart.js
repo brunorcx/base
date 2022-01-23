@@ -4,7 +4,7 @@ import { VscTrash } from "react-icons/vsc";
 export class Cart extends Component {
   render() {
     return (
-      <section id="page">
+      <section id="page" className="cart">
         <div className="cHeader">Header</div>
         {/* <nav>Navigation</nav> */}
         <main>

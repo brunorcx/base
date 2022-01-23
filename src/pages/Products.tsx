@@ -1,4 +1,4 @@
-import { Navbar } from "../componentes/Navbar";
+import Navbar from "../componentes/Navbar";
 import { Footer } from "../componentes/Footer";
 import "../styles/products.css";
 import React, { useState, Suspense } from "react";
