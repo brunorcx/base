@@ -34,7 +34,7 @@ header {
   flex: 1 0 30px;
   font-size: 15px;
   opacity: 1;
-  transition: visibility 0.3s linear, opacity 1s ease-in;
+  transition: visibility 0.3s linear, opacity 0.5s ease-in;
 }
 a {
   color: #666666;
@@ -197,6 +197,33 @@ a {
   display: none;
 }
 
+.login-container {
+  height: 70px;
+  width: 100px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  position: absolute;
+  top: 40px;
+  background-color: #1e5bc6;
+  box-shadow: 0px 4px 8px 0 black;
+}
+
+.login-container button {
+  background-color: white;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: auto 7px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.div-user:hover .login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 @media (max-width: 768px) {
   .navbar2 {
     position: fixed;
