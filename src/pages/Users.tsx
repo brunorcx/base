@@ -74,7 +74,12 @@ const Users: React.FC<UserProps> = () => {
       </div>
     );
   }
-  return <Spinner />;
+  return (
+    <div>
+      <Navbar />
+      <Spinner />
+    </div>
+  );
 };
 
 export default Users;
