@@ -8,9 +8,8 @@ import { Link } from "react-router-dom";
 import { Cart } from "./Cart";
 import Login from "./Login";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useState, useEffect } from "react";
 
-let cart_class = this.state.open ? "shoppingCart" : "closedShoppingCart";
-// let login_class = this.state.login ? "login" : "closedLogin";
 // let background_cart =
 //   this.state.open || this.state.login
 //     ? "darkBackgroundCart"
@@ -21,10 +20,37 @@ const Navbar = (props) => {
   const { loginWithRedirect, logout, user, isAuthenticated, isLoading } =
     useAuth0();
 
-  function toggleCart() {
-    const cart = document.querySelector("cart");
-    cart.classList.toggle("active");
-  }
+  const [toggleCart, settoggleCart] = useState(false);
+  const [navbar2, setNavbar2] = useState("navbar2");
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    //Verifica a largura para não ter o efeito de sumir e aparecer no modo mobile
+    var width =
+      window.innerWidth ||
+      document.documentElement.clientWidth ||
+      document.body.clientWidth;
+
+    if (width > 768) {
+      //Verificar porquê window.pageYOffset dispara tantas vezes
+      if (scrollPosition === 0) {
+        setNavbar2("navbar2");
+      } else if (scrollPosition >= 100) {
+        setNavbar2("fade");
+      }
+    }
+  }, [scrollPosition]);
+
   return (
     <header id="nav" className="nav">
       <div className="navbar1">
@@ -37,7 +63,11 @@ const Navbar = (props) => {
             <HiOutlineUser className="user-icon" size="2rem" />
             <div className="welcome">
               <label className="label-bv">Bem Vindo</label>
-              <label> {user.name}</label>
+              {isLoading ? (
+                <label>Loading...</label>
+              ) : (
+                <label> {isAuthenticated ? user.name : "Entrar"}</label>
+              )}
             </div>
             <container className="login-container">
               <button className="sign-in" onClick={() => loginWithRedirect()}>
@@ -51,19 +81,24 @@ const Navbar = (props) => {
 
           <div>
             <div className="imgCart">
-              <AiOutlineShoppingCart className="cartIcon" size="2rem" />
+              <AiOutlineShoppingCart
+                className="cartIcon"
+                size="2rem"
+                onClick={() => settoggleCart(!toggleCart)}
+              />
             </div>
           </div>
-          <div className="cart" onClick={toggleCart}>
+          <div className={`cart${toggleCart ? "active" : ""}`}>
             <Cart />
           </div>
         </div>
       </div>
-
-      <div className="closedDarkBackgroundCart" />
-
+      <div
+        className={`${toggleCart ? "" : "closed"}darkBackgroundCart`}
+        onClick={() => settoggleCart(!toggleCart)}
+      ></div>
       <div className="horizontalLine" />
-      <div className="navbar2" id={"navbar2"}>
+      <div className={navbar2} id={"navbar2"}>
         {/* <AiOutlineMenu className="hamburguer" size="2rem" /> */}
         <ul className={"menu"}>
           <li>
@@ -97,32 +132,6 @@ export default Navbar;
 
 //     this.refNavbar2 = React.createRef();
 //   }
-
-//   OpenLogin() {
-//     this.setState({ login: !this.state.login });
-//     if (!this.state.login) {
-//       //padding para tirar a largura da scrollbar
-//       document.documentElement.style = "padding-right:7px; overflow:hidden";
-//       document.body.scroll = "no"; //Internet Explorer
-//     } else {
-//       document.documentElement.style = "padding-right:0px; overflow:auto";
-//       document.body.scroll = "yes"; //Internet Explorer
-//     }
-//   }
-//   //################### INICIO APARECER CARRINHO ####################
-//   OpenCart() {
-//     console.log(this.state.open);
-//     this.setState({ open: !this.state.open });
-//     if (!this.state.open) {
-//       document.documentElement.style = "padding-right:7px; overflow:hidden";
-//       document.body.scroll = "no"; //Internet Explorer
-//     } else {
-//       document.documentElement.style = "padding-right:0px; overflow:auto";
-//       document.body.scroll = "yes"; //Internet Explorer
-//     }
-//   }
-
-//   //################### FIM APARECER CARRINHO ########################
 
 //   //###################### INICIO TOPO SUMIR #########################
 
