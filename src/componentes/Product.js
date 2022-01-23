@@ -2,6 +2,7 @@ import "../styles/product.css";
 import { useState, useEffect } from "react";
 import { Get } from "../controllers/crud";
 import { useParams } from "react-router-dom";
+
 const Product = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
