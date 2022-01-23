@@ -3,13 +3,14 @@ import { Footer } from "../componentes/Footer";
 import React, { useState, useEffect } from "react";
 import UserTable from "../componentes/UserTable";
 import { useAuth0 } from "@auth0/auth0-react";
+import Spinner from "../componentes/Spinner";
 var axios = require("axios").default;
 // const jwtAuthz = require("express-jwt-authz");
 
 export interface UserProps {}
 
 const Users: React.FC<UserProps> = () => {
-  const [admin, setAdmin] = useState(false);
+  const [admin, setAdmin] = useState(0);
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [createUser, setCreateUser] = useState(false); //Valor dentro da função é valor inicial da variável
 
@@ -28,14 +29,16 @@ const Users: React.FC<UserProps> = () => {
       .then(function (response: any) {
         console.log(response.data);
 
-        if (response.data[0].name === "Admin") setAdmin(true);
-        else setAdmin(false);
+        if (response.data[0].name === "Admin") setAdmin(1);
+        else setAdmin(2);
       })
       .catch(function (error: any) {
         console.error(error);
       });
   }
-
+  function timeout(delay: number) {
+    return new Promise((res) => setTimeout(res, delay));
+  }
   useEffect(() => {
     if (createUser) {
       // window.onscroll = null;
@@ -54,14 +57,24 @@ const Users: React.FC<UserProps> = () => {
       GetUserAuth(user, token);
     }
   }, [user]);
-  return (
-    <div>
-      <Navbar />
-      {isAuthenticated && admin && <UserTable />}
-      {console.log(user)}
-      <Footer />
-    </div>
-  );
+
+  if (admin === 1) {
+    return (
+      <div>
+        <Navbar />
+        <UserTable />
+        <Footer />
+      </div>
+    );
+  } else if (admin === 2 || !isAuthenticated) {
+    return (
+      <div>
+        <Navbar />
+        <h2>É preciso ter uma conta de adminstrador para acessar este conteúdo.</h2>
+      </div>
+    );
+  }
+  return <Spinner />;
 };
 
 export default Users;
