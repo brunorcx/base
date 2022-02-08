@@ -74,10 +74,10 @@ const Sidebar = (props) => {
 
       <div className="divider" />
 
-      <div>
+      {/* <div>
         <p>Cor</p>
         <CategoryList categories={colors} />
-      </div>
+      </div> */}
     </div>
   );
 };

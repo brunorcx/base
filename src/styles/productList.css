@@ -1,10 +1,10 @@
 .total-list {
   margin: 0 0.2% 0;
-  background-color: #fff;
+  /* background-color: #fff; */
   border: 1px solid #aaaaaa;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 2fr 8fr;
+  grid-template-rows: 1fr;
   gap: 2%;
   height: 100%;
   box-shadow: 4px 2px 1em #aaaaaa;
@@ -17,9 +17,10 @@
 }
 
 .productsUL {
+  gap: 1%;
   width: auto;
   margin: 0 1% 1%;
-  padding: 0;
+  padding: 1% 0 2% 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, auto));
 }
@@ -28,6 +29,9 @@
   flex-direction: column;
   align-items: flex-start;
   border: 1px solid #e6e6e6;
+  background: white;
+  border-radius: 10px;
+  align-items: center;
 }
 
 .img {
@@ -52,6 +56,22 @@ focus {
 .description,
 .price {
   justify-self: flex-end;
+}
+
+.btnFav {
+  border: none;
+  background: white;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.btnFav:hover {
+  background: #e6e6e6;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.btn-div {
+  align-self: baseline;
 }
 
 @media (max-width: 768px) {

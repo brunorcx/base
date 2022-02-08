@@ -128,14 +128,14 @@ const ProductList = (props) => {
       <Link to={"/Produto/" + products.value.id}>
         <li className="liProducts">
           <div className="btn-div">
-            <button className="btn">
+            <button className="btnFav">
               <RiHeartAddLine className="btn-icon" size="1.5rem" color="#ff2724" />
             </button>
           </div>
           <div className="img">
             <img alt="valor da imagem" src={products.value.img} className="img1"></img>
           </div>
-          <div className="description">Descrição {products.value.name}</div>
+          <div className="description">{products.value.name}</div>
           <div className="price">R$ {products.value.price}</div>
         </li>
       </Link>
@@ -155,7 +155,7 @@ const ProductList = (props) => {
   // Um vetor de Objetos que é passado para uma função que irá percorer
   return (
     <div className="total-list">
-      <div className="advertising">PROPAGANDA</div>
+      {/* <div className="advertising">PROPAGANDA</div> */}
       {products2 ? (
         <NumberList products={currentProducts ? currentProducts : products2} />
       ) : (
