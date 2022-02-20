@@ -11,7 +11,7 @@ export class Propaganda extends Component {
           <h2> Ofertas do Dia </h2>
           <img
             alt="lado 2"
-            src="https://carrefourbr.vtexassets.com/assets/vtex.file-manager-graphql/images/0ad00ac0-9bf1-4f4c-b164-63b66a3f258f___6dc7fcef0b6b8d93ffd880ef125088b7.jpg"
+            src="https://tesla-cdn.thron.com/delivery/public/image/tesla/e90a341e-f9ca-4aa1-8eab-94afea118786/bvlatuR/std/2880x1800/M3-Homepage-D"
           ></img>
           <Link to="/">Veja mais</Link>
         </div>
@@ -19,40 +19,31 @@ export class Propaganda extends Component {
           <h2> Mais vendidos </h2>
           <img
             alt="lado 3"
-            src="https://www.fastshop.com.br/wcsstore/FastShop/img/home/2021/09/23/intpro-_-260921-_-01-_-48hSmartTvs-_-ND-_-ND-_-Grupo-_-homedesk.jpg"
+            src="https://th.bing.com/th/id/R.cbee4d7f367388b085a8039d590585f7?rik=g0sh1o567WZ5lg&pid=ImgRaw&r=0"
           ></img>
           <Link to="/">Veja mais</Link>
         </div>
         <div className="p4">
-          <h2> Economize no almoço </h2>
-          <img
-            alt="lado 4"
-            src="https://images-na.ssl-images-amazon.com/images/G/32/kindle/email/Julho_2021/New_Wave-PR/379x304._SY304_CB665344963_.jpg"
-          ></img>
+          <h2> Economize já </h2>
+          <img alt="lado 4" src="https://th.bing.com/th/id/OIP.u5jQohXZTJS8Y_RrA0D7XQHaEZ?pid=ImgDet&rs=1"></img>
           <Link to="/">Veja mais</Link>
         </div>
         <div className="p5">
           <h2> Novos produtos </h2>
-          <img
-            alt="lado 5"
-            src="https://carrefourbr.vtexassets.com/assets/vtex.file-manager-graphql/images/8af058b6-1306-4b5b-afbf-099511559d5e___65152e05cb21ce1f64ba2674a29cc36c.jpg"
-          ></img>
+          <img alt="lado 5" src="https://th.bing.com/th/id/OIP.cMCxvq-Ng-gJWEjg1Qt3XAHaE6?pid=ImgDet&rs=1"></img>
           <Link to="/">Veja mais</Link>
         </div>
         <div className="p6">
           <h2> Grandes descontos </h2>
           <img
             alt="lado 6"
-            src="https://carrefourbr.vtexassets.com/assets/vtex.file-manager-graphql/images/dc67f16c-5ee5-449b-a30b-38a6c32ccd28___3681655ea8adb442689e462b4e958909.gif"
+            src="https://th.bing.com/th/id/R.24b06e3493410569882a7f157a24bef4?rik=LAqWz5hkJZUk3g&pid=ImgRaw&r=0"
           ></img>
           <Link to="/">Veja mais</Link>
         </div>
         <div className="p7">
-          <h2> Bebidas por até R$50 </h2>
-          <img
-            alt="lado 7"
-            src="https://d1kvbg99uxpcu.cloudfront.net/Custom/Content/Banners/24/24_banner637680782726862157.png"
-          ></img>
+          <h2> Pronto para rodar! </h2>
+          <img alt="lado 7" src="https://media.giphy.com/media/8rFNEqQYRBEOlaONOj/giphy.gif"></img>
           <Link to="/">Veja mais</Link>
         </div>
       </div>
