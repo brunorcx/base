@@ -42,7 +42,7 @@ export class Propaganda extends Component {
           <Link to="/">Veja mais</Link>
         </div>
         <div className="p7">
-          <h2> Pronto para rodar! </h2>
+          <h2> Pronto para rodar </h2>
           <img alt="lado 7" src="https://media.giphy.com/media/8rFNEqQYRBEOlaONOj/giphy.gif"></img>
           <Link to="/">Veja mais</Link>
         </div>
