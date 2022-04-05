@@ -83,6 +83,10 @@ git push origin --delete remoteBranchName
 # Código node
 ### Para carregador as dependências do nodejs basta usar o comando
 	npm install
+	
+# Limpar branches locais
+git config --global alias.clean-branches "!git branch | grep -v main | xargs git branch -D"
+
 # Tarefas
 * [x] Fechar menu carrinho quando clicar fora dele
 * [x] Criar controller, model, schema para produtos
